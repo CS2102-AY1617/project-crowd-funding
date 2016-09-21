@@ -10,7 +10,7 @@
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <li><a href="landingpage.php" class="smoothScroll">Discover</a></li>
-          <li> <a href="#about" class="smoothScroll">Start A Project</a></li>
+          <li> <a href="discover.php" class="smoothScroll">Start A Project</a></li>
           <li> <a href="#services" class="smoothScroll"> About Us</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
