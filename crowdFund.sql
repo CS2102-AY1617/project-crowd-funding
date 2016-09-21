@@ -1,76 +1,53 @@
---crowdFund
+CREATE TABLE Users (
+	Email VARCHAR(128) PRIMARY KEY,
+	UserName VARCHAR(128) NOT NULL,
+	HashedPassword VARCHAR(32) NOT NULL,
+	PersonalDescription TEXT,
+	FirstName VARCHAR(128),
+	LastName VARCHAR(128),
+	Gender ENUM('male','female','others','prefer not to say'),
+	Type ENUM('donor','entrepreneur','admin')
+);
 
-CREATE TYPE CATEGORY AS ENUM (
-	'Animals','Arts and Culture','Children','Climate Change','Democracy and Governance',
+
+
+CREATE TABLE Projects (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	Owner VARCHAR(128) REFERENCES Users(UserName),
+	Title VARCHAR(64) NOT NULL,
+	Description TEXT,
+	StartDate DATE NOT NULL,
+	EndDate DATE NOT NULL CHECK (EndDate >= StartDate),
+	Categories ENUM('Animals','Arts and Culture','Children','Climate Change','Democracy and Governance',
 	'Disaster Recovery','Economic Development','Education','Environment',
 	'HIV-AIDS','Health','Human Rights','Humanitarian Assistance','Hunger','LGBTQ',
-	'Malaria','Microfinance','Peace and Security','Sport','Technology','Women and Girls'
+	'Malaria','Microfinance','Peace and Security','Sport','Technology','Women and Girls') NOT NULL,
+	Objective INTEGER NOT NULL CHECK(Objective > 0),
+	Status BOOLEAN NOT NULL
 );
 
-CREATE TYPE USER_TYPE AS ENUM (
-	'admin','entrepreneur','donor'
+CREATE TABLE Transactions (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	ProjectID INTEGER NOT NULL REFERENCES Projects(id),
+	Donor VARCHAR(32) NOT NULL REFERENCES Users(Email),
+	TransactionTime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	Amount INT CHECK(Amount > 0)
 );
 
-CREATE TYPE GENDER AS ENUM (
-	'male','female','others','prefer not to say'
-);
 
-CREATE TABLE users (
-	email VARCHAR(32) PRIMARY KEY,
-	psw VARCHAR(32) NOT NULL,
-	type USER_TYPE NOT NULL DEFAULT 'donor'
-);
 
-CREATE TABLE entrepreneurs (
-	uen CHAR(10) PRIMARY KEY,
-	c_email VARCHAR(32) REFERENCES users(email),
-	c_name VARCHAR(64) NOT NULL UNIQUE,
-	c_web VARCHAR(32) NOT NULL,
-	c_location VARCHAR(128),
-	c_description VARCHAR(500)
-);
-
-CREATE TABLE donors (
-	d_email VARCHAR(32) PRIMARY KEY REFERENCES users(email),
-	d_name VARCHAR(64) NOT NULL UNIQUE,
-	gender GENDER,
-	age SMALLINT
-);
-
-CREATE TABLE projects (
-	p_id INTEGER PRIMARY KEY,
-	owner CHAR(10) REFERENCES entrepreneurs(uen),
-	title VARCHAR(64) NOT NULL,
-	description VARCHAR(500),
-	s_date DATE NOT NULL,
-	e_date DATE NOT NULL CHECK (e_date >= s_date),
-	categories CATEGORY NOT NULL,
-	fund_aim INTEGER NOT NULL CHECK(fund_aim > 0), --SGD
-	curr_fund INTEGER NOT NULL DEFAULT 0 CHECK(curr_fund >= 0),	--SGD
-	active BOOLEAN NOT NULL	--compare s_date with current time
-);
-
-CREATE TABLE fundings (
-	project INTEGER REFERENCES projects(p_id),
-	donor VARCHAR(32) REFERENCES donors(d_email),
-	time TIMESTAMP NOT NULL,	--TIMESTAMP format '2004-10-19 10:23:54'
-	PRIMARY KEY(project,donor,time),
-	amount INTEGER CHECK(amount > 0)
-);
-
-INSERT INTO users VALUES ('rootA@gmail.com','imroot','admin');
-INSERT INTO users VALUES ('rootB@gmail.com','imroot','admin');
-
-INSERT INTO users VALUES ('beyounce@gmail.com','imbeyounce','donor');
-INSERT INTO users VALUES ('rihanna@gmail.com','imrihanna','donor');
-INSERT INTO users VALUES ('ladygaga@gmail.com','imuser','donor');
-INSERT INTO users VALUES ('katyperry@gmail.com','imuser','donor');
-INSERT INTO users VALUES ('taylor@gmail.com','imuser','donor');
-INSERT INTO users VALUES ('beiber@gmail.com','imuser','donor');
-INSERT INTO users VALUES ('gomez@gmail.com','imuser','donor');
-INSERT INTO users VALUES ('miley@gmail.com','imuser','donor');
-INSERT INTO users VALUES ('maroon5@gmail.com','imuser','donor');
-INSERT INTO users VALUES ('edsheeran@gmail.com','imuser','donor');
+INSERT INTO Users VALUES ('rootA@gmail.com','imroot','admin');
+INSERT INTO Users VALUES ('rootB@gmail.com','imroot','admin');
+INSERT INTO Users VALUES ('beyounce@gmail.com','imbeyounce','donor');
+INSERT INTO Users VALUES ('rihanna@gmail.com','imrihanna','donor');
+INSERT INTO Users VALUES ('ladygaga@gmail.com','imuser','donor');
+INSERT INTO Users VALUES ('katyperry@gmail.com','imuser','donor');
+INSERT INTO Users VALUES ('taylor@gmail.com','imuser','donor');
+INSERT INTO Users VALUES ('beiber@gmail.com','imuser','donor');
+INSERT INTO Users VALUES ('gomez@gmail.com','imuser','donor');
+INSERT INTO Users VALUES ('miley@gmail.com','imuser','donor');
+INSERT INTO Users VALUES ('maroon5@gmail.com','imuser','donor');
+INSERT INTO Users VALUES ('edsheeran@gmail.com','imuser','donor');
 
 INSERT INTO donors VALUES ('beyounce@gmail.com','Beyonce Giselle Knowles-Carter','female','35');
 INSERT INTO donors VALUES ('rihanna@gmail.com','Robyn Rihanna Fenty','female','28');
@@ -83,12 +60,12 @@ INSERT INTO donors VALUES ('miley@gmail.com','Miley Ray Cyrus','female','23');
 INSERT INTO donors VALUES ('maroon5@gmail.com','Adam Levine','male','37');
 INSERT INTO donors VALUES ('edsheeran@gmail.com','Edward Christopher','male','25');
 
-INSERT INTO users VALUES ('savh@gmail.com','imuser','entrepreneur');
-INSERT INTO users VALUES ('awwa@gmail.com','imuser','entrepreneur');
-INSERT INTO users VALUES ('fmwh@gmail.com','imuser','entrepreneur');
-INSERT INTO users VALUES ('idv@gmail.com','imuser','entrepreneur');
-INSERT INTO users VALUES ('lgbtvoicetz@gmail.com','imuser','entrepreneur');
-INSERT INTO users VALUES ('serudsindia@gmail.com','imuser','entrepreneur');
+INSERT INTO Users VALUES ('savh@gmail.com','imuser','entrepreneur');
+INSERT INTO Users VALUES ('awwa@gmail.com','imuser','entrepreneur');
+INSERT INTO Users VALUES ('fmwh@gmail.com','imuser','entrepreneur');
+INSERT INTO Users VALUES ('idv@gmail.com','imuser','entrepreneur');
+INSERT INTO Users VALUES ('lgbtvoicetz@gmail.com','imuser','entrepreneur');
+INSERT INTO Users VALUES ('serudsindia@gmail.com','imuser','entrepreneur');
 
 INSERT INTO entrepreneurs VALUES ('S61SS0119J','savh@gmail.com','Singapore Association of the Visually Handicapped','www.savh.org.sg',null,null);
 INSERT INTO entrepreneurs VALUES ('S70SS0021J','awwa@gmail.com','Asian Womens Welfare Association','www.awwa.org.sg',null,null);
