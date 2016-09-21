@@ -117,10 +117,11 @@
       <div style="font-size:35px;color:white;padding-bottom:20px">
         Log In
       </div>
-        <input type="text" placeholder=" email" name="user"><br>
+        <input type="text" placeholder=" email" name="user"><br><br>
         <input type="password" placeholder=" password" name="password"><br>
         <input type="button" value="Login">
         <br>
+
         <div style="color:white">
           <b>New to ProjectName? <a href="login.php"> Sign Up </a></b>
         </div>
