@@ -31,7 +31,7 @@
 
   <body data-spy="scroll" data-offset="0" data-target="#navbar-main">
   	<?php
-      include "php/header.php";
+      include "header.php";
      ?>
 		<!-- ==== HEADERWRAP ==== -->
 	    <div id="headerwrap" id="home" name="home">

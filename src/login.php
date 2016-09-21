@@ -112,7 +112,7 @@
   </head>
   <body>
     <div class="body-background"></div>
-    <?php include "php/header.php"; ?>
+    <?php include "header.php"; ?>
     <div class="login">
       <div style="font-size:35px;color:white;padding-bottom:20px">
         Log In

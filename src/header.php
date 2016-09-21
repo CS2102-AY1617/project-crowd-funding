@@ -9,16 +9,16 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="#home" class="smoothScroll">Discover</a></li>
+          <li><a href="landingpage.php" class="smoothScroll">Discover</a></li>
           <li> <a href="#about" class="smoothScroll">Start A Project</a></li>
           <li> <a href="#services" class="smoothScroll"> About Us</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="signup.php">Sign Up</a>
+                <a href="signup.php">Sign Up</a>
             </li>
             <li>
-                <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="login.php">Log In</a>
+                <a href="login.php">Log In</a>
             </li>
         </ul>
       </div>
