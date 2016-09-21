@@ -115,7 +115,7 @@
     <?php include "php/header.php"; ?>
     <div class="login">
       <div style="font-size:35px;color:white;padding-bottom:20px">
-        Log In
+        Sign Up
       </div>
         <input type="text" placeholder=" email" name="user"><br>
         <input type="password" placeholder=" password" name="password"><br>
