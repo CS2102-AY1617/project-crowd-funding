@@ -36,9 +36,12 @@
     <!-- ==== SECTION DIVIDER3 -->
     <section class="section-divider textdivider divider3">
         <div class="container">
-            <h1>Project Name</h1>
+            <h1>About Us and This Website</h1>
             <hr>
-            <p>From the purely practical to the richly philosophical, design is the solution to a host of challenges.</p>
+            <p>This website is designed based on the CS2102 Project Requirement.</p>
+            <p>Special thanks to the original author of this bootstrap template, BlackTie.co</p>
+            <p>Who made my life easier.</p>
+            <br>
         </div><!-- container -->
     </section><!-- section -->
 
