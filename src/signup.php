@@ -36,7 +36,7 @@
       	top: calc(50% - 75px);
         text-align: center;
       	width: 100%;
-      	padding-top:15%;
+      	padding-top:10%;
       	z-index: 9999;
 
       }
@@ -51,7 +51,7 @@
       	font-family: 'Exo', sans-serif;
       	font-size: 16px;
       	font-weight: 400;
-      	padding: 4px;
+      	padding-left: 5px;
       }
 
       .login input[type=password]{
@@ -117,12 +117,19 @@
       <div style="font-size:35px;color:white;padding-bottom:20px">
         Sign Up
       </div>
-        <input type="text" placeholder=" email" name="user"><br>
-        <input type="password" placeholder=" password" name="password"><br>
-        <input type="button" value="Login">
+
+        <input type="text" placeholder="Username" name="user"><br><br>
+        <input type="text" placeholder="Email" name="email"><br><br>
+        <input type="text" placeholder="First Name" name="firstname"><br><br>
+        <input type="text" placeholder="Last Name" name="lastname"><br><br>
+        <input type="text" placeholder="Gender" name="gender"><br><br>
+
+        <input type="password" placeholder="Password" name="password"><br>
+        <input type="password" placeholder="Re-enter Password" name="password"><br>
+        <input type="button" value="Sign Up">
         <br>
         <div style="color:white">
-          <b>New to ProjectName? <a href="login.php"> Sign Up </a></b>
+          By signing up, you agree to our terms of use, privacy policy, and cookie policy.
         </div>
     </div>
   </body>

@@ -36,7 +36,7 @@
       	top: calc(50% - 75px);
         text-align: center;
       	width: 100%;
-      	padding-top:15%;
+      	padding-top:10%;
       	z-index: 9999;
 
       }

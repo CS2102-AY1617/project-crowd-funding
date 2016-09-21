@@ -15,7 +15,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="login.php">Sign Up</a>
+                <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="signup.php">Sign Up</a>
             </li>
             <li>
                 <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="login.php">Log In</a>
