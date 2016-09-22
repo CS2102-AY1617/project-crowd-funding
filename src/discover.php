@@ -18,7 +18,14 @@
 	<link href="assets/css/animate-custom.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
-
+		<style>
+			.search {
+				background-color:transparent !important;
+				border:none !important;
+				outline: none;
+				color: white;
+			}
+		</style>
 	<script src="assets/js/jquery.min.js"></script>
 	<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
 
@@ -36,9 +43,11 @@
 		<!-- ==== SECTION DIVIDER3 -->
 		<section class="section-divider textdivider divider3">
 			<div class="container">
-				<h1>DESIGN SOLVE PROBLEMS</h1>
+				<h1>
+					<input class="search" type="text" placeholder="Search">
+				</h1>
 				<hr>
-				<p>From the purely practical to the richly philosophical, design is the solution to a host of challenges.</p>
+				<p>Discover projects for you</p>
 			</div><!-- container -->
 		</section><!-- section -->
 
