@@ -9,6 +9,23 @@ CREATE TABLE Users (
 	Type ENUM('donor','entrepreneur','admin')
 );
 
+CREATE TABLE Topics (
+	Name VARCHAR(128)
+);
+
+INSERT INTO Topics VALUES ('Art');
+INSERT INTO Topics VALUES ('Environment');
+INSERT INTO Topics VALUES ('Design');
+INSERT INTO Topics VALUES ('Crafts');
+INSERT INTO Topics VALUES ('Fashion');
+INSERT INTO Topics VALUES ('Food');
+INSERT INTO Topics VALUES ('Games');
+INSERT INTO Topics VALUES ('Music');
+INSERT INTO Topics VALUES ('Photography');
+INSERT INTO Topics VALUES ('Technology');
+INSERT INTO Topics VALUES ('Publishing');
+INSERT INTO Topics VALUES ('Animals');
+
 
 
 CREATE TABLE Projects (
@@ -18,10 +35,7 @@ CREATE TABLE Projects (
 	Description TEXT,
 	StartDate DATE NOT NULL,
 	EndDate DATE NOT NULL CHECK (EndDate >= StartDate),
-	Categories ENUM('Animals','Arts and Culture','Children','Climate Change','Democracy and Governance',
-	'Disaster Recovery','Economic Development','Education','Environment',
-	'HIV-AIDS','Health','Human Rights','Humanitarian Assistance','Hunger','LGBTQ',
-	'Malaria','Microfinance','Peace and Security','Sport','Technology','Women and Girls') NOT NULL,
+	Categories VARCHAR(128) REFERENCES Topics(Name),
 	Objective INTEGER NOT NULL CHECK(Objective > 0),
 	Status BOOLEAN NOT NULL
 );

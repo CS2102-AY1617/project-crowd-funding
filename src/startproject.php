@@ -47,7 +47,7 @@ include "header.php";
     <br>
     <div class="row">
         <br>
-        <h1 class="centered">Step 1: Choose Your Topic</h1>
+        <h1 class="centered">Step 1: Sparks your Idea</h1>
         <hr>
         <br>
         <br>
@@ -55,8 +55,7 @@ include "header.php";
     <div class="container">
         <div class="container">
             <div class="row">
-                <div class="col-md-12"><h3>Tabs -right</h3>
-
+                <div class="col-md-12"><h3>Popular Projects in "replace" </h3>
                     <!-- tabs right -->
                     <div class="tabbable tabs-right">
                         <ul class="nav nav-tabs">
@@ -65,28 +64,124 @@ include "header.php";
                             <li><a href="#3" data-toggle="tab">Twee</a></li>
                         </ul>
                         <div class="tab-content">
-                            <div class="tab-pane active" id="1">Lorem ipsum dolor sit amet, charetra varius quam sit amet vulputate.
-                                Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero.</div>
-                            <div class="tab-pane" id="2">Secondo sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                                Aliquam in felis sit amet augue.</div>
-                            <div class="tab-pane" id="3">Thirdamuno, ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                                Quisque mauris augue, molestie tincidunt condimentum vitae. </div>
+                            <div class="tab-pane active" id="1">
+                                <div class="row">
+                                    <div class="col-lg-11 blog-bg">
+                                        <div class="col-lg-2 centered">
+                                            <br>
+                                            <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
+                                            <h4>Jaye Smith</h4>
+                                            <h5>Published Aug 30.</h5>
+                                        </div>
+                                        <div class="col-lg-10 blog-content">
+                                            <h2>We Define Success</h2>
+                                            <p>Armed with insight, we embark on designing the right brand experience that engages the audience. It encompasses both the strategic direction and creative execution that solves a business problem and brings the brand to life.</p>
+                                            <p>In the create phase, the big idea is unleashed to the world through different media touchpoints. This is when we watch the audience fall in love all over again with our client’s brand.</p>
+                                            <p><a href="#" class="icon icon-link"> Read More</a></p>
+                                            <br>
+                                        </div>
+                                    </div><!-- /col -->
+                                </div><!-- /row -->
+                                <br>
+                                <div class="row">
+                                    <div class="col-lg-11 blog-bg">
+                                        <div class="col-lg-2 centered">
+                                            <br>
+                                            <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
+                                            <h4>Jaye Smith</h4>
+                                            <h5>Published Aug 30.</h5>
+                                        </div>
+                                        <div class="col-lg-10 blog-content">
+                                            <h2>We Define Success</h2>
+                                            <p>Armed with insight, we embark on designing the right brand experience that engages the audience. It encompasses both the strategic direction and creative execution that solves a business problem and brings the brand to life.</p>
+                                            <p>In the create phase, the big idea is unleashed to the world through different media touchpoints. This is when we watch the audience fall in love all over again with our client’s brand.</p>
+                                            <p><a href="#" class="icon icon-link"> Read More</a></p>
+                                            <br>
+                                        </div>
+                                    </div><!-- /col -->
+                                </div><!-- /row -->
+                            </div>
+                            <div class="tab-pane" id="2">
+                                <div class="row">
+                                    <div class="col-lg-11 blog-bg">
+                                        <div class="col-lg-2 centered">
+                                            <br>
+                                            <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
+                                            <h4>Jaye Smith</h4>
+                                            <h5>Published Aug 30.</h5>
+                                        </div>
+                                        <div class="col-lg-10 blog-content">
+                                            <h2>We Define Success</h2>
+                                            <p>Armed with insight, we embark on designing the right brand experience that engages the audience. It encompasses both the strategic direction and creative execution that solves a business problem and brings the brand to life.</p>
+                                            <p>In the create phase, the big idea is unleashed to the world through different media touchpoints. This is when we watch the audience fall in love all over again with our client’s brand.</p>
+                                            <p><a href="#" class="icon icon-link"> Read More</a></p>
+                                            <br>
+                                        </div>
+                                    </div><!-- /col -->
+                                </div><!-- /row -->
+                                <br>
+                                <div class="row">
+                                    <div class="col-lg-11 blog-bg">
+                                        <div class="col-lg-2 centered">
+                                            <br>
+                                            <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
+                                            <h4>Jaye Smith</h4>
+                                            <h5>Published Aug 30.</h5>
+                                        </div>
+                                        <div class="col-lg-10 blog-content">
+                                            <h2>We Define Success</h2>
+                                            <p>Armed with insight, we embark on designing the right brand experience that engages the audience. It encompasses both the strategic direction and creative execution that solves a business problem and brings the brand to life.</p>
+                                            <p>In the create phase, the big idea is unleashed to the world through different media touchpoints. This is when we watch the audience fall in love all over again with our client’s brand.</p>
+                                            <p><a href="#" class="icon icon-link"> Read More</a></p>
+                                            <br>
+                                        </div>
+                                    </div><!-- /col -->
+                                </div><!-- /row -->
+                            </div>
+                            <div class="tab-pane" id="3">
+                                <div class="row">
+                                    <div class="col-lg-11 blog-bg">
+                                        <div class="col-lg-2 centered">
+                                            <br>
+                                            <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
+                                            <h4>Jaye Smith</h4>
+                                            <h5>Published Aug 30.</h5>
+                                        </div>
+                                        <div class="col-lg-10 blog-content">
+                                            <h2>We Define Success</h2>
+                                            <p>Armed with insight, we embark on designing the right brand experience that engages the audience. It encompasses both the strategic direction and creative execution that solves a business problem and brings the brand to life.</p>
+                                            <p>In the create phase, the big idea is unleashed to the world through different media touchpoints. This is when we watch the audience fall in love all over again with our client’s brand.</p>
+                                            <p><a href="#" class="icon icon-link"> Read More</a></p>
+                                            <br>
+                                        </div>
+                                    </div><!-- /col -->
+                                </div><!-- /row -->
+                                <br>
+                                <div class="row">
+                                    <div class="col-lg-11 blog-bg">
+                                        <div class="col-lg-2 centered">
+                                            <br>
+                                            <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
+                                            <h4>Jaye Smith</h4>
+                                            <h5>Published Aug 30.</h5>
+                                        </div>
+                                        <div class="col-lg-10 blog-content">
+                                            <h2>We Define Success</h2>
+                                            <p>Armed with insight, we embark on designing the right brand experience that engages the audience. It encompasses both the strategic direction and creative execution that solves a business problem and brings the brand to life.</p>
+                                            <p>In the create phase, the big idea is unleashed to the world through different media touchpoints. This is when we watch the audience fall in love all over again with our client’s brand.</p>
+                                            <p><a href="#" class="icon icon-link"> Read More</a></p>
+                                            <br>
+                                        </div>
+                                    </div><!-- /col -->
+                                </div><!-- /row -->
+                            </div>
                         </div>
                     </div>
                     <!-- /tabs -->
 
                 </div>
-
             </div><!-- /row -->
         </div>
-
-
-
-
-
-
-
-
     </div>
 </div><!-- /container -->
 
@@ -96,7 +191,7 @@ include "header.php";
     <br>
     <div class="row">
         <br>
-        <h1 class="centered">Step 2: Fill in the Details</h1>
+        <h1 class="centered">Step 2: Write it Down</h1>
         <hr>
         <br>
         <br>
@@ -175,52 +270,6 @@ include "header.php";
     <br>
 </div><!-- /container -->
 
-<div class="container" id="blog" name="blog">
-    <br>
-    <div class="row">
-        <br>
-        <h1 class="centered">Step 3: Browse other Projects</h1>
-        <hr>
-        <br>
-        <br>
-    </div><!-- /row -->
-
-    <div class="row">
-        <div class="col-lg-6 blog-bg">
-            <div class="col-lg-4 centered">
-                <br>
-                <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
-                <h4>Jaye Smith</h4>
-                <h5>Published Aug 30.</h5>
-            </div>
-            <div class="col-lg-8 blog-content">
-                <h2>We Define Success</h2>
-                <p>Armed with insight, we embark on designing the right brand experience that engages the audience. It encompasses both the strategic direction and creative execution that solves a business problem and brings the brand to life.</p>
-                <p>In the create phase, the big idea is unleashed to the world through different media touchpoints. This is when we watch the audience fall in love all over again with our client’s brand.</p>
-                <p><a href="#" class="icon icon-link"> Read More</a></p>
-                <br>
-            </div>
-        </div><!-- /col -->
-
-        <div class="col-lg-6 blog-bg">
-            <div class="col-lg-4 centered">
-                <br>
-                <p><img class="img img-circle" src="assets/img/team/team03.jpg" width="60px" height="60px"></p>
-                <h4>Michele Lampa</h4>
-                <h5>Published Aug 28.</h5>
-            </div>
-            <div class="col-lg-8 blog-content">
-                <h2>A Beautiful Story</h2>
-                <p>Armed with insight, we embark on designing the right brand experience that engages the audience. It encompasses both the strategic direction and creative execution that solves a business problem and brings the brand to life.</p>
-                <p>In the create phase, the big idea is unleashed to the world through different media touchpoints. This is when we watch the audience fall in love all over again with our client’s brand.</p>
-                <p><a href="#" class="icon icon-link"> Read More</a></p>
-                <br>
-            </div>
-        </div><!-- /col -->
-    </div><!-- /row -->
-    <br>
-    <br>
-</div><!-- /container -->
 
 <?php
 include "footer.php";
