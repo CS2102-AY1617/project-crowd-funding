@@ -10,34 +10,38 @@ CREATE TABLE Users (
 );
 
 CREATE TABLE Topics (
-	Name VARCHAR(128)
+	Name VARCHAR(128) PRIMARY KEY,
+	NumberOfProjects INT DEFUALT 0,
+	TotalAssets INT DEFUALT 0
 );
 
-INSERT INTO Topics VALUES ('Art');
-INSERT INTO Topics VALUES ('Environment');
-INSERT INTO Topics VALUES ('Design');
-INSERT INTO Topics VALUES ('Crafts');
-INSERT INTO Topics VALUES ('Fashion');
-INSERT INTO Topics VALUES ('Food');
-INSERT INTO Topics VALUES ('Games');
-INSERT INTO Topics VALUES ('Music');
-INSERT INTO Topics VALUES ('Photography');
-INSERT INTO Topics VALUES ('Technology');
-INSERT INTO Topics VALUES ('Publishing');
-INSERT INTO Topics VALUES ('Animals');
+INSERT INTO Topics (Name) VALUES ('Art');
+INSERT INTO Topics (Name) VALUES ('Environment');
+INSERT INTO Topics (Name) VALUES ('Design');
+INSERT INTO Topics (Name) VALUES ('Crafts');
+INSERT INTO Topics (Name) VALUES ('Fashion');
+INSERT INTO Topics (Name) VALUES ('Food');
+INSERT INTO Topics (Name) VALUES ('Games');
+INSERT INTO Topics (Name) VALUES ('Music');
+INSERT INTO Topics (Name) VALUES ('Photography');
+INSERT INTO Topics (Name) VALUES ('Technology');
+INSERT INTO Topics (Name) VALUES ('Publishing');
+INSERT INTO Topics (Name) VALUES ('Animals');
 
 
 
 CREATE TABLE Projects (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	Owner VARCHAR(128) REFERENCES Users(UserName),
-	Title VARCHAR(64) NOT NULL,
+	Title VARCHAR(64) NOT NULL UNIQUE,
 	Description TEXT,
 	StartDate DATE NOT NULL,
 	EndDate DATE NOT NULL CHECK (EndDate >= StartDate),
 	Categories VARCHAR(128) REFERENCES Topics(Name),
 	Objective INTEGER NOT NULL CHECK(Objective > 0),
-	Status BOOLEAN NOT NULL
+	Status BOOLEAN NOT NULL,
+	Location VARCHAR(535) NOT NULL,
+	Backers INT NOT NULL DAFAULT 0
 );
 
 CREATE TABLE Transactions (

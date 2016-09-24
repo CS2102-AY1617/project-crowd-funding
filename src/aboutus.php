@@ -46,110 +46,63 @@
     </section><!-- section -->
 
     <!-- ==== BLOG ==== -->
-    <div class="container" id="blog" name="blog">
+    <div class="container" id="team" name="team">
         <br>
-        <div class="row">
-            <br>
-            <h1 class="centered">MEET THE TEAM</h1>
+        <div class="row white centered">
+            <h1 class="centered">MEET OUR AWESOME TEAM</h1>
             <hr>
             <br>
             <br>
-        </div><!-- /row -->
+            <div style="width:20%;float:left" class="centered">
+                <img class="img img-circle" src="assets/img/team/team01.jpg" height="120px" width="120px" alt="">
+                <br>
+                <h4><b>Mike Arney</b></h4>
+                <a href="#" class="icon icon-twitter"></a>
+                <a href="#" class="icon icon-facebook"></a>
+                <a href="#" class="icon icon-flickr"></a>
+                <p>Mike combines an expert technical knowledge with a real eye for design. Working with clients from a wide range of industries, he fully understands client objectives when working on a project, large or small.</p>
+            </div><!-- col-lg-3 -->
+            <div style="width:20%;float:left" class="centered">
+                <img class="img img-circle" src="assets/img/team/team01.jpg" height="120px" width="120px" alt="">
+                <br>
+                <h4><b>Mike Arney</b></h4>
+                <a href="#" class="icon icon-twitter"></a>
+                <a href="#" class="icon icon-facebook"></a>
+                <a href="#" class="icon icon-flickr"></a>
+                <p>Mike combines an expert technical knowledge with a real eye for design. Working with clients from a wide range of industries, he fully understands client objectives when working on a project, large or small.</p>
+            </div><!-- col-lg-3 -->
+            <div style="width:20%;float:left" class="centered">
+                <img class="img img-circle" src="assets/img/team/team01.jpg" height="120px" width="120px" alt="">
+                <br>
+                <h4><b>Mike Arney</b></h4>
+                <a href="#" class="icon icon-twitter"></a>
+                <a href="#" class="icon icon-facebook"></a>
+                <a href="#" class="icon icon-flickr"></a>
+                <p>Mike combines an expert technical knowledge with a real eye for design. Working with clients from a wide range of industries, he fully understands client objectives when working on a project, large or small.</p>
+            </div><!-- col-lg-3 -->
+            <div style="width:20%;float:left" class="centered">
+                <img class="img img-circle" src="assets/img/team/team01.jpg" height="120px" width="120px" alt="">
+                <br>
+                <h4><b>Mike Arney</b></h4>
+                <a href="#" class="icon icon-twitter"></a>
+                <a href="#" class="icon icon-facebook"></a>
+                <a href="#" class="icon icon-flickr"></a>
+                <p>Mike combines an expert technical knowledge with a real eye for design. Working with clients from a wide range of industries, he fully understands client objectives when working on a project, large or small.</p>
+            </div><!-- col-lg-3 -->
+            <div style="width:20%;float:left" class="centered">
+                <img class="img img-circle" src="assets/img/team/team01.jpg" height="120px" width="120px" alt="">
+                <br>
+                <h4><b>Mike Arney</b></h4>
+                <a href="#" class="icon icon-twitter"></a>
+                <a href="#" class="icon icon-facebook"></a>
+                <a href="#" class="icon icon-flickr"></a>
+                <p>Mike combines an expert technical knowledge with a real eye for design. Working with clients from a wide range of industries, he fully understands client objectives when working on a project, large or small.</p>
+            </div><!-- col-lg-3 -->
 
-        <div class="row">
-            <div class="col-lg-12 blog-bg" >
-                <div class="col-lg-4 centered">
-                    <br>
-                    <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
-                    <h4>Jaye Smith</h4>
-                    <h5>Published Aug 30.</h5>
-                </div>
-                <div class="col-lg-8 blog-content">
-                    <h2>We Define Success</h2>
-                    <p>Armed with insight, we embark on designing the right brand experience that engages the audience. It encompasses both the strategic direction and creative execution that solves a business problem and brings the brand to life.</p>
-                    <p>In the create phase, the big idea is unleashed to the world through different media touchpoints. This is when we watch the audience fall in love all over again with our client’s brand.</p>
-                    <p><a href="#" class="icon icon-link"> Read More</a></p>
-                    <br>
-                </div>
-            </div><!-- /col -->
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-lg-12 blog-bg" >
-                <div class="col-lg-4 centered">
-                    <br>
-                    <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
-                    <h4>Jaye Smith</h4>
-                    <h5>Published Aug 30.</h5>
-                </div>
-                <div class="col-lg-8 blog-content">
-                    <h2>We Define Success</h2>
-                    <p>Armed with insight, we embark on designing the right brand experience that engages the audience. It encompasses both the strategic direction and creative execution that solves a business problem and brings the brand to life.</p>
-                    <p>In the create phase, the big idea is unleashed to the world through different media touchpoints. This is when we watch the audience fall in love all over again with our client’s brand.</p>
-                    <p><a href="#" class="icon icon-link"> Read More</a></p>
-                    <br>
-                </div>
-            </div><!-- /col -->
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-lg-12 blog-bg" >
-                <div class="col-lg-4 centered">
-                    <br>
-                    <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
-                    <h4>Jaye Smith</h4>
-                    <h5>Published Aug 30.</h5>
-                </div>
-                <div class="col-lg-8 blog-content">
-                    <h2>We Define Success</h2>
-                    <p>Armed with insight, we embark on designing the right brand experience that engages the audience. It encompasses both the strategic direction and creative execution that solves a business problem and brings the brand to life.</p>
-                    <p>In the create phase, the big idea is unleashed to the world through different media touchpoints. This is when we watch the audience fall in love all over again with our client’s brand.</p>
-                    <p><a href="#" class="icon icon-link"> Read More</a></p>
-                    <br>
-                </div>
-            </div><!-- /col -->
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-lg-12 blog-bg" >
-                <div class="col-lg-4 centered">
-                    <br>
-                    <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
-                    <h4>Jaye Smith</h4>
-                    <h5>Published Aug 30.</h5>
-                </div>
-                <div class="col-lg-8 blog-content">
-                    <h2>We Define Success</h2>
-                    <p>Armed with insight, we embark on designing the right brand experience that engages the audience. It encompasses both the strategic direction and creative execution that solves a business problem and brings the brand to life.</p>
-                    <p>In the create phase, the big idea is unleashed to the world through different media touchpoints. This is when we watch the audience fall in love all over again with our client’s brand.</p>
-                    <p><a href="#" class="icon icon-link"> Read More</a></p>
-                    <br>
-                </div>
-            </div><!-- /col -->
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-lg-12 blog-bg" >
-                <div class="col-lg-4 centered">
-                    <br>
-                    <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
-                    <h4>Jaye Smith</h4>
-                    <h5>Published Aug 30.</h5>
-                </div>
-                <div class="col-lg-8 blog-content">
-                    <h2>We Define Success</h2>
-                    <p>Armed with insight, we embark on designing the right brand experience that engages the audience. It encompasses both the strategic direction and creative execution that solves a business problem and brings the brand to life.</p>
-                    <p>In the create phase, the big idea is unleashed to the world through different media touchpoints. This is when we watch the audience fall in love all over again with our client’s brand.</p>
-                    <p><a href="#" class="icon icon-link"> Read More</a></p>
-                    <br>
-                </div>
-            </div><!-- /col -->
-        </div>
-        <br>
 
-        <br>
-        <br>
-    </div><!-- /container -->
+        </div><!-- row -->
+
+    </div><!-- container -->
 
     <?php
     include "footer.php";
