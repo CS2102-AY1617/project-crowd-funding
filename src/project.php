@@ -39,25 +39,7 @@
 <?php
 include "header.php";
 ?>
-<div class="col-md-6">
-    <h3>Pills right</h3>
 
-    <!-- tabs right -->
-    <div class="tabbable">
-        <ul class="nav nav-pills nav-stacked col-sm-3 col-sm-push-9">
-            <li class="active"><a href="#d" data-toggle="tab">One</a></li>
-            <li><a href="#e" data-toggle="tab">Two</a></li>
-            <li><a href="#f" data-toggle="tab">Twee</a></li>
-        </ul>
-        <div class="tab-content col-sm-9  col-sm-pull-3">
-            <div class="tab-pane active" id="d">Lorem ipsum dolor sit amet, rci quis tortor imperdiet venenatischaretra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero.</div>
-            <div class="tab-pane" id="e">Secondo sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor rci quis tortor imperdiet venenatis. Aliquam in felis sit amet augue.</div>
-            <div class="tab-pane" id="f">Thirdamuno, ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae. </div>
-        </div>
-    </div>
-    <!-- /tabs -->
-
-</div>
 <!-- ==== SECTION DIVIDER3 -->
 <section class="section-divider textdivider divider3">
     <div class="container">
@@ -72,6 +54,9 @@ include "header.php";
 <!-- ==== PORTFOLIO ==== -->
 <div class="container">
 
+
+</div>
+<div class="container">
     <div class="row">
 
         <!-- Blog Post Content Column -->
@@ -224,8 +209,8 @@ include "header.php";
         </div>
 
     </div>
-</div>
 
+</div>
 
 <!-- ==== BLOG ==== -->
 
