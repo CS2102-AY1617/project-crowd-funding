@@ -47,7 +47,7 @@ include "header.php";
     <br>
     <div class="row">
         <br>
-        <h1 class="centered">WE CREATE COOL STUFF</h1>
+        <h1 class="centered">Step 1: Choose Your Topic</h1>
         <hr>
         <br>
         <br>
@@ -55,76 +55,7 @@ include "header.php";
     <div class="container">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <h3>Tabs</h3>
-                    <!-- tabs -->
-                    <div class="tabbable">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#one" data-toggle="tab">One</a></li>
-                            <li><a href="#two" data-toggle="tab">Two</a></li>
-                            <li><a href="#twee" data-toggle="tab">Twee</a></li>
-                        </ul>
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="one">Lorem ipsum dolor sit amet, charetra varius quam sit amet vulputate.
-                                Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero.</div>
-                            <div class="tab-pane" id="two">Secondo sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                                Aliquam in felis sit amet augue.</div>
-                            <div class="tab-pane" id="twee">Thirdamuno, ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                                Quisque mauris augue, molestie tincidunt condimentum vitae.</div>
-                        </div>
-                    </div>
-                    <!-- /tabs -->
-
-                </div>
-                <div class="col-md-6"><h3>Tabs -below</h3>
-
-
-                    <!-- tabs bottom -->
-                    <div class="tabbable tabs-below">
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="one_">Lorem ipsum dolor sit amet, charetra varius quam sit amet vulputate.
-                                Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero.</div>
-                            <div class="tab-pane" id="two_">Secondo sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                                Aliquam in felis sit amet augue.</div>
-                            <div class="tab-pane" id="twee_">Thirdamuno, ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                                Quisque mauris augue, molestie tincidunt condimentum vitae. </div>
-                        </div>
-                        <ul class="nav nav-tabs">
-                            <li><a href="#one_" data-toggle="tab">One</a></li>
-                            <li><a href="#two_" data-toggle="tab">Two</a></li>
-                            <li><a href="#twee_" data-toggle="tab">Twee</a></li>
-                        </ul>
-                    </div>
-                    <!-- /tabs -->
-
-
-                </div>
-            </div><!-- /row -->
-            <div class="row">
-
-                <div class="col-md-6"><h3>Tabs -left</h3>
-
-                    <!-- tabs left -->
-                    <div class="tabbable tabs-left">
-                        <ul class="nav nav-tabs">
-                            <li><a href="#a" data-toggle="tab">One</a></li>
-                            <li class="active"><a href="#b" data-toggle="tab">Two</a></li>
-                            <li><a href="#c" data-toggle="tab">Twee</a></li>
-                        </ul>
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="a">Lorem ipsum dolor sit amet, charetra varius quam sit amet vulputate.
-                                Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero.</div>
-                            <div class="tab-pane" id="b">Secondo sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                                Aliquam in felis sit amet augue.</div>
-                            <div class="tab-pane" id="c">Thirdamuno, ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                                Quisque mauris augue, molestie tincidunt condimentum vitae. </div>
-                        </div>
-                    </div>
-                    <!-- /tabs -->
-
-                </div>
-
-                <div class="col-md-6"><h3>Tabs -right</h3>
+                <div class="col-md-12"><h3>Tabs -right</h3>
 
                     <!-- tabs right -->
                     <div class="tabbable tabs-right">
@@ -152,215 +83,10 @@ include "header.php";
 
 
 
-        <hr>
 
 
 
-        <div class="row">
 
-            <!-- PORTFOLIO IMAGE 1 -->
-            <div class="col-md-3 ">
-                <div class="grid mask">
-                    <figure>
-                        <img class="img-responsive" src="assets/img/portfolio/folio01.jpg" alt="">
-                        <figcaption>
-                            <h5>DASHBOARD</h5>
-                            <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-                        </figcaption><!-- /figcaption -->
-                    </figure><!-- /figure -->
-                </div><!-- /grid-mask -->
-            </div><!-- /col -->
-
-            <!-- PORTFOLIO IMAGE 2 -->
-            <div class="col-md-3">
-                <div class="grid mask">
-                    <figure>
-                        <img class="img-responsive" src="assets/img/portfolio/folio02.jpg" alt="">
-                        <figcaption>
-                            <h5>UI DESIGN</h5>
-                            <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-                        </figcaption><!-- /figcaption -->
-                    </figure><!-- /figure -->
-                </div><!-- /grid-mask -->
-            </div><!-- /col -->
-
-            <!-- PORTFOLIO IMAGE 3 -->
-            <div class="col-md-3">
-                <div class="grid mask">
-                    <figure>
-                        <img class="img-responsive" src="assets/img/portfolio/folio03.jpg" alt="">
-                        <figcaption>
-                            <h5>ANDROID PAGE</h5>
-                            <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-                        </figcaption><!-- /figcaption -->
-                    </figure><!-- /figure -->
-                </div><!-- /grid-mask -->
-            </div><!-- /col -->
-            <div class="col-md-3">
-                <div class="grid mask">
-                    <figure>
-                        <img class="img-responsive" src="assets/img/portfolio/folio03.jpg" alt="">
-                        <figcaption>
-                            <h5>ANDROID PAGE</h5>
-                            <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-                        </figcaption><!-- /figcaption -->
-                    </figure><!-- /figure -->
-                </div><!-- /grid-mask -->
-            </div><!-- /col -->
-        </div><!-- /row -->
-        <br>
-        <div class="row">
-            <div class="col-md-3 ">
-                <div class="grid mask">
-                    <figure>
-                        <img class="img-responsive" src="assets/img/portfolio/folio04.jpg" alt="">
-                        <figcaption>
-                            <h5>PROFILE</h5>
-                            <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-                        </figcaption><!-- /figcaption -->
-                    </figure><!-- /figure -->
-                </div><!-- /grid-mask -->
-            </div><!-- /col -->
-
-            <!-- PORTFOLIO IMAGE 5 -->
-            <div class="col-md-3">
-                <div class="grid mask">
-                    <figure>
-                        <img class="img-responsive" src="assets/img/portfolio/folio05.jpg" alt="">
-                        <figcaption>
-                            <h5>TWITTER STATUS</h5>
-                            <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-                        </figcaption><!-- /figcaption -->
-                    </figure><!-- /figure -->
-                </div><!-- /grid-mask -->
-            </div><!-- /col -->
-
-            <!-- PORTFOLIO IMAGE 6 -->
-            <div class="col-md-3">
-                <div class="grid mask">
-                    <figure>
-                        <img class="img-responsive" src="assets/img/portfolio/folio06.jpg" alt="">
-                        <figcaption>
-                            <h5>PHONE MOCKUP</h5>
-                            <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-                        </figcaption><!-- /figcaption -->
-                    </figure><!-- /figure -->
-                </div><!-- /grid-mask -->
-            </div><!-- /col -->
-            <div class="col-md-3">
-                <div class="grid mask">
-                    <figure>
-                        <img class="img-responsive" src="assets/img/portfolio/folio06.jpg" alt="">
-                        <figcaption>
-                            <h5>PHONE MOCKUP</h5>
-                            <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-                        </figcaption><!-- /figcaption -->
-                    </figure><!-- /figure -->
-                </div><!-- /grid-mask -->
-            </div><!-- /col -->
-        </div><!-- /row -->
-        <br>
-        <div class="row">
-            <div class="col-md-3 ">
-                <div class="grid mask">
-                    <figure>
-                        <img class="img-responsive" src="assets/img/portfolio/folio04.jpg" alt="">
-                        <figcaption>
-                            <h5>PROFILE</h5>
-                            <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-                        </figcaption><!-- /figcaption -->
-                    </figure><!-- /figure -->
-                </div><!-- /grid-mask -->
-            </div><!-- /col -->
-
-            <!-- PORTFOLIO IMAGE 5 -->
-            <div class="col-md-3">
-                <div class="grid mask">
-                    <figure>
-                        <img class="img-responsive" src="assets/img/portfolio/folio05.jpg" alt="">
-                        <figcaption>
-                            <h5>TWITTER STATUS</h5>
-                            <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-                        </figcaption><!-- /figcaption -->
-                    </figure><!-- /figure -->
-                </div><!-- /grid-mask -->
-            </div><!-- /col -->
-
-            <!-- PORTFOLIO IMAGE 6 -->
-            <div class="col-md-3">
-                <div class="grid mask">
-                    <figure>
-                        <img class="img-responsive" src="assets/img/portfolio/folio06.jpg" alt="">
-                        <figcaption>
-                            <h5>PHONE MOCKUP</h5>
-                            <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-                        </figcaption><!-- /figcaption -->
-                    </figure><!-- /figure -->
-                </div><!-- /grid-mask -->
-            </div><!-- /col -->
-            <div class="col-md-3">
-                <div class="grid mask">
-                    <figure>
-                        <img class="img-responsive" src="assets/img/portfolio/folio06.jpg" alt="">
-                        <figcaption>
-                            <h5>PHONE MOCKUP</h5>
-                            <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-                        </figcaption><!-- /figcaption -->
-                    </figure><!-- /figure -->
-                </div><!-- /grid-mask -->
-            </div><!-- /col -->
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-3 ">
-                <div class="grid mask">
-                    <figure>
-                        <img class="img-responsive" src="assets/img/portfolio/folio04.jpg" alt="">
-                        <figcaption>
-                            <h5>PROFILE</h5>
-                            <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-                        </figcaption><!-- /figcaption -->
-                    </figure><!-- /figure -->
-                </div><!-- /grid-mask -->
-            </div><!-- /col -->
-
-            <!-- PORTFOLIO IMAGE 5 -->
-            <div class="col-md-3">
-                <div class="grid mask">
-                    <figure>
-                        <img class="img-responsive" src="assets/img/portfolio/folio05.jpg" alt="">
-                        <figcaption>
-                            <h5>TWITTER STATUS</h5>
-                            <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-                        </figcaption><!-- /figcaption -->
-                    </figure><!-- /figure -->
-                </div><!-- /grid-mask -->
-            </div><!-- /col -->
-
-            <!-- PORTFOLIO IMAGE 6 -->
-            <div class="col-md-3">
-                <div class="grid mask">
-                    <figure>
-                        <img class="img-responsive" src="assets/img/portfolio/folio06.jpg" alt="">
-                        <figcaption>
-                            <h5>PHONE MOCKUP</h5>
-                            <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-                        </figcaption><!-- /figcaption -->
-                    </figure><!-- /figure -->
-                </div><!-- /grid-mask -->
-            </div><!-- /col -->
-            <div class="col-md-3">
-                <div class="grid mask">
-                    <figure>
-                        <img class="img-responsive" src="assets/img/portfolio/folio06.jpg" alt="">
-                        <figcaption>
-                            <h5>PHONE MOCKUP</h5>
-                            <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-                        </figcaption><!-- /figcaption -->
-                    </figure><!-- /figure -->
-                </div><!-- /grid-mask -->
-            </div><!-- /col -->
-        </div>
     </div>
 </div><!-- /container -->
 
@@ -370,7 +96,90 @@ include "header.php";
     <br>
     <div class="row">
         <br>
-        <h1 class="centered">WE ARE STORYTELLERS</h1>
+        <h1 class="centered">Step 2: Fill in the Details</h1>
+        <hr>
+        <br>
+        <br>
+    </div><!-- /row -->
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="exampleSelect1">Example select</label>
+                <select class="form-control" id="exampleSelect1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleSelect2">Example multiple select</label>
+                <select multiple class="form-control" id="exampleSelect2">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleTextarea">Example textarea</label>
+                <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputFile">File input</label>
+                <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+            </div>
+            <fieldset class="form-group">
+                <legend>Radio buttons</legend>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                        Option one is this and that&mdash;be sure to include why it's great
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                        Option two can be something else and selecting it will deselect option one
+                    </label>
+                </div>
+                <div class="form-check disabled">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+                        Option three is disabled
+                    </label>
+                </div>
+            </fieldset>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input">
+                    Check me out
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <br>
+    <br>
+</div><!-- /container -->
+
+<div class="container" id="blog" name="blog">
+    <br>
+    <div class="row">
+        <br>
+        <h1 class="centered">Step 3: Browse other Projects</h1>
         <hr>
         <br>
         <br>
