@@ -18,7 +18,7 @@
     <link href="assets/css/animate-custom.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
-
+	  <link href="assets/css/full-slider.css" rel="stylesheet">
     <script src="assets/js/jquery.min.js"></script>
 	<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
 
@@ -33,27 +33,59 @@
   	<?php
       include "header.php";
      ?>
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+		</ol>
+
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner">
+			<div class="item active">
+				<img src="http://placehold.it/1900x520" alt="...">
+				<div class="carousel-caption">
+					<h3>Caption Text</h3>
+				</div>
+			</div>
+			<div class="item">
+				<img src="http://placehold.it/1200x315" alt="...">
+				<div class="carousel-caption">
+					<h3>Caption Text</h3>
+				</div>
+			</div>
+			<div class="item">
+				<img src="http://placehold.it/1200x315" alt="...">
+				<div class="carousel-caption">
+					<h3>Caption Text</h3>
+				</div>
+			</div>
+		</div>
+
+		<!-- Controls -->
+		<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		</a>
+		<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right"></span>
+		</a>
+	</div> <!-- Carousel -->
+
 		<!-- ==== HEADERWRAP ==== -->
-	    <div id="headerwrap" id="home" name="home">
-			<header class="clearfix">
-	  		 		<h1><span class="icon icon-shield"></span></h1>
-	  		 		<p>A Bootstrap 3 One Page Theme.</p>
-	  		 		<p>Exclusive for BlackTie.co.</p>
-	  		</header>
-	    </div><!-- /headerwrap -->
 
 		<!-- ==== GREYWRAP ==== -->
 		<div id="greywrap">
 			<div class="row">
 				<div class="col-lg-4 callout">
 					<span class="icon icon-stack"></span>
-					<h2>Bootstrap 3</h2>
+					<h2>Convenient</h2>
 					<p>Shield Theme is powered by Bootstrap 3. The incredible Mobile First Framework is the best option to run your website. </p>
 				</div><!-- col-lg-4 -->
 
 				<div class="col-lg-4 callout">
 					<span class="icon icon-eye"></span>
-					<h2>Retina Ready</h2>
+					<h2>Diverse</h2>
 					<p>You can use this theme with your iPhone, iPad or MacBook Pro. This theme is retina ready and that is awesome. </p>
 				</div><!-- col-lg-4 -->
 
@@ -128,56 +160,6 @@
 			</div><!-- container -->
 		</section><!-- section -->
 
-		<!-- ==== TEAM MEMBERS ==== -->
-		<div class="container" id="team" name="team">
-		<br>
-			<div class="row white centered">
-				<h1 class="centered">MEET OUR AWESOME TEAM</h1>
-				<hr>
-				<br>
-				<br>
-				<div class="col-lg-3 centered">
-					<img class="img img-circle" src="assets/img/team/team01.jpg" height="120px" width="120px" alt="">
-					<br>
-					<h4><b>Mike Arney</b></h4>
-					<a href="#" class="icon icon-twitter"></a>
-					<a href="#" class="icon icon-facebook"></a>
-					<a href="#" class="icon icon-flickr"></a>
-					<p>Mike combines an expert technical knowledge with a real eye for design. Working with clients from a wide range of industries, he fully understands client objectives when working on a project, large or small.</p>
-				</div><!-- col-lg-3 -->
-
-				<div class="col-lg-3 centered">
-					<img class="img img-circle" src="assets/img/team/team02.jpg" height="120px" width="120px" alt="">
-					<br>
-					<h4><b>Tim Davies</b></h4>
-					<a href="#" class="icon icon-twitter"></a>
-					<a href="#" class="icon icon-facebook"></a>
-					<a href="#" class="icon icon-flickr"></a>
-					<p>Tim is an experienced marcoms practitioner and manages projects from inception to delivery. He understands the synergy between great design and commercial effectiveness which shines through on every project.</p>
-				</div><!-- col-lg-3 -->
-
-				<div class="col-lg-3 centered">
-					<img class="img img-circle" src="assets/img/team/team03.jpg" height="120px" width="120px" alt="">
-					<br>
-					<h4><b>Michele Lampa</b></h4>
-					<a href="#" class="icon icon-twitter"></a>
-					<a href="#" class="icon icon-facebook"></a>
-					<a href="#" class="icon icon-flickr"></a>
-					<p>Be a creative director is a hard task, but Michele loves what she does. Her combination of knowledge and expertise is an important pillar in our agency.</p>
-				</div><!-- col-lg-3 -->
-
-				<div class="col-lg-3 centered">
-					<img class="img img-circle" src="assets/img/team/team04.jpg" height="120px" width="120px" alt="">
-					<br>
-					<h4><b>Jaye Smith</b></h4>
-					<a href="#" class="icon icon-twitter"></a>
-					<a href="#" class="icon icon-facebook"></a>
-					<a href="#" class="icon icon-flickr"></a>
-					<p>Jaye began making websites when animated logos and scrolling text were cool, but has since found a love for simplicity, creating websites that are a pleasure to browse. Monkey Island Fan.</p>
-				</div><!-- col-lg-3 -->
-
-			</div><!-- row -->
-		</div><!-- container -->
 
 		<!-- ==== GREYWRAP ==== -->
 		<div id="greywrap">
@@ -206,210 +188,16 @@
 			</div><!-- container -->
 		</section><!-- section -->
 
-		<!-- ==== PORTFOLIO ==== -->
-		<div class="container" id="portfolio" name="portfolio">
-		<br>
-			<div class="row">
-				<br>
-				<h1 class="centered">WE CREATE COOL STUFF</h1>
-				<hr>
-				<br>
-				<br>
-			</div><!-- /row -->
-			<div class="container">
-			<div class="row">
-
-				<!-- PORTFOLIO IMAGE 1 -->
-				<div class="col-md-4 ">
-			    	<div class="grid mask">
-						<figure>
-							<img class="img-responsive" src="assets/img/portfolio/folio01.jpg" alt="">
-							<figcaption>
-								<h5>DASHBOARD</h5>
-								<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-							</figcaption><!-- /figcaption -->
-						</figure><!-- /figure -->
-			    	</div><!-- /grid-mask -->
-				</div><!-- /col -->
-
-
-						 <!-- MODAL SHOW THE PORTFOLIO IMAGE. In this demo, all links point to this modal. You should create
-						      a modal for each of your projects. -->
-
-						  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-						    <div class="modal-dialog">
-						      <div class="modal-content">
-						        <div class="modal-header">
-						          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						          <h4 class="modal-title">Project Title</h4>
-						        </div>
-						        <div class="modal-body">
-						          <p><img class="img-responsive" src="assets/img/portfolio/folio01.jpg" alt=""></p>
-						          <p>This project was crafted for Some Name corp. Detail here a little about your job requirements and the tools used. Tell about the challenges faced and what you and your team did to solve it.</p>
-						          <p><b><a href="#">Visit Site</a></b></p>
-						        </div>
-						        <div class="modal-footer">
-						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						        </div>
-						      </div><!-- /.modal-content -->
-						    </div><!-- /.modal-dialog -->
-						  </div><!-- /.modal -->
-
-
-				<!-- PORTFOLIO IMAGE 2 -->
-				<div class="col-md-4">
-			    	<div class="grid mask">
-						<figure>
-							<img class="img-responsive" src="assets/img/portfolio/folio02.jpg" alt="">
-							<figcaption>
-								<h5>UI DESIGN</h5>
-								<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-							</figcaption><!-- /figcaption -->
-						</figure><!-- /figure -->
-			    	</div><!-- /grid-mask -->
-				</div><!-- /col -->
-
-				<!-- PORTFOLIO IMAGE 3 -->
-				<div class="col-md-4">
-			    	<div class="grid mask">
-						<figure>
-							<img class="img-responsive" src="assets/img/portfolio/folio03.jpg" alt="">
-							<figcaption>
-								<h5>ANDROID PAGE</h5>
-								<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-							</figcaption><!-- /figcaption -->
-						</figure><!-- /figure -->
-			    	</div><!-- /grid-mask -->
-				</div><!-- /col -->
-			</div><!-- /row -->
-
-				<!-- PORTFOLIO IMAGE 4 -->
-			<div class="row">
-				<div class="col-md-4 ">
-			    	<div class="grid mask">
-						<figure>
-							<img class="img-responsive" src="assets/img/portfolio/folio04.jpg" alt="">
-							<figcaption>
-								<h5>PROFILE</h5>
-								<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-							</figcaption><!-- /figcaption -->
-						</figure><!-- /figure -->
-			    	</div><!-- /grid-mask -->
-				</div><!-- /col -->
-
-				<!-- PORTFOLIO IMAGE 5 -->
-				<div class="col-md-4">
-			    	<div class="grid mask">
-						<figure>
-							<img class="img-responsive" src="assets/img/portfolio/folio05.jpg" alt="">
-							<figcaption>
-								<h5>TWITTER STATUS</h5>
-								<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-							</figcaption><!-- /figcaption -->
-						</figure><!-- /figure -->
-			    	</div><!-- /grid-mask -->
-				</div><!-- /col -->
-
-				<!-- PORTFOLIO IMAGE 6 -->
-				<div class="col-md-4">
-			    	<div class="grid mask">
-						<figure>
-							<img class="img-responsive" src="assets/img/portfolio/folio06.jpg" alt="">
-							<figcaption>
-								<h5>PHONE MOCKUP</h5>
-								<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-							</figcaption><!-- /figcaption -->
-						</figure><!-- /figure -->
-			    	</div><!-- /grid-mask -->
-				</div><!-- /col -->
-			</div><!-- /row -->
-			<br>
-			<br>
-		</div><!-- /row -->
-	</div><!-- /container -->
-
-		<!-- ==== SECTION DIVIDER4 ==== -->
-		<section class="section-divider textdivider divider4">
-			<div class="container">
-				<h1>DESIGN CREATES EMOTIONAL CONNECTION</h1>
-				<hr>
-				<p>There’s more to design than meets the eye. It’s when it meets the heart that design creates a meaningful, lasting connection with the audience.</p>
-			</div><!-- container -->
-		</section><!-- section -->
-
-		<!-- ==== BLOG ==== -->
 
 
 
-		<!-- ==== SECTION DIVIDER6 ==== -->
-		<section class="section-divider textdivider divider6">
-			<div class="container">
-				<h1>CRAFTED IN NEW YORK, USA.</h1>
-				<hr>
-				<p>Some Address 987,</p>
-				<p>+34 9884 4893</p>
-				<p><a class="icon icon-twitter" href="#"></a> | <a class="icon icon-facebook" href="#"></a></p>
-			</div><!-- container -->
-		</section><!-- section -->
+	<?php
+		include "footer.php"
 
-		<div class="container" id="contact" name="contact">
-			<div class="row">
-			<br>
-				<h1 class="centered">THANKS FOR VISITING US</h1>
-				<hr>
-				<br>
-				<br>
-				<div class="col-lg-4">
-					<h3>Contact Information</h3>
-					<p><span class="icon icon-home"></span> Some Address 987, NY<br/>
-						<span class="icon icon-phone"></span> +34 9884 4893 <br/>
-						<span class="icon icon-mobile"></span> +34 59855 9853 <br/>
-						<span class="icon icon-envelop"></span> <a href="#"> agency@blacktie.co</a> <br/>
-						<span class="icon icon-twitter"></span> <a href="#"> @blacktie_co </a> <br/>
-						<span class="icon icon-facebook"></span> <a href="#"> BlackTie Agency </a> <br/>
-					</p>
-				</div><!-- col -->
+	?>
 
-				<div class="col-lg-4">
-					<h3>Newsletter</h3>
-					<p>Register to our newsletter and be updated with the latests information regarding our services, offers and much more.</p>
-					<p>
-						<form class="form-horizontal" role="form">
-						  <div class="form-group">
-						    <label for="inputEmail1" class="col-lg-4 control-label"></label>
-						    <div class="col-lg-10">
-						      <input type="email" class="form-control" id="inputEmail1" placeholder="Email">
-						    </div>
-						  </div>
-						  <div class="form-group">
-						    <label for="text1" class="col-lg-4 control-label"></label>
-						    <div class="col-lg-10">
-						      <input type="text" class="form-control" id="text1" placeholder="Your Name">
-						    </div>
-						  </div>
-						  <div class="form-group">
-						    <div class="col-lg-10">
-						      <button type="submit" class="btn btn-success">Sign in</button>
-						    </div>
-						  </div>
-					   </form><!-- form -->
-					</p>
-				</div><!-- col -->
 
-				<div class="col-lg-4">
-					<h3>Support Us</h3>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-				</div><!-- col -->
 
-			</div><!-- row -->
-
-		</div><!-- container -->
-
-		<div id="footerwrap">
-			<div class="container">
-				<h4>Created by <a href="http://blacktie.co">BlackTie.co</a> - Copyright 2014</h4>
-			</div>
-		</div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
