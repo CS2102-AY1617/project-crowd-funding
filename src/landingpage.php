@@ -7,7 +7,7 @@
     <meta name="author" content="Carlos Alvarez - Alvarez.is - blacktie.co">
     <link rel="shortcut icon" href="assets/ico/favicon.png">
 
-    <title> CS2102</title>
+    <title>DREAMFUNDER</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -44,21 +44,21 @@
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner">
 			<div class="item active">
-				<img src="http://placehold.it/1900x520" alt="...">
+				<img src="http://wallpaper.zone/img/5133444.jpg" alt="...">
 				<div class="carousel-caption">
-					<h3>Caption Text</h3>
+					<h3>Dream Your Dream Here</h3>
 				</div>
 			</div>
 			<div class="item">
-				<img src="http://placehold.it/1200x315" alt="...">
+				<img src="http://www.dfordelhi.in/wp-content/uploads/2016/07/handicraft.jpg" alt="...">
 				<div class="carousel-caption">
-					<h3>Caption Text</h3>
+					<h3>Cultural Bazzar</h3>
 				</div>
 			</div>
 			<div class="item">
-				<img src="http://placehold.it/1200x315" alt="...">
+				<img src="http://hdwallpaperbackgrounds.net/wp-content/uploads/2015/11/Rainy-Day-cats-In-Umbrella-Wallpapers.jpg" alt="...">
 				<div class="carousel-caption">
-					<h3>Caption Text</h3>
+					<h3>Featured Project</h3>
 				</div>
 			</div>
 		</div>
@@ -78,21 +78,18 @@
 		<div id="greywrap">
 			<div class="row">
 				<div class="col-lg-4 callout">
-					<span class="icon icon-stack"></span>
-					<h2>Convenient</h2>
-					<p>Shield Theme is powered by Bootstrap 3. The incredible Mobile First Framework is the best option to run your website. </p>
+					<h2> <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/168289-200.png" height=60px>Fund what you dream</h2>
+					<p>Every DreamFunder project is the creation of someone like you. Support the dream creator who dreams the same dream as you.</p>
 				</div><!-- col-lg-4 -->
 
 				<div class="col-lg-4 callout">
-					<span class="icon icon-eye"></span>
-					<h2>Diverse</h2>
-					<p>You can use this theme with your iPhone, iPad or MacBook Pro. This theme is retina ready and that is awesome. </p>
+					<h2><img src="https://d30y9cdsu7xlg0.cloudfront.net/png/168289-200.png" height=60px>Dream what you want</h2>
+					<p>You can be a dream creator. All dreamers are welcomed to share your dream, those who dream the same dream as you will support you. </p>
 				</div><!-- col-lg-4 -->
 
 				<div class="col-lg-4 callout">
-					<span class="icon icon-heart"></span>
-					<h2>Crafted with Love</h2>
-					<p>We don't make sites, we craft themes with love & passion. That is our most valued secret. We only do thing that we love.   </p>
+					<h2><img src="https://d30y9cdsu7xlg0.cloudfront.net/png/168289-200.png" height=60px>Start your dream here</h2>
+					<p>We want to hear you dream, and we keen to help you to let other dreamers hear your dream!  </p>
 				</div><!-- col-lg-4 -->
 			</div><!-- row -->
 		</div><!-- greywrap -->
@@ -101,7 +98,7 @@
 		<div class="container" id="about" name="about">
 			<div class="row white">
 			<br>
-				<h1 class="centered">A LITTLE ABOUT OUR AGENCY</h1>
+				<h1 class="centered">A LITTLE ABOUT DREAMFUNDER</h1>
 				<hr>
 
 				<div class="col-lg-6">
