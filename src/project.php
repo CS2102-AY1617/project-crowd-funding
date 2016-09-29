@@ -159,25 +159,33 @@ include "header.php";
                 <div class="row">
                     <div class="col-lg-6">
                         <ul class="list-unstyled">
-                            <li><a href="#">Category Name</a>
+                            <li><a href="#">Art</a>
                             </li>
-                            <li><a href="#">Category Name</a>
+                            <li><a href="#">Culture</a>
                             </li>
-                            <li><a href="#">Category Name</a>
+                            <li><a href="#">Comics</a>
                             </li>
-                            <li><a href="#">Category Name</a>
+                            <li><a href="#">Design</a>
+                            </li>
+                            <li><a href="#">Fashion</a>
+                            </li>
+                            <li><a href="#">Film</a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
                         <ul class="list-unstyled">
-                            <li><a href="#">Category Name</a>
+                            <li><a href="#">Food</a>
                             </li>
-                            <li><a href="#">Category Name</a>
+                            <li><a href="#">Game</a>
                             </li>
-                            <li><a href="#">Category Name</a>
+                            <li><a href="#">Journalism</a>
                             </li>
-                            <li><a href="#">Category Name</a>
+                            <li><a href="#">Music</a>
+                            </li>
+                            <li><a href="#">Photography</a>
+                            </li>
+                            <li><a href="#">Technology</a>
                             </li>
                         </ul>
                     </div>

@@ -26,7 +26,7 @@
         bottom: -40px;
         width: auto;
         height: auto;
-        background-image: url('assets/img/login_bg.png');
+        background-image: url('assets/img/signup.jpg');
         background-size: cover;
         -webkit-filter: blur(5px);
         z-index: -1;

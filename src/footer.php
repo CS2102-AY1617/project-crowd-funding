@@ -2,12 +2,12 @@
     <div class="container">
         <div class="col-lg-4">
             <h3 style="color:white">Contact Information</h3>
-            <p><span class="icon icon-home"></span> Some Address 987, NY<br/>
-                <span class="icon icon-phone"></span> +34 9884 4893 <br/>
-                <span class="icon icon-mobile"></span> +34 59855 9853 <br/>
+            <p><span class="icon icon-home"></span> School of Computing, NUS, Singapore<br/>
+                <span class="icon icon-phone"></span> +65 1234 5678<br/>
+                <span class="icon icon-mobile"></span> +65 8765 4321 <br/>
                 <span class="icon icon-envelop"></span> <a href="#"> agency@blacktie.co</a> <br/>
                 <span class="icon icon-twitter"></span> <a href="#"> @blacktie_co </a> <br/>
-                <span class="icon icon-facebook"></span> <a href="#"> BlackTie Agency </a> <br/>
+                <span class="icon icon-facebook"></span> <a href="#"> Dream Funder </a> <br/>
             </p>
         </div><!-- col -->
         <div class="col-lg-4">
@@ -34,8 +34,8 @@
         </div><!-- col -->
         <div class="col-lg-4">
             <h3 style="color:white">Support Us</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <p>Support us</p>
         </div><!-- col -->
     </div>
-    <h4>Created by <a href="http://blacktie.co">BlackTie.co</a> - Copyright 2014</h4>
+    <h4>Created by <a href="http://blacktie.co">DreamFunder.co</a> - Copyright 2016</h4>
 </div>
