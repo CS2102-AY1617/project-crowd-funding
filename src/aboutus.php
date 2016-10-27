@@ -40,7 +40,7 @@
             <hr>
             <p>This website is designed based on the CS2102 Project Requirement.</p>
             <p>Special thanks to the original author of this bootstrap template, BlackTie.co</p>
-            <p>Who made my life easier.</p>
+            <p>Who made our life easier.</p>
             <br>
         </div><!-- container -->
     </section><!-- section -->

@@ -1,5 +1,5 @@
 <?php
-	include "backend_api/routes.php";
+	include "backend_api/display_routes.php";
 	include "backend_api/config.php";
 
 	$conn = initialise_pgsql_connection();
@@ -63,7 +63,7 @@ include "header.php";
             <div class="row">
                 <div class="col-md-12">
                     <!-- tabs right -->
-                    
+
                     <div class="tabbable tabs-right">
                         <?php 
                             echo display_start_sparks($conn);
@@ -79,7 +79,7 @@ include "header.php";
 
 
 <!-- ==== BLOG ==== -->
-<div class="container" id="blog" name="blog">
+<div class="container" id="blog" >
     <br>
     <div class="row">
         <br>
@@ -89,21 +89,21 @@ include "header.php";
         <br>
     </div><!-- /row -->
     <div class="container bootstrap-iso">
-        <form>
+        <form onsubmit="return validate()" name="create" action="backend_api/create_project_form.php" method="post" >
             <div class="form-group">
-                <label for="exampleInputEmail1">Project Title</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your project title">
+                <label for="title">Project Title</label>
+                <input type="text" class="form-control" name="title" placeholder="Enter your project title">
                 <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
             </div>
 
             <div class="form-group">
-                <label for="exampleInputPassword1">Objective Amount</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <label for="objective">Objective Amount</label>
+                <input type="text" class="form-control" name="objective" placeholder="Amount of money you plan to raise">
             </div>
 
             <div class="form-group">
-                <label for="exampleTextarea">Description</label>
-                <textarea class="form-control" id="exampleTextarea" rows="4"></textarea>
+                <label for="description">Description</label>
+                <textarea class="form-control" name="description" rows="4" placeholder="A description so that people would understand you"></textarea>
             </div>
 
             <div class="form-group">
@@ -118,28 +118,22 @@ include "header.php";
 
             <div class="form-group">
                 <label for="exampleSelect1">Topic</label>
-                <select class="form-control" id="exampleSelect1">
-                    <option>Art</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
+                <?php echo display_select_topic($conn); ?>
             </div>
 
             <div class="form-group">
-                <label for="exampleInputPassword1">You may choose to upload an image</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter image url. e.g http://searchengineland.com/figz/wp-content/seloads/2016/10/google-cardboard-vr-ss-1920.jpg">
+                <label for="image">You may choose to upload an image</label>
+                <input type="text" class="form-control" name="image" placeholder="Enter image url. e.g http://searchengineland.com/figz/wp-content/seloads/2016/10/google-cardboard-vr-ss-1920.jpg">
             </div>
 
             <div class="form-check">
                 <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
+                    <input type="checkbox" class="form-check-input" name="terms">
                     By creating a project, you have fully understood and agree to our terms and conditions.
                 </label>
             </div>
             <br>
-            <button type="submit" class="btn btn-primary">Create Your Project</button>
+            <button type="submit" class="btn btn-primary" name="submit">Create Your Project</button>
         </form>
 
     </div>
@@ -165,10 +159,11 @@ include "header.php";
     <script type="text/javascript" src="assets/js/smoothscroll.js"></script>
     <script type="text/javascript" src="assets/js/jquery-func.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
-
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
 
+    <script src="assets/js/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/js/sweetalert.css">
     <script>
         $(document).ready(function() {
             $('#datePicker')
@@ -320,6 +315,23 @@ include "header.php";
 
 
     </style>
+
+    <script>
+        function validate()
+        {
+
+            if( document.create.title.value == "" )
+            {
+                swal("Oops...", "Something went wrong!", "error");
+                document.create.title.focus() ;
+                return false;
+            }
+
+
+            return( true );
+        }
+    </script>
+
 
 </body>
 </html>

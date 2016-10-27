@@ -62,7 +62,7 @@
 			<div class="carousel-caption">
 				<h3>FEATURED PROJECT: Cat Life</h3>
 				<br>
-				<p><a class="btn btn-success">View Dream Detail</a></p>
+				<p><a href="project.php?id=1" class="btn btn-success">View Dream Detail</a></p>
 			</div>
 		</div>
 	</div>
@@ -111,7 +111,52 @@
 				<h1>YOUR DREAM DEPARTURE WITH US</h1>
 			</div><!-- container -->
 		</section><!-- section -->
+		<!-- ==== BLOG ==== -->
+		<div class="container" id="blog" name="blog">
+			<br>
+			<div class="row">
+				<br>
+				<h1 class="centered">Check Out Popular Projects</h1>
+				<hr>
+				<br>
+				<br>
+			</div><!-- /row -->
 
+			<div class="row">
+				<div class="col-lg-6 blog-bg">
+					<div class="col-lg-4 centered">
+						<br>
+						<p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
+						<h4>Jaye Smith</h4>
+						<h5>Published Aug 30.</h5>
+					</div>
+					<div class="col-lg-8 blog-content">
+						<h2>We Define Success</h2>
+						<p>Armed with insight, we embark on designing the right brand experience that engages the audience. It encompasses both the strategic direction and creative execution that solves a business problem and brings the brand to life.</p>
+						<p>In the create phase, the big idea is unleashed to the world through different media touchpoints. This is when we watch the audience fall in love all over again with our client’s brand.</p>
+						<p><a href="#" class="icon icon-link"> Read More</a></p>
+						<br>
+					</div>
+				</div><!-- /col -->
+				<div class="col-lg-6 blog-bg">
+					<div class="col-lg-4 centered">
+						<br>
+						<p><img class="img img-circle" src="assets/img/team/team03.jpg" width="60px" height="60px"></p>
+						<h4>Michele Lampa</h4>
+						<h5>Published Aug 28.</h5>
+					</div>
+					<div class="col-lg-8 blog-content">
+						<h2>A Beautiful Story</h2>
+						<p>Armed with insight, we embark on designing the right brand experience that engages the audience. It encompasses both the strategic direction and creative execution that solves a business problem and brings the brand to life.</p>
+						<p>In the create phase, the big idea is unleashed to the world through different media touchpoints. This is when we watch the audience fall in love all over again with our client’s brand.</p>
+						<p><a href="#" class="icon icon-link"> Read More</a></p>
+						<br>
+					</div>
+				</div><!-- /col -->
+			</div><!-- /row -->
+			<br>
+			<br>
+		</div><!-- /container -->
 		<?php
 			include "footer.php"
 		?>

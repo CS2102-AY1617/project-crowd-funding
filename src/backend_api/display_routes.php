@@ -45,4 +45,14 @@ function display_start_sparks($conn) {
     return $html_output;
 }
 
+function display_select_topic($conn) {
+    $topic_list = get_topic_list($conn);
+    $html_output = '<select class="form-control" id="exampleSelect1">';
+    foreach ($topic_list as $row) {
+        $html_output .= '<option>'.$row['topic_name'].'</option>';
+    }
+    $html_output .= '</select>';
+    return $html_output;
+}
+
 
