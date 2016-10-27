@@ -1,3 +1,10 @@
+<?php
+	include "backend_api/routes.php";
+	include "backend_api/config.php";
+
+	$conn = initialise_pgsql_connection();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -56,217 +63,15 @@
 			<br>
 			<div class="row">
 				<br>
-				<h1 class="centered">WE CREATE COOL STUFF</h1>
+				<h1 class="centered">Find Your Dream Here</h1>
 				<hr>
 				<br>
 				<br>
 			</div><!-- /row -->
 			<div class="container">
-				<div class="row">
-
-				<!-- PORTFOLIO IMAGE 1 -->
-				<div class="col-md-3 ">
-			    	<div class="grid mask">
-						<figure>
-							<img class="img-responsive" src="assets/img/portfolio/folio01.jpg" alt="">
-							<figcaption>
-								<h5>DASHBOARD</h5>
-								<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-							</figcaption><!-- /figcaption -->
-						</figure><!-- /figure -->
-			    	</div><!-- /grid-mask -->
-				</div><!-- /col -->
-
-				<!-- PORTFOLIO IMAGE 2 -->
-				<div class="col-md-3">
-			    	<div class="grid mask">
-						<figure>
-							<img class="img-responsive" src="assets/img/portfolio/folio02.jpg" alt="">
-							<figcaption>
-								<h5>UI DESIGN</h5>
-								<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-							</figcaption><!-- /figcaption -->
-						</figure><!-- /figure -->
-			    	</div><!-- /grid-mask -->
-				</div><!-- /col -->
-
-				<!-- PORTFOLIO IMAGE 3 -->
-				<div class="col-md-3">
-			    	<div class="grid mask">
-						<figure>
-							<img class="img-responsive" src="assets/img/portfolio/folio03.jpg" alt="">
-							<figcaption>
-								<h5>ANDROID PAGE</h5>
-								<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-							</figcaption><!-- /figcaption -->
-						</figure><!-- /figure -->
-			    	</div><!-- /grid-mask -->
-				</div><!-- /col -->
-        <div class="col-md-3">
-			    	<div class="grid mask">
-						<figure>
-							<img class="img-responsive" src="assets/img/portfolio/folio03.jpg" alt="">
-							<figcaption>
-								<h5>ANDROID PAGE</h5>
-								<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-							</figcaption><!-- /figcaption -->
-						</figure><!-- /figure -->
-			    	</div><!-- /grid-mask -->
-				</div><!-- /col -->
-			</div><!-- /row -->
-				<br>
- 				<div class="row">
-				<div class="col-md-3 ">
-			    	<div class="grid mask">
-						<figure>
-							<img class="img-responsive" src="assets/img/portfolio/folio04.jpg" alt="">
-							<figcaption>
-								<h5>PROFILE</h5>
-								<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-							</figcaption><!-- /figcaption -->
-						</figure><!-- /figure -->
-			    	</div><!-- /grid-mask -->
-				</div><!-- /col -->
-
-				<!-- PORTFOLIO IMAGE 5 -->
-				<div class="col-md-3">
-			    	<div class="grid mask">
-						<figure>
-							<img class="img-responsive" src="assets/img/portfolio/folio05.jpg" alt="">
-							<figcaption>
-								<h5>TWITTER STATUS</h5>
-								<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-							</figcaption><!-- /figcaption -->
-						</figure><!-- /figure -->
-			    	</div><!-- /grid-mask -->
-				</div><!-- /col -->
-
-				<!-- PORTFOLIO IMAGE 6 -->
-				<div class="col-md-3">
-			    	<div class="grid mask">
-						<figure>
-							<img class="img-responsive" src="assets/img/portfolio/folio06.jpg" alt="">
-							<figcaption>
-								<h5>PHONE MOCKUP</h5>
-								<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-							</figcaption><!-- /figcaption -->
-						</figure><!-- /figure -->
-			    	</div><!-- /grid-mask -->
-				</div><!-- /col -->
-        <div class="col-md-3">
-			    	<div class="grid mask">
-						<figure>
-							<img class="img-responsive" src="assets/img/portfolio/folio06.jpg" alt="">
-							<figcaption>
-								<h5>PHONE MOCKUP</h5>
-								<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-							</figcaption><!-- /figcaption -->
-						</figure><!-- /figure -->
-			    	</div><!-- /grid-mask -->
-				</div><!-- /col -->
-			</div><!-- /row -->
-				<br>
-				<div class="row">
-					<div class="col-md-3 ">
-						<div class="grid mask">
-							<figure>
-								<img class="img-responsive" src="assets/img/portfolio/folio04.jpg" alt="">
-								<figcaption>
-									<h5>PROFILE</h5>
-									<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-								</figcaption><!-- /figcaption -->
-							</figure><!-- /figure -->
-						</div><!-- /grid-mask -->
-					</div><!-- /col -->
-
-					<!-- PORTFOLIO IMAGE 5 -->
-					<div class="col-md-3">
-						<div class="grid mask">
-							<figure>
-								<img class="img-responsive" src="assets/img/portfolio/folio05.jpg" alt="">
-								<figcaption>
-									<h5>TWITTER STATUS</h5>
-									<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-								</figcaption><!-- /figcaption -->
-							</figure><!-- /figure -->
-						</div><!-- /grid-mask -->
-					</div><!-- /col -->
-
-					<!-- PORTFOLIO IMAGE 6 -->
-					<div class="col-md-3">
-						<div class="grid mask">
-							<figure>
-								<img class="img-responsive" src="assets/img/portfolio/folio06.jpg" alt="">
-								<figcaption>
-									<h5>PHONE MOCKUP</h5>
-									<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-								</figcaption><!-- /figcaption -->
-							</figure><!-- /figure -->
-						</div><!-- /grid-mask -->
-					</div><!-- /col -->
-					<div class="col-md-3">
-						<div class="grid mask">
-							<figure>
-								<img class="img-responsive" src="assets/img/portfolio/folio06.jpg" alt="">
-								<figcaption>
-									<h5>PHONE MOCKUP</h5>
-									<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-								</figcaption><!-- /figcaption -->
-							</figure><!-- /figure -->
-						</div><!-- /grid-mask -->
-					</div><!-- /col -->
-				</div>
-				<br>
-				<div class="row">
-					<div class="col-md-3 ">
-						<div class="grid mask">
-							<figure>
-								<img class="img-responsive" src="assets/img/portfolio/folio04.jpg" alt="">
-								<figcaption>
-									<h5>PROFILE</h5>
-									<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-								</figcaption><!-- /figcaption -->
-							</figure><!-- /figure -->
-						</div><!-- /grid-mask -->
-					</div><!-- /col -->
-
-					<!-- PORTFOLIO IMAGE 5 -->
-					<div class="col-md-3">
-						<div class="grid mask">
-							<figure>
-								<img class="img-responsive" src="assets/img/portfolio/folio05.jpg" alt="">
-								<figcaption>
-									<h5>TWITTER STATUS</h5>
-									<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-								</figcaption><!-- /figcaption -->
-							</figure><!-- /figure -->
-						</div><!-- /grid-mask -->
-					</div><!-- /col -->
-
-					<!-- PORTFOLIO IMAGE 6 -->
-					<div class="col-md-3">
-						<div class="grid mask">
-							<figure>
-								<img class="img-responsive" src="assets/img/portfolio/folio06.jpg" alt="">
-								<figcaption>
-									<h5>PHONE MOCKUP</h5>
-									<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-								</figcaption><!-- /figcaption -->
-							</figure><!-- /figure -->
-						</div><!-- /grid-mask -->
-					</div><!-- /col -->
-					<div class="col-md-3">
-						<div class="grid mask">
-							<figure>
-								<img class="img-responsive" src="assets/img/portfolio/folio06.jpg" alt="">
-								<figcaption>
-									<h5>PHONE MOCKUP</h5>
-									<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
-								</figcaption><!-- /figcaption -->
-							</figure><!-- /figure -->
-						</div><!-- /grid-mask -->
-					</div><!-- /col -->
-				</div>
+				<?php
+					echo display_discover_list($conn);
+				?>
 			</div>
 	   </div><!-- /container -->
 

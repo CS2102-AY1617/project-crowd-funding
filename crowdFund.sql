@@ -13,34 +13,38 @@ CREATE TABLE Users (
 	type usertype
 );
 
+
+CREATE TABLE Topics (
+	name VARCHAR(128) PRIMARY KEY,
+	number_of_projects INT DEFAULT 0,
+	total_assets INT DEFAULT 0
+);
+
+INSERT INTO Topics (name) VALUES ('Art');
+INSERT INTO Topics (name) VALUES ('Environment');
+INSERT INTO Topics (name) VALUES ('Design');
+INSERT INTO Topics (name) VALUES ('Crafts');
+INSERT INTO Topics (name) VALUES ('Fashion');
+INSERT INTO Topics (name) VALUES ('Food');
+INSERT INTO Topics (name) VALUES ('Games');
+INSERT INTO Topics (name) VALUES ('Music');
+INSERT INTO Topics (name) VALUES ('Photography');
+INSERT INTO Topics (name) VALUES ('Technology');
+INSERT INTO Topics (name) VALUES ('Publishing');
+INSERT INTO Topics (name) VALUES ('Animals');
 /*
 	===========================================
  */
 
-CREATE TABLE Topics (
-	Name VARCHAR(128) PRIMARY KEY,
-	NumberOfProjects INT DEFUALT 0,
-	TotalAssets INT DEFUALT 0
-);
 
-INSERT INTO Topics (Name) VALUES ('Art');
-INSERT INTO Topics (Name) VALUES ('Environment');
-INSERT INTO Topics (Name) VALUES ('Design');
-INSERT INTO Topics (Name) VALUES ('Crafts');
-INSERT INTO Topics (Name) VALUES ('Fashion');
-INSERT INTO Topics (Name) VALUES ('Food');
-INSERT INTO Topics (Name) VALUES ('Games');
-INSERT INTO Topics (Name) VALUES ('Music');
-INSERT INTO Topics (Name) VALUES ('Photography');
-INSERT INTO Topics (Name) VALUES ('Technology');
-INSERT INTO Topics (Name) VALUES ('Publishing');
-INSERT INTO Topics (Name) VALUES ('Animals');
+
+
 
 
 
 CREATE TABLE Projects (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	Owner VARCHAR(128) REFERENCES Users(UserName),
+	Owner VARCHAR(128) REFERENCES Users(Username),
 	Title VARCHAR(64) NOT NULL UNIQUE,
 	Description TEXT,
 	StartDate DATE NOT NULL,
