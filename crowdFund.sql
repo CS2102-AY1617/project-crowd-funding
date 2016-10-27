@@ -1,13 +1,21 @@
+CREATE TYPE gender AS ENUM ('male','female','others','prefer not to say');
+
+CREATE TYPE usertype AS ENUM ('donor','entrepreneur','admin');
+
 CREATE TABLE Users (
-	Email VARCHAR(128) PRIMARY KEY,
-	UserName VARCHAR(128) NOT NULL,
-	HashedPassword VARCHAR(32) NOT NULL,
-	PersonalDescription TEXT,
-	FirstName VARCHAR(128),
-	LastName VARCHAR(128),
-	Gender ENUM('male','female','others','prefer not to say'),
-	Type ENUM('donor','entrepreneur','admin')
+	email VARCHAR(128) PRIMARY KEY,
+	user_name VARCHAR(128) NOT NULL,
+	hashed_password VARCHAR(32) NOT NULL,
+	bio TEXT,
+	first_name VARCHAR(128),
+	last_name VARCHAR(128),
+	gender gender,
+	type usertype
 );
+
+/*
+	===========================================
+ */
 
 CREATE TABLE Topics (
 	Name VARCHAR(128) PRIMARY KEY,
