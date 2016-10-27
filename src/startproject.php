@@ -87,206 +87,238 @@ include "header.php";
         <br>
         <br>
     </div><!-- /row -->
-    <div class="container">
+    <div class="container bootstrap-iso">
         <form>
             <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <label for="exampleInputEmail1">Project Title</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your project title">
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
             </div>
+
             <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <label for="exampleInputPassword1">Objective Amount</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
             </div>
+
             <div class="form-group">
-                <label for="exampleSelect1">Example select</label>
+                <label for="exampleTextarea">Description</label>
+                <textarea class="form-control" id="exampleTextarea" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Deadline (at 12:00pm)</label>
+                <div class="date">
+                    <div class="input-group input-append date" id="datePicker">
+                        <input type="text" class="form-control" name="date" />
+                        <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleSelect1">Topic</label>
                 <select class="form-control" id="exampleSelect1">
-                    <option>1</option>
+                    <option>Art</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
                     <option>5</option>
                 </select>
             </div>
+
             <div class="form-group">
-                <label for="exampleSelect2">Example multiple select</label>
-                <select multiple class="form-control" id="exampleSelect2">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
+                <label for="exampleInputPassword1">You may choose to upload an image</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter image url. e.g http://searchengineland.com/figz/wp-content/seloads/2016/10/google-cardboard-vr-ss-1920.jpg">
             </div>
-            <div class="form-group">
-                <label for="exampleTextarea">Example textarea</label>
-                <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputFile">File input</label>
-                <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-                <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
-            </div>
-            <fieldset class="form-group">
-                <legend>Radio buttons</legend>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                        Option one is this and that&mdash;be sure to include why it's great
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                        Option two can be something else and selecting it will deselect option one
-                    </label>
-                </div>
-                <div class="form-check disabled">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
-                        Option three is disabled
-                    </label>
-                </div>
-            </fieldset>
+
             <div class="form-check">
                 <label class="form-check-label">
                     <input type="checkbox" class="form-check-input">
-                    Check me out
+                    By creating a project, you have fully understood and agree to our terms and conditions.
                 </label>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+            <button type="submit" class="btn btn-primary">Create Your Project</button>
         </form>
+
     </div>
     <br>
     <br>
 </div><!-- /container -->
 
 
-<?php
-include "footer.php";
-?>
+    <?php
+    include "footer.php";
+    ?>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
 
-
-<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="assets/js/retina.js"></script>
-<script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="assets/js/smoothscroll.js"></script>
-<script type="text/javascript" src="assets/js/jquery-func.js"></script>
-
-<style>
-    /* custom inclusion of right, left and below tabs */
-
-    .tabs-below > .nav-tabs,
-    .tabs-right > .nav-tabs,
-    .tabs-left > .nav-tabs {
-        border-bottom: 0;
-    }
-
-    .tab-content > .tab-pane,
-    .pill-content > .pill-pane {
-        display: none;
-    }
-
-    .tab-content > .active,
-    .pill-content > .active {
-        display: block;
-    }
-
-    .tabs-below > .nav-tabs {
-        border-top: 1px solid #ddd;
-    }
-
-    .tabs-below > .nav-tabs > li {
-        margin-top: -1px;
-        margin-bottom: 0;
-    }
-
-    .tabs-below > .nav-tabs > li > a {
-        -webkit-border-radius: 0 0 4px 4px;
-        -moz-border-radius: 0 0 4px 4px;
-        border-radius: 0 0 4px 4px;
-    }
-
-    .tabs-below > .nav-tabs > li > a:hover,
-    .tabs-below > .nav-tabs > li > a:focus {
-        border-top-color: #ddd;
-        border-bottom-color: transparent;
-    }
-
-    .tabs-below > .nav-tabs > .active > a,
-    .tabs-below > .nav-tabs > .active > a:hover,
-    .tabs-below > .nav-tabs > .active > a:focus {
-        border-color: transparent #ddd #ddd #ddd;
-    }
-
-    .tabs-left > .nav-tabs > li,
-    .tabs-right > .nav-tabs > li {
-        float: none;
-    }
-
-    .tabs-left > .nav-tabs > li > a,
-    .tabs-right > .nav-tabs > li > a {
-        min-width: 74px;
-        margin-right: 0;
-        margin-bottom: 3px;
-    }
-
-    .tabs-left > .nav-tabs {
-        float: left;
-        margin-right: 19px;
-        border-right: 1px solid #ddd;
-    }
-
-    .tabs-left > .nav-tabs > li > a {
-        margin-right: -1px;
-        -webkit-border-radius: 4px 0 0 4px;
-        -moz-border-radius: 4px 0 0 4px;
-        border-radius: 4px 0 0 4px;
-    }
-
-    .tabs-left > .nav-tabs > li > a:hover,
-    .tabs-left > .nav-tabs > li > a:focus {
-        border-color: #eeeeee #dddddd #eeeeee #eeeeee;
-    }
-
-    .tabs-left > .nav-tabs .active > a,
-    .tabs-left > .nav-tabs .active > a:hover,
-    .tabs-left > .nav-tabs .active > a:focus {
-        border-color: #ddd transparent #ddd #ddd;
-        *border-right-color: #ffffff;
-    }
-
-    .tabs-right > .nav-tabs {
-        float: right;
-        margin-left: 19px;
-        border-left: 1px solid #ddd;
-    }
-
-    .tabs-right > .nav-tabs > li > a {
-        margin-left: -1px;
-        -webkit-border-radius: 0 4px 4px 0;
-        -moz-border-radius: 0 4px 4px 0;
-        border-radius: 0 4px 4px 0;
-    }
-
-    .tabs-right > .nav-tabs > li > a:hover,
-    .tabs-right > .nav-tabs > li > a:focus {
-        border-color: #eeeeee #eeeeee #eeeeee #dddddd;
-    }
-
-    .tabs-right > .nav-tabs .active > a,
-    .tabs-right > .nav-tabs .active > a:hover,
-    .tabs-right > .nav-tabs .active > a:focus {
-        border-color: #ddd #ddd #ddd transparent;
-        *border-left-color: #ffffff;
-    }
+<!-- Include Date Range Picker -->
 
 
-</style>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/retina.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="assets/js/smoothscroll.js"></script>
+    <script type="text/javascript" src="assets/js/jquery-func.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
+
+    <script>
+        $(document).ready(function() {
+            $('#datePicker')
+                .datepicker({
+                    format: 'mm/dd/yyyy'
+                })
+                .on('changeDate', function(e) {
+                    // Revalidate the date field
+                    $('#eventForm').formValidation('revalidateField', 'date');
+                });
+
+            $('#eventForm').formValidation({
+                framework: 'bootstrap',
+                icon: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                fields: {
+                    name: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The name is required'
+                            }
+                        }
+                    },
+                    date: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The date is required'
+                            },
+                            date: {
+                                format: 'MM/DD/YYYY',
+                                message: 'The date is not a valid'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+    <style>
+        /* custom inclusion of right, left and below tabs */
+
+        .tabs-below > .nav-tabs,
+        .tabs-right > .nav-tabs,
+        .tabs-left > .nav-tabs {
+            border-bottom: 0;
+        }
+
+        .tab-content > .tab-pane,
+        .pill-content > .pill-pane {
+            display: none;
+        }
+
+        .tab-content > .active,
+        .pill-content > .active {
+            display: block;
+        }
+
+        .tabs-below > .nav-tabs {
+            border-top: 1px solid #ddd;
+        }
+
+        .tabs-below > .nav-tabs > li {
+            margin-top: -1px;
+            margin-bottom: 0;
+        }
+
+        .tabs-below > .nav-tabs > li > a {
+            -webkit-border-radius: 0 0 4px 4px;
+            -moz-border-radius: 0 0 4px 4px;
+            border-radius: 0 0 4px 4px;
+        }
+
+        .tabs-below > .nav-tabs > li > a:hover,
+        .tabs-below > .nav-tabs > li > a:focus {
+            border-top-color: #ddd;
+            border-bottom-color: transparent;
+        }
+
+        .tabs-below > .nav-tabs > .active > a,
+        .tabs-below > .nav-tabs > .active > a:hover,
+        .tabs-below > .nav-tabs > .active > a:focus {
+            border-color: transparent #ddd #ddd #ddd;
+        }
+
+        .tabs-left > .nav-tabs > li,
+        .tabs-right > .nav-tabs > li {
+            float: none;
+        }
+
+        .tabs-left > .nav-tabs > li > a,
+        .tabs-right > .nav-tabs > li > a {
+            min-width: 74px;
+            margin-right: 0;
+            margin-bottom: 3px;
+        }
+
+        .tabs-left > .nav-tabs {
+            float: left;
+            margin-right: 19px;
+            border-right: 1px solid #ddd;
+        }
+
+        .tabs-left > .nav-tabs > li > a {
+            margin-right: -1px;
+            -webkit-border-radius: 4px 0 0 4px;
+            -moz-border-radius: 4px 0 0 4px;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .tabs-left > .nav-tabs > li > a:hover,
+        .tabs-left > .nav-tabs > li > a:focus {
+            border-color: #eeeeee #dddddd #eeeeee #eeeeee;
+        }
+
+        .tabs-left > .nav-tabs .active > a,
+        .tabs-left > .nav-tabs .active > a:hover,
+        .tabs-left > .nav-tabs .active > a:focus {
+            border-color: #ddd transparent #ddd #ddd;
+            *border-right-color: #ffffff;
+        }
+
+        .tabs-right > .nav-tabs {
+            float: right;
+            margin-left: 19px;
+            border-left: 1px solid #ddd;
+        }
+
+        .tabs-right > .nav-tabs > li > a {
+            margin-left: -1px;
+            -webkit-border-radius: 0 4px 4px 0;
+            -moz-border-radius: 0 4px 4px 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .tabs-right > .nav-tabs > li > a:hover,
+        .tabs-right > .nav-tabs > li > a:focus {
+            border-color: #eeeeee #eeeeee #eeeeee #dddddd;
+        }
+
+        .tabs-right > .nav-tabs .active > a,
+        .tabs-right > .nav-tabs .active > a:hover,
+        .tabs-right > .nav-tabs .active > a:focus {
+            border-color: #ddd #ddd #ddd transparent;
+            *border-left-color: #ffffff;
+        }
+
+
+    </style>
 
 </body>
 </html>

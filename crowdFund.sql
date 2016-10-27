@@ -32,29 +32,25 @@ INSERT INTO Topics (name) VALUES ('Photography');
 INSERT INTO Topics (name) VALUES ('Technology');
 INSERT INTO Topics (name) VALUES ('Publishing');
 INSERT INTO Topics (name) VALUES ('Animals');
+
+CREATE TABLE projects
+(
+	id INTEGER PRIMARY KEY NOT NULL,
+	owner VARCHAR(128) NOT NULL,
+	title VARCHAR(535) NOT NULL,
+	description TEXT NOT NULL,
+	start_date DATE NOT NULL,
+	end_date DATE NOT NULL,
+	topic VARCHAR(128) NOT NULL,
+	objective_amount INTEGER NOT NULL,
+	status BOOLEAN NOT NULL
+);
+
 /*
 	===========================================
  */
 
 
-
-
-
-
-
-CREATE TABLE Projects (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	Owner VARCHAR(128) REFERENCES Users(Username),
-	Title VARCHAR(64) NOT NULL UNIQUE,
-	Description TEXT,
-	StartDate DATE NOT NULL,
-	EndDate DATE NOT NULL CHECK (EndDate >= StartDate),
-	Categories VARCHAR(128) REFERENCES Topics(Name),
-	Objective INTEGER NOT NULL CHECK(Objective > 0),
-	Status BOOLEAN NOT NULL,
-	Location VARCHAR(535) NOT NULL,
-	Backers INT NOT NULL DAFAULT 0
-);
 
 CREATE TABLE Transactions (
 	id INT PRIMARY KEY AUTO_INCREMENT,
