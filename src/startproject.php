@@ -43,7 +43,7 @@ include "header.php";
 <!-- ==== SECTION DIVIDER3 -->
 <section class="section-divider textdivider divider3">
     <div class="container">
-        <h1>Start A Project in Two Steps</h1>
+        <h1>Craft Your Own Dream</h1>
         <hr>
     </div><!-- container -->
 </section><!-- section -->
@@ -53,7 +53,7 @@ include "header.php";
     <br>
     <div class="row">
         <br>
-        <h1 class="centered">Step 1: Sparks your Idea</h1>
+        <h1 class="centered">Step 1: Spark Your Idea</h1>
         <hr>
         <br>
         <br>
@@ -63,6 +63,7 @@ include "header.php";
             <div class="row">
                 <div class="col-md-12">
                     <!-- tabs right -->
+                    
                     <div class="tabbable tabs-right">
                         <?php 
                             echo display_start_sparks($conn);
