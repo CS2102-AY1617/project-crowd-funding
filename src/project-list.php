@@ -41,7 +41,7 @@
 </head>
 <body data-spy="scroll" data-offset="0" data-target="#navbar-main">
 <?php
-include "header.php";
+    include "header.php";
 ?>
 
 <!-- ==== SECTION DIVIDER3 -->
@@ -227,7 +227,7 @@ include "header.php";
 </div><!-- /container -->
 
 <?php
-include "footer.php";
+    include "footer.php";
 ?>
 
 <!-- Bootstrap core JavaScript
