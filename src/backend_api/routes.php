@@ -25,7 +25,7 @@ function display_discover_list($conn) {
             $html_output .= '<div class="col-md-3 ">
                     <div class="grid mask">
                         <figure>
-                            <img class="img-responsive" src="assets/img/portfolio/folio01.jpg" alt="">
+                            <a href="projects-browser.php?topic=' . $topic_name . '"><img class="img-responsive" src="assets/img/portfolio/folio01.jpg" alt=""></a>
                             <figcaption>
                                 <h5>' . $topic_name . '</h5>
                             </figcaption>
@@ -33,7 +33,7 @@ function display_discover_list($conn) {
                     </div>
                 </div>';
         }
-        $html_output .= '</div>';
+        $html_output .= '</div><br>';
     }
     return $html_output;
 }

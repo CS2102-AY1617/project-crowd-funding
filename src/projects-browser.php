@@ -1,3 +1,7 @@
+<?php
+    $topic_name = $_GET['topic'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,7 +63,7 @@ include "header.php";
     <br>
     <div class="row">
         <br>
-        <h1 class="centered">Search Results</h1>
+        <h1 class="centered">Search Results for <?php echo $topic_name ?></h1>
         <hr>
         <br>
         <br>

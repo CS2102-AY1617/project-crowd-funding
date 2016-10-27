@@ -81,7 +81,7 @@
 			<br>
 			<div class="row">
 				<br>
-				<h1 class="centered">WE ARE STORYTELLERS</h1>
+				<h1 class="centered">Check Out Popular Projects</h1>
 				<hr>
 				<br>
 				<br>
@@ -103,7 +103,6 @@
 						<br>
 					</div>
 				</div><!-- /col -->
-
 				<div class="col-lg-6 blog-bg">
 					<div class="col-lg-4 centered">
 					<br>
