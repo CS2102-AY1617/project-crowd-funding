@@ -79,4 +79,13 @@ function get_tab_content($topic_list) {
     return $html_output;
 }
 
-
+function create_object($title, $objective, $description, $date, $topic, $image) {
+    $project_data = new stdClass();
+    $project_data->title = $title;
+    $project_data->objective = $objective;
+    $project_data->description = $description;
+    $project_data->date = $date;
+    $project_data->topic = $topic;
+    $project_data->image = $image;
+    return $project_data;
+}
