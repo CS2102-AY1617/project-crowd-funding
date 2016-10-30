@@ -10,17 +10,17 @@
     <title> CS2102</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="src/assets/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/main.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/icomoon.css">
-    <link href="assets/css/animate-custom.css" rel="stylesheet">
+    <link href="src/assets/css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="src/assets/css/icomoon.css">
+    <link href="src/assets/css/animate-custom.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
 
-    <script src="assets/js/jquery.min.js"></script>
-	<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+    <script src="src/assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="src/assets/js/modernizr.custom.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -113,7 +113,7 @@
 				<hr>
 				<br>
 				<div class="col-lg-offset-2 col-lg-8">
-					<img class="img-responsive" src="assets/img/iphone.png" alt="">
+					<img class="img-responsive" src="src/assets/img/iphone.png" alt="">
 				</div><!-- col -->
 			</div><!-- row -->
 		</div><!-- container -->
@@ -137,7 +137,7 @@
 				<br>
 				<br>
 				<div class="col-lg-3 centered">
-					<img class="img img-circle" src="assets/img/team/team01.jpg" height="120px" width="120px" alt="">
+					<img class="img img-circle" src="src/assets/img/team/team01.jpg" height="120px" width="120px" alt="">
 					<br>
 					<h4><b>Mike Arney</b></h4>
 					<a href="#" class="icon icon-twitter"></a>
@@ -147,7 +147,7 @@
 				</div><!-- col-lg-3 -->
 
 				<div class="col-lg-3 centered">
-					<img class="img img-circle" src="assets/img/team/team02.jpg" height="120px" width="120px" alt="">
+					<img class="img img-circle" src="src/assets/img/team/team02.jpg" height="120px" width="120px" alt="">
 					<br>
 					<h4><b>Tim Davies</b></h4>
 					<a href="#" class="icon icon-twitter"></a>
@@ -157,7 +157,7 @@
 				</div><!-- col-lg-3 -->
 
 				<div class="col-lg-3 centered">
-					<img class="img img-circle" src="assets/img/team/team03.jpg" height="120px" width="120px" alt="">
+					<img class="img img-circle" src="src/assets/img/team/team03.jpg" height="120px" width="120px" alt="">
 					<br>
 					<h4><b>Michele Lampa</b></h4>
 					<a href="#" class="icon icon-twitter"></a>
@@ -167,7 +167,7 @@
 				</div><!-- col-lg-3 -->
 
 				<div class="col-lg-3 centered">
-					<img class="img img-circle" src="assets/img/team/team04.jpg" height="120px" width="120px" alt="">
+					<img class="img img-circle" src="src/assets/img/team/team04.jpg" height="120px" width="120px" alt="">
 					<br>
 					<h4><b>Jaye Smith</b></h4>
 					<a href="#" class="icon icon-twitter"></a>
@@ -184,7 +184,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-8 centered">
-						<img class="img-responsive" src="assets/img/macbook.png" align="">
+						<img class="img-responsive" src="src/assets/img/macbook.png" align="">
 					</div>
 					<div class="col-lg-4">
 						<h2>We Are Hiring!</h2>
@@ -223,7 +223,7 @@
 				<div class="col-md-4 ">
 			    	<div class="grid mask">
 						<figure>
-							<img class="img-responsive" src="assets/img/portfolio/folio01.jpg" alt="">
+							<img class="img-responsive" src="src/assets/img/portfolio/folio01.jpg" alt="">
 							<figcaption>
 								<h5>DASHBOARD</h5>
 								<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
@@ -244,7 +244,7 @@
 						          <h4 class="modal-title">Project Title</h4>
 						        </div>
 						        <div class="modal-body">
-						          <p><img class="img-responsive" src="assets/img/portfolio/folio01.jpg" alt=""></p>
+						          <p><img class="img-responsive" src="src/assets/img/portfolio/folio01.jpg" alt=""></p>
 						          <p>This project was crafted for Some Name corp. Detail here a little about your job requirements and the tools used. Tell about the challenges faced and what you and your team did to solve it.</p>
 						          <p><b><a href="#">Visit Site</a></b></p>
 						        </div>
@@ -260,7 +260,7 @@
 				<div class="col-md-4">
 			    	<div class="grid mask">
 						<figure>
-							<img class="img-responsive" src="assets/img/portfolio/folio02.jpg" alt="">
+							<img class="img-responsive" src="src/assets/img/portfolio/folio02.jpg" alt="">
 							<figcaption>
 								<h5>UI DESIGN</h5>
 								<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
@@ -273,7 +273,7 @@
 				<div class="col-md-4">
 			    	<div class="grid mask">
 						<figure>
-							<img class="img-responsive" src="assets/img/portfolio/folio03.jpg" alt="">
+							<img class="img-responsive" src="src/assets/img/portfolio/folio03.jpg" alt="">
 							<figcaption>
 								<h5>ANDROID PAGE</h5>
 								<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
@@ -288,7 +288,7 @@
 				<div class="col-md-4 ">
 			    	<div class="grid mask">
 						<figure>
-							<img class="img-responsive" src="assets/img/portfolio/folio04.jpg" alt="">
+							<img class="img-responsive" src="src/assets/img/portfolio/folio04.jpg" alt="">
 							<figcaption>
 								<h5>PROFILE</h5>
 								<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
@@ -301,7 +301,7 @@
 				<div class="col-md-4">
 			    	<div class="grid mask">
 						<figure>
-							<img class="img-responsive" src="assets/img/portfolio/folio05.jpg" alt="">
+							<img class="img-responsive" src="src/assets/img/portfolio/folio05.jpg" alt="">
 							<figcaption>
 								<h5>TWITTER STATUS</h5>
 								<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
@@ -314,7 +314,7 @@
 				<div class="col-md-4">
 			    	<div class="grid mask">
 						<figure>
-							<img class="img-responsive" src="assets/img/portfolio/folio06.jpg" alt="">
+							<img class="img-responsive" src="src/assets/img/portfolio/folio06.jpg" alt="">
 							<figcaption>
 								<h5>PHONE MOCKUP</h5>
 								<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a Look</a>
@@ -416,10 +416,10 @@
     <!-- Placed at the end of the document so the pages load faster -->
 
 
-	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="assets/js/retina.js"></script>
-	<script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="assets/js/smoothscroll.js"></script>
-	<script type="text/javascript" src="assets/js/jquery-func.js"></script>
+	<script type="text/javascript" src="src/assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="src/assets/js/retina.js"></script>
+	<script type="text/javascript" src="src/assets/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="src/assets/js/smoothscroll.js"></script>
+	<script type="text/javascript" src="src/assets/js/jquery-func.js"></script>
   </body>
 </html>
