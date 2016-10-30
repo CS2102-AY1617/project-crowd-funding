@@ -244,7 +244,6 @@
                     <br>
                     <button type="submit" class="btn btn-primary" name="submit">Create Your Project</button>
                 </form>
-
             </div>
             <br>
             <br>

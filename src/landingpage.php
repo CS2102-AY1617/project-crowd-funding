@@ -8,7 +8,6 @@
 		<link rel="shortcut icon" href="assets/ico/favicon.png">
 
 		<title>DREAMFUNDER</title>
-
 		<!-- Bootstrap core CSS -->
 		<link href="assets/css/bootstrap.css" rel="stylesheet">
 

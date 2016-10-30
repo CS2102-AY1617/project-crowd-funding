@@ -25,6 +25,8 @@ $project_data = create_object($title, $objective, $description, $date, $topic, $
 
 $conn = initialise_pgsql_connection();
 
+store_project($conn, $project_data);
+
 function store_project($conn, $project_data) {
     $title = $project_data->title;
     $objective = $project_data->objective;
@@ -34,9 +36,9 @@ function store_project($conn, $project_data) {
     $image = $project_data->image;
     $start_date = date("Y-m-d");
 
-    pg_prepare($conn, "query", "INSERT INTO cs2102_project.projects (owner, title, description, start_date, end_date, topic, objective_amount, status) 
+    pg_prepare($conn, "query", "INSERT INTO cs2102_project.projects (owner, title, description, start_date, end_date, topic, objective_amount, imageurl) 
                                 VALUES ($1, $2, $3, $4, $5, $6, $7, $8)");
-    pg_execute($conn, "query", array("Test", $title, $description, $start_date, $end_date, $topic, $objective, "FALSE"));
+    pg_execute($conn, "query", array("Test", $title, $description, $start_date, $end_date, $topic, $objective, $image));
 
 
 

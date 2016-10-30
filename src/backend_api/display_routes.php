@@ -25,7 +25,7 @@ function display_discover_list($conn) {
             $html_output .= '<div class="col-md-3 ">
                     <div class="grid mask">
                         <figure>
-                            <a href="project-list.php?topic=' . $topic_name . '"><img class="img-responsive" src="assets/img/portfolio/folio01.jpg" alt=""></a>
+                            <a href="project-list.php?topic=' . $topic_name . '"><img class="img-responsive" src="assets/img/topics/'.$topic_name.'.png" alt=""></a>
                             <figcaption>
                                 <h5>' . $topic_name . '</h5>
                             </figcaption>
@@ -41,7 +41,7 @@ function display_discover_list($conn) {
 function display_start_sparks($conn) {
     $topic_list = get_topic_list($conn);
     $html_output = get_tab_header($topic_list);
-    $html_output .= get_tab_content($topic_list);
+    $html_output .= get_tab_content($conn, $topic_list);
     return $html_output;
 }
 
@@ -54,5 +54,7 @@ function display_select_topic($conn) {
     $html_output .= '</select>';
     return $html_output;
 }
+
+
 
 
