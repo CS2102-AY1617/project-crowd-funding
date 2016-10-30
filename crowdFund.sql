@@ -1,3 +1,5 @@
+/* ===================== DDL ====================== */
+
 CREATE TYPE gender AS ENUM ('male','female','others','prefer not to say');
 
 CREATE TYPE usertype AS ENUM ('donor','entrepreneur','admin');
@@ -15,39 +17,43 @@ CREATE TABLE users (
 
 
 CREATE TABLE topics (
-	name VARCHAR(128) PRIMARY KEY,
+	topic_name VARCHAR(128) PRIMARY KEY,
 	number_of_projects INT DEFAULT 0,
-	total_assets INT DEFAULT 0
+	total_assets INT DEFAULT 0,
+	description TEXT
 );
 
 
 CREATE TABLE projects (
 	id INTEGER PRIMARY KEY NOT NULL,
-	owner VARCHAR(128) NOT NULL,
+	owner VARCHAR(128) NOT NULL REFERENCES users(email),
 	title VARCHAR(535) NOT NULL,
 	description TEXT NOT NULL,
 	start_date DATE NOT NULL,
 	end_date DATE NOT NULL,
 	topic VARCHAR(128) NOT NULL,
 	objective_amount INTEGER NOT NULL,
-	status BOOLEAN NOT NULL
+	status INT NOT NULL
 );
 
-CREATE TABLE Transactions (
+CREATE TABLE transactions (
 	id SERIAL PRIMARY KEY NOT NULL,
 	project_id INTEGER NOT NULL REFERENCES projects(id),
-	donor VARCHAR(32) NOT NULL REFERENCES users(Email),
+	donor VARCHAR(32) NOT NULL REFERENCES users(email),
 	transaction_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	amount INT CHECK(Amount > 0)
 );
 
-/*
-	===========================================
- */
+CREATE TABLE comments (
+	project_id INTEGER NOT NULL REFERENCES projects(id),
+	commentor VARCHAR(128) NOT NULL REFERENCES users(email),
+	comment_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	content TEXT,
+	PRIMARY KEY (project_id, commentor)
+);
 
-/**
- Dummy Data
- */
+/* ===================== Initial Data ====================== */
+
 
 INSERT INTO projects (owner, title, description, start_date, end_date, topic, objective_amount, imageurl) VALUES ('testaccount', 'Save the Trees/Save the Sanctuary--Fellow Mortals', 'Fellow Mortals provides care for 2,000 injured and orphaned animals every year. The final step in their recovery comes when they move from the hospital to habitats in the outdoor sanctuary. The sanctuary is set back from a busy road, and large trees keep the sanctuary quiet, peaceful and safe by buffering traffic noise, screening human activity and providing privacy. A transmission company is threatening to remove trees and vegetation, putting the wildlife in the sanctuary at risk of injury.', '2016-08-21', '2016-11-20', 'Environment', '10000', 'https://www.globalgiving.org/pfil/25060/pict_original.jpg');
 INSERT INTO projects (owner, title, description, start_date, end_date, topic, objective_amount, imageurl)  VALUES ('testaccount', 'Helios Touch Modular Lighting', 'Helios is a modular touch screen wall light. This design allows the user to effectively swipe where they want or need light, turning the walls into a canvas for illumination using their hand as the brush.The combination of modularity and the lighting controls equals a product that can be completely tailored by the user. This product provides the opportunity for a lighting solution that is specific to each and every environment.', '2016-10-11', '2016-11-25', 'Design', '100000', 'https://ksr-ugc.imgix.net/assets/014/041/797/a9d0d9225da581b7849fc2feba84099c_original.jpg?w=680&fit=max&v=1476034075&auto=format&q=92&s=33332924f9e65edfe354e1524e8e05da');
@@ -83,54 +89,33 @@ INSERT INTO users (email, user_name, type, hashed_password) VALUES ('miley@gmail
 INSERT INTO users (email, user_name, type, hashed_password) VALUES ('maroon5@gmail.com','imuser5','entrepreneur', '123456');
 INSERT INTO users (email, user_name, type, hashed_password) VALUES ('edsheeran@gmail.com','imuser6','entrepreneur', '123456');
 
-INSERT INTO fundings VALUES ('10','miley@gmail.com','2016-09-19 10:23:54','100');
-INSERT INTO fundings VALUES ('10','gomez@gmail.com','2016-08-14 05:23:54','100');
-INSERT INTO fundings VALUES ('10','beiber@gmail.com','2016-08-16 17:23:54','100');
-INSERT INTO fundings VALUES ('10','rihanna@gmail.com','2016-08-13 19:23:54','5');
+INSERT INTO transactions (project_id, donor, transaction_time, amount) VALUES ('10','miley@gmail.com','2016-09-19 10:23:54','100');
+INSERT INTO transactions (project_id, donor, transaction_time, amount) VALUES ('10','gomez@gmail.com','2016-08-14 05:23:54','100');
+INSERT INTO transactions (project_id, donor, transaction_time, amount) VALUES ('10','beiber@gmail.com','2016-08-16 17:23:54','100');
+INSERT INTO transactions (project_id, donor, transaction_time, amount) VALUES ('10','rihanna@gmail.com','2016-08-13 19:23:54','5');
+INSERT INTO transactions (project_id, donor, transaction_time, amount) VALUES ('9','miley@gmail.com','2016-09-19 10:20:54','80');
+INSERT INTO transactions (project_id, donor, transaction_time, amount) VALUES ('9','gomez@gmail.com','2016-07-14 05:22:54','90');
+INSERT INTO transactions (project_id, donor, transaction_time, amount) VALUES ('9','beyounce@gmail.com','2016-07-16 17:25:54','80');
+INSERT INTO transactions (project_id, donor, transaction_time, amount) VALUES ('9','maroon5@gmail.com','2016-08-10 19:24:54','30');
+INSERT INTO transactions (project_id, donor, transaction_time, amount) VALUES ('9','rihanna@gmail.com','2016-08-12 19:34:54','71');
+INSERT INTO transactions (project_id, donor, transaction_time, amount) VALUES ('8','edsheeran@gmail.com','2016-07-28 19:34:54','397');
+INSERT INTO transactions (project_id, donor, transaction_time, amount) VALUES ('8','edsheeran@gmail.com','2016-08-28 19:34:54','1');
+INSERT INTO transactions (project_id, donor, transaction_time, amount) VALUES ('8','miley@gmail.com','2016-09-01 17:34:54','1');
+INSERT INTO transactions (project_id, donor, transaction_time, amount) VALUES ('7','edsheeran@gmail.com','2016-09-01 17:34:54','18000');
+INSERT INTO transactions (project_id, donor, transaction_time, amount) VALUES ('7','taylor@gmail.com','2016-09-02 17:34:54','9');
+INSERT INTO transactions (project_id, donor, transaction_time, amount) VALUES ('6','taylor@gmail.com','2016-08-02 12:34:54','30');
+INSERT INTO transactions (project_id, donor, transaction_time, amount) VALUES ('5','taylor@gmail.com','2016-09-02 17:34:54','10');
+INSERT INTO transactions (project_id, donor, transaction_time, amount) VALUES ('5','beiber@gmail.com','2016-09-04 17:34:54','10');
+INSERT INTO transactions (project_id, donor, transaction_time, amount) VALUES ('5','taylor@gmail.com','2016-09-03 17:34:54','10');
+INSERT INTO transactions (project_id, donor, transaction_time, amount) VALUES ('5','maroon5@gmail.com','2016-09-05 17:34:54','10');
+INSERT INTO transactions (project_id, donor, transaction_time, amount) VALUES ('5','taylor@gmail.com','2016-09-02 13:34:54','10');
+INSERT INTO transactions (project_id, donor, transaction_time, amount) VALUES ('5','taylor@gmail.com','2016-09-01 17:34:54','10');
+INSERT INTO transactions (project_id, donor, transaction_time, amount) VALUES ('5','edsheeran@gmail.com','2016-09-02 13:34:54','10');
+INSERT INTO transactions (project_id, donor, transaction_time, amount) VALUES ('5','beyounce@gmail.com','2016-09-02 13:34:54','10');
+INSERT INTO transactions (project_id, donor, transaction_time, amount) VALUES ('5','rihanna@gmail.com','2016-07-02 17:34:54','10');
 
-INSERT INTO fundings VALUES ('9','miley@gmail.com','2016-09-19 10:20:54','80');
-INSERT INTO fundings VALUES ('9','gomez@gmail.com','2016-07-14 05:22:54','90');
-INSERT INTO fundings VALUES ('9','beyounce@gmail.com','2016-07-16 17:25:54','80');
-INSERT INTO fundings VALUES ('9','maroon5@gmail.com','2016-08-10 19:24:54','30');
-INSERT INTO fundings VALUES ('9','rihanna@gmail.com','2016-08-12 19:34:54','71');
-
-INSERT INTO fundings VALUES ('8','ladygaga@gmail.com','2016-07-25 19:34:54','10000');
-INSERT INTO fundings VALUES ('8','katyperry@gmail.com','2016-07-28 19:34:54','3000');
-INSERT INTO fundings VALUES ('8','edsheeran@gmail.com','2016-07-28 19:34:54','397');
-INSERT INTO fundings VALUES ('8','edsheeran@gmail.com','2016-08-28 19:34:54','1');
-INSERT INTO fundings VALUES ('8','katyperry@gmail.com','2016-08-28 19:34:54','1');
-INSERT INTO fundings VALUES ('8','miley@gmail.com','2016-09-01 17:34:54','1');
-
-INSERT INTO fundings VALUES ('7','edsheeran@gmail.com','2016-09-01 17:34:54','18000');
-INSERT INTO fundings VALUES ('7','taylor@gmail.com','2016-09-02 17:34:54','9');
-
-INSERT INTO fundings VALUES ('6','taylor@gmail.com','2016-08-02 12:34:54','30');
-
-INSERT INTO fundings VALUES ('5','taylor@gmail.com','2016-09-02 17:34:54','10');
-INSERT INTO fundings VALUES ('5','beiber@gmail.com','2016-09-04 17:34:54','10');
-INSERT INTO fundings VALUES ('5','taylor@gmail.com','2016-09-03 17:34:54','10');
-INSERT INTO fundings VALUES ('5','maroon5@gmail.com','2016-09-05 17:34:54','10');
-INSERT INTO fundings VALUES ('5','taylor@gmail.com','2016-09-02 13:34:54','10');
-INSERT INTO fundings VALUES ('5','taylor@gmail.com','2016-09-01 17:34:54','10');
-INSERT INTO fundings VALUES ('5','edsheeran@gmail.com','2016-09-02 13:34:54','10');
-INSERT INTO fundings VALUES ('5','beyounce@gmail.com','2016-09-02 13:34:54','10');
-INSERT INTO fundings VALUES ('5','rihanna@gmail.com','2016-07-02 17:34:54','10');
-INSERT INTO fundings VALUES ('5','katyperry@gmail.com','2016-07-02 17:54:54','10');
-INSERT INTO fundings VALUES ('5','taylor@gmail.com','2016-07-12 17:44:54','10');
-INSERT INTO fundings VALUES ('5','taylor@gmail.com','2016-07-20 17:24:54','10');
-INSERT INTO fundings VALUES ('5','katyperry@gmail.com','2016-07-20 17:14:54','10');
-INSERT INTO fundings VALUES ('5','beiber@gmail.com','2016-07-12 17:04:54','10');
-INSERT INTO fundings VALUES ('5','ladygaga@gmail.com','2016-09-12 17:04:54','10');
-INSERT INTO fundings VALUES ('5','taylor@gmail.com','2016-09-12 10:34:54','10');
-INSERT INTO fundings VALUES ('5','gomez@gmail.com','2016-09-02 11:34:54','5');
-
-INSERT INTO fundings VALUES ('4','gomez@gmail.com','2016-07-14 11:32:54','825');
-
-INSERT INTO fundings VALUES ('3','gomez@gmail.com','2016-07-14 11:32:54','400');
-INSERT INTO fundings VALUES ('3','beiber@gmail.com','2016-07-14 11:32:54','400');
-
-INSERT INTO fundings VALUES ('2','edsheeran@gmail.com','2016-08-14 15:32:54','4000');
-INSERT INTO fundings VALUES ('2','taylor@gmail.com','2016-08-14 15:12:54','2525');
-
-INSERT INTO fundings VALUES ('1','beyounce@gmail.com','2016-08-10 15:12:54','5250');
-INSERT INTO fundings VALUES ('1','rihanna@gmail.com','2016-08-11 15:12:54','1');
+INSERT INTO comments (project_id, commentor, comment_time, content) VALUES ('10','miley@gmail.com','2016-09-19 10:23:54','This is good!');
+INSERT INTO comments (project_id, commentor, comment_time, content) VALUES ('9','maroon5@gmail.com','2016-09-19 10:23:54','Thumbs up');
+INSERT INTO comments (project_id, commentor, comment_time, content) VALUES ('8','edsheeran@gmail.com','2016-09-19 10:23:54','LOL');
+INSERT INTO comments (project_id, commentor, comment_time, content) VALUES ('9','rihanna@gmail.com','2016-09-19 10:23:54','Nice!!!');
+INSERT INTO comments (project_id, commentor, comment_time, content) VALUES ('8','taylor@gmail.com','2016-09-19 10:23:54','Can some one enlighten me on this?');
