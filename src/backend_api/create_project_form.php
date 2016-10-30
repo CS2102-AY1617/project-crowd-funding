@@ -40,7 +40,13 @@ function store_project($conn, $project_data) {
                                 VALUES ($1, $2, $3, $4, $5, $6, $7, $8)");
     pg_execute($conn, "query", array("Test", $title, $description, $start_date, $end_date, $topic, $objective, $image));
 
+    // get last id
+    $insert_query = pg_query("SELECT id FROM cs2102_project.projects ORDER BY id DESC LIMIT 1;");
+    $insert_row = pg_fetch_row($insert_query);
+    $insert_id = $insert_row[0];
 
+    header('Location: ../project.php?id='. $insert_id);
+    die;
 
 }
 

@@ -33,23 +33,6 @@ function get_tab_content($conn, $topic_list) {
     $html_output .= '
         <div class="tab-pane active">
             <h3>Choose the correct topic will help other locate your project easily</h3>
-            <div class="row">
-                <div class="col-lg-10 blog-bg">
-                    <div class="col-lg-2 centered">
-                        <br>
-                        <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
-                        <h4>Jaye Smith</h4>
-                        <h5>Published Aug 30.</h5>
-                    </div>
-                    <div class="col-lg-10 blog-content">
-                        <h2>We Define Success</h2>
-                        <p>Armed with insight, we embark on designing the right brand experience that engages the audience. It encompasses both the strategic direction and creative execution that solves a business problem and brings the brand to life.</p>
-                        <p>In the create phase, the big idea is unleashed to the world through different media touchpoints. This is when we watch the audience fall in love all over again with our client’s brand.</p>
-                        <p><a href="project.php" class="icon icon-link"> Read More</a></p>
-                        <br>
-                    </div>
-                </div>
-            </div>
         </div>
     ';
     // END default display
@@ -108,14 +91,16 @@ function display_suggested_projects($conn, $topic_name) {
                     <h5>Start: '.$start_date_display.'.</h5>
                     <h5>End: '.$end_date_display.'.</h5>
                 </div>
-                <div class="col-lg-10 blog-content">
+                <div class="col-lg-10 blog-content" >
                     <h2>'.$title.'</h2>
                     <p>'. $description .'<p>
-                    <p><a href="project.php" class="icon icon-link"> Read More</a></p>
+                    <p><a href="project.php?id='. $project_id .'" class="icon icon-link"> Read More</a></p>
                     <br>
                 </div>
             </div>
         </div>
+        <br>
+
     ';
         }
     }
