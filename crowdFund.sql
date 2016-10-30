@@ -2,7 +2,7 @@ CREATE TYPE gender AS ENUM ('male','female','others','prefer not to say');
 
 CREATE TYPE usertype AS ENUM ('donor','entrepreneur','admin');
 
-CREATE TABLE Users (
+CREATE TABLE users (
 	email VARCHAR(128) PRIMARY KEY,
 	user_name VARCHAR(128) NOT NULL,
 	hashed_password VARCHAR(32) NOT NULL,
@@ -14,27 +14,14 @@ CREATE TABLE Users (
 );
 
 
-CREATE TABLE Topics (
+CREATE TABLE topics (
 	name VARCHAR(128) PRIMARY KEY,
 	number_of_projects INT DEFAULT 0,
 	total_assets INT DEFAULT 0
 );
 
-INSERT INTO Topics (name) VALUES ('Art');
-INSERT INTO Topics (name) VALUES ('Environment');
-INSERT INTO Topics (name) VALUES ('Design');
-INSERT INTO Topics (name) VALUES ('Crafts');
-INSERT INTO Topics (name) VALUES ('Fashion');
-INSERT INTO Topics (name) VALUES ('Food');
-INSERT INTO Topics (name) VALUES ('Games');
-INSERT INTO Topics (name) VALUES ('Music');
-INSERT INTO Topics (name) VALUES ('Photography');
-INSERT INTO Topics (name) VALUES ('Technology');
-INSERT INTO Topics (name) VALUES ('Publishing');
-INSERT INTO Topics (name) VALUES ('Animals');
 
-CREATE TABLE projects
-(
+CREATE TABLE projects (
 	id INTEGER PRIMARY KEY NOT NULL,
 	owner VARCHAR(128) NOT NULL,
 	title VARCHAR(535) NOT NULL,
@@ -46,100 +33,55 @@ CREATE TABLE projects
 	status BOOLEAN NOT NULL
 );
 
+CREATE TABLE Transactions (
+	id SERIAL PRIMARY KEY NOT NULL,
+	project_id INTEGER NOT NULL REFERENCES projects(id),
+	donor VARCHAR(32) NOT NULL REFERENCES users(Email),
+	transaction_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	amount INT CHECK(Amount > 0)
+);
+
 /*
 	===========================================
  */
 
+/**
+ Dummy Data
+ */
 
+INSERT INTO projects (owner, title, description, start_date, end_date, topic, objective_amount, imageurl) VALUES ('testaccount', 'Save the Trees/Save the Sanctuary--Fellow Mortals', 'Fellow Mortals provides care for 2,000 injured and orphaned animals every year. The final step in their recovery comes when they move from the hospital to habitats in the outdoor sanctuary. The sanctuary is set back from a busy road, and large trees keep the sanctuary quiet, peaceful and safe by buffering traffic noise, screening human activity and providing privacy. A transmission company is threatening to remove trees and vegetation, putting the wildlife in the sanctuary at risk of injury.', '2016-08-21', '2016-11-20', 'Environment', '10000', 'https://www.globalgiving.org/pfil/25060/pict_original.jpg');
+INSERT INTO projects (owner, title, description, start_date, end_date, topic, objective_amount, imageurl)  VALUES ('testaccount', 'Helios Touch Modular Lighting', 'Helios is a modular touch screen wall light. This design allows the user to effectively swipe where they want or need light, turning the walls into a canvas for illumination using their hand as the brush.The combination of modularity and the lighting controls equals a product that can be completely tailored by the user. This product provides the opportunity for a lighting solution that is specific to each and every environment.', '2016-10-11', '2016-11-25', 'Design', '100000', 'https://ksr-ugc.imgix.net/assets/014/041/797/a9d0d9225da581b7849fc2feba84099c_original.jpg?w=680&fit=max&v=1476034075&auto=format&q=92&s=33332924f9e65edfe354e1524e8e05da');
+INSERT INTO projects (owner, title, description, start_date, end_date, topic, objective_amount, imageurl)  VALUES ('testaccount', 'Haloed Houseplant Holiday Cards', 'A Reminder That Everything Is Alive This Holiday Season', '2016-10-26', '2017-01-05', 'Crafts', '1100', 'https://ksr-ugc.imgix.net/assets/014/170/581/2be26c1ef433051d9cde9c4708a46ca6_original.JPG?w=680&fit=max&v=1476846877&auto=format&q=92&s=a4fac7760d9255e9162303e463852304');
+INSERT INTO projects (owner, title, description, start_date, end_date, topic, objective_amount, imageurl)  VALUES ('testaccount', 'Food Angel- Food Rescue & Food Assistance Program', 'With the mission of "Waste Not, Hunger Not", the program rescues edible surplus food from the food industry that would otherwise be disposed of as waste. The rescued food items will then be prepared as nutritious hot meals in our 2 central kitchens and be redistributed to serve the underprivileged communities in Hong Kong. Today, we serve over 6,000 Free Hot Meals & Food Packs daily to people in need of food assistance and rescue 4,000kg surplus food from going to our landfills every day.', '2016-10-01', '2017-03-05', 'Food', '90000', 'https://www.globalgiving.org/pfil/22113/ph_22113_80484.jpg');
+INSERT INTO projects (owner, title, description, start_date, end_date, topic, objective_amount, imageurl)  VALUES ('testaccount', 'Shadows of Esteren - A Medieval Horror RPG: Dearg', 'The multi-award winning dark fantasy RPG from France, between Ravenloft, Game of Thrones and Call of Cthulhu.', '2016-07-01', '2017-01-05', 'Games', '20000', 'http://beggingforxp.com/wp-content/uploads/2014/05/spirit_forrest-752x440.jpg');
+INSERT INTO projects (owner, title, description, start_date, end_date, topic, objective_amount, imageurl)  VALUES ('testaccount', 'TANKY DRONE: Insanely Fast FPV Racing Quadcopter', 'Breathtaking performance and race-proven technology! Speed at 100mph or soar like a bird and see the world like never before.', '2016-09-01', '2016-11-10', 'Technology', '150000', 'http://www.tankydrone.com/img/gallery/05.jpg');
+INSERT INTO projects (owner, title, description, start_date, end_date, topic, objective_amount, imageurl)  VALUES ('testaccount', 'Civic Technology: The True Story of Hackers for Good', 'Civic Tech is a book about geeks improving government & community life for everyone. Come join us!', '2016-10-01', '2016-11-30', 'Publishing', '1000', 'https://pbs.twimg.com/media/CviRVR6UAAAkgli.jpg');
+INSERT INTO projects (owner, title, description, start_date, end_date, topic, objective_amount, imageurl)  VALUES ('testaccount', 'Veterinary care for relinquished animals', 'Some animals relinquished to shelters have not received the most basic of veterinary care. The Dumb Friends League is committed to providing comprehensive veterinary care to animals relinquished to our centers in order to get them healthy and ready for adoption. Animals often need medical intervention such as vaccines, dental procedures and complex surgeries, including orthopedic procedures, eye surgery or mass removal. Thousands of animals arrive here annually with medical needs.', '2016-10-20', '2016-12-30', 'Animals', '1000', 'https://www.globalgiving.org/pfil/23057/ph_23057_83336.jpg');
+INSERT INTO projects (owner, title, description, start_date, end_date, topic, objective_amount, imageurl)  VALUES ('testaccount', 'Beautifully Nerdy Deep Space Paintings & Prints - FQTQ', 'Deep-space oil paintings & fine art prints, featuring breathtaking galaxies, nebulae, and black holes. Art for awesome nerdy people.', '2016-10-20', '2017-01-03', 'Arts', '4000', 'https://s-media-cache-ak0.pinimg.com/564x/ce/7c/33/ce7c33973a34a597ca2ddf2807d44b8e.jpg');
 
-CREATE TABLE Transactions (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	ProjectID INTEGER NOT NULL REFERENCES Projects(id),
-	Donor VARCHAR(32) NOT NULL REFERENCES Users(Email),
-	TransactionTime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	Amount INT CHECK(Amount > 0)
-);
+INSERT INTO topics (topic_name, description) VALUES ('Arts','Art is a diverse range of human activities in creating visual, auditory or performing artifacts (artworks), expressing the author''s imaginative or technical skill, intended to be appreciated for their beauty or emotional power. In their most general form these activities include the production of works of art, the criticism of art, the study of the history of art, and the aesthetic dissemination of art.');
+INSERT INTO topics (topic_name, description) VALUES ('Environment','The natural environment encompasses all living things and non-living things occurring naturally. The earth is the place we rely on to live. Save the earth in your project with other people.');
+INSERT INTO topics (topic_name, description) VALUES ('Design','Design is the creation of a plan or convention for the construction of an object, system or measurable human interaction, as in architectural blueprints, engineering drawings, business processes, circuit diagrams, sewing patterns, etc. ');
+INSERT INTO topics (topic_name, description) VALUES ('Craft','A craft is a pastime or a profession that requires particular skills and knowledge of skilled work. It is an activity that involves making something in a skillful way by using your hands.');
+INSERT INTO topics (topic_name, description) VALUES ('Fashion','Fashion is a popular style or practice, especially in clothing, footwear, accessories, makeup, body, or furniture. Fashion is a distinctive and often constant trend in the style in which a person dresses. It is the prevailing styles in behaviour and the newest creations of textile designers.');
+INSERT INTO topics (topic_name, description) VALUES ('Food','Food is an essential we are living with. Any project aiming to solve food crisis should be found here.');
+INSERT INTO topics (topic_name, description) VALUES ('Game','A game is structured form of play, usually undertaken for enjoyment and sometimes used as an educational tool. Ideas about any type of games (sports games, board games, video games, etc.) should be shared here.');
+INSERT INTO topics (topic_name, description) VALUES ('Music','Music is an art form and cultural activity whose medium is sound and silence, which exist in time. The common elements of music are pitch (which governs melody and harmony), rhythm (and its associated concepts tempo, meter, and articulation), dynamics (loudness and softness), and the sonic qualities of timbre and texture (which are sometimes termed the "color" of a musical sound).');
+INSERT INTO topics (topic_name, description) VALUES ('Photography','Photography is the science, art, application and practice of creating durable images by recording light or other electromagnetic radiation, either electronically by means of an image sensor, or chemically by means of a light-sensitive material such as photographic film.');
+INSERT INTO topics (topic_name, description) VALUES ('Technology','Technology ("science of craft" in Greek) is the collection of techniques, skills, methods and processes used in the production of goods or services or in the accomplishment of objectives, such as scientific investigation.');
+INSERT INTO topics (topic_name, description) VALUES ('Publication','To publish is to make content available to the general public. While specific use of the term may vary among countries, it is usually applied to text, images, or other audio-visual content on any traditional medium, including paper (newspapers, magazines, catalogs, etc.). The word publication means the act of publishing, and also refers to any printed copies.');
+INSERT INTO topics (topic_name, description) VALUES ('Animal','The word "animal" comes from the Latin animalis, meaning having breath, having soul or living being. They are the friends of human beings on the earth. Any project involving animals should be here.');
 
-
-
-INSERT INTO Users VALUES ('rootA@gmail.com','imroot','admin');
-INSERT INTO Users VALUES ('rootB@gmail.com','imroot','admin');
-INSERT INTO Users VALUES ('beyounce@gmail.com','imbeyounce','donor');
-INSERT INTO Users VALUES ('rihanna@gmail.com','imrihanna','donor');
-INSERT INTO Users VALUES ('ladygaga@gmail.com','imuser','donor');
-INSERT INTO Users VALUES ('katyperry@gmail.com','imuser','donor');
-INSERT INTO Users VALUES ('taylor@gmail.com','imuser','donor');
-INSERT INTO Users VALUES ('beiber@gmail.com','imuser','donor');
-INSERT INTO Users VALUES ('gomez@gmail.com','imuser','donor');
-INSERT INTO Users VALUES ('miley@gmail.com','imuser','donor');
-INSERT INTO Users VALUES ('maroon5@gmail.com','imuser','donor');
-INSERT INTO Users VALUES ('edsheeran@gmail.com','imuser','donor');
-
-INSERT INTO donors VALUES ('beyounce@gmail.com','Beyonce Giselle Knowles-Carter','female','35');
-INSERT INTO donors VALUES ('rihanna@gmail.com','Robyn Rihanna Fenty','female','28');
-INSERT INTO donors VALUES ('ladygaga@gmail.com','Stefani Joanne Angelina Germanotta','female','30');
-INSERT INTO donors VALUES ('katyperry@gmail.com','Katheryn Elizabeth Hudson','female','31');
-INSERT INTO donors VALUES ('taylor@gmail.com','Taylor Alison Swift','female','26');
-INSERT INTO donors VALUES ('beiber@gmail.com','Justin Drew Bieber','male','22');
-INSERT INTO donors VALUES ('gomez@gmail.com','Selena Marie Gomez','female','24');
-INSERT INTO donors VALUES ('miley@gmail.com','Miley Ray Cyrus','female','23');
-INSERT INTO donors VALUES ('maroon5@gmail.com','Adam Levine','male','37');
-INSERT INTO donors VALUES ('edsheeran@gmail.com','Edward Christopher','male','25');
-
-INSERT INTO Users VALUES ('savh@gmail.com','imuser','entrepreneur');
-INSERT INTO Users VALUES ('awwa@gmail.com','imuser','entrepreneur');
-INSERT INTO Users VALUES ('fmwh@gmail.com','imuser','entrepreneur');
-INSERT INTO Users VALUES ('idv@gmail.com','imuser','entrepreneur');
-INSERT INTO Users VALUES ('lgbtvoicetz@gmail.com','imuser','entrepreneur');
-INSERT INTO Users VALUES ('serudsindia@gmail.com','imuser','entrepreneur');
-
-INSERT INTO entrepreneurs VALUES ('S61SS0119J','savh@gmail.com','Singapore Association of the Visually Handicapped','www.savh.org.sg',null,null);
-INSERT INTO entrepreneurs VALUES ('S70SS0021J','awwa@gmail.com','Asian Womens Welfare Association','www.awwa.org.sg',null,null);
-INSERT INTO entrepreneurs VALUES ('3728DU567G','fmwh@gmail.com','Fellow Mortals Wildlife Hospital','www.fellowmortals.org','Lake Geneva, Wisconsin - USA',null);
-INSERT INTO entrepreneurs VALUES ('3D2843728H','idv@gmail.com','International Disaster Volunteers (IDV)','www.idvolunteers.org','Bristol, Somerset - United Kingdom',null);
-INSERT INTO entrepreneurs VALUES ('E8392427UY','lgbtvoicetz@gmail.com','LGBT Voice of Tanzania','www.lgbtvoicetz.org','Dar es salaam - Tanzania, United Republic of',null);
-INSERT INTO entrepreneurs VALUES ('EIUF20383H','serudsindia@gmail.com','Sai Educational Rural & Urban Development Society (SERUDS)','www.serudsindia.org','KURNOOL, ANDHRA PRADESH - India',null);
-
-INSERT INTO projects VALUES ('1','S61SS0119J','Braille books for 4000 visually challenged kids',
-	'This project provides Braille books for 4000 visually challenged students. This will help them become independent and own personal copies of the books as that is lacking now. This will help in widening their horizons and gaining immense knowledge. Singapore Association of the Visually Handicapped (SAVH),based in Singapore, is a well-known non-profit organization working at the grass roots level for education, employment and rehabilitation of people with visual challenges from rural areas.',
-	'2016-06-08','2017-09-08','Children','20000','5251','TRUE'
-);
-INSERT INTO projects VALUES ('2','S70SS0021J','Girls2Pioneers',
-	'Women are still underrepresented in Science, Technology, Engineering, and Mathematics (STEM), despite the fact that these fields are growing exponentially. The Asian Womens Welfare Association is implementing a programme to encourage more girls in Singapore to take up careers in STEM, especially those who are at risk or from low income families. Through day camps tailored by our curriculum developer Destination Imagination, we hope to engage the next generation of pioneers and innovators.',
-	'2016-07-08','2017-06-08','Women and Girls','30000','6525','TRUE'
-);
-INSERT INTO projects VALUES ('3','3728DU567G','Save the Trees/Save the Sanctuary--Fellow Mortals',
-	'Fellow Mortals provides care for 2,000 injured and orphaned animals every year. The final step in their recovery comes when they move from the hospital to habitats in the outdoor sanctuary. The sanctuary is set back from a busy road, and large trees keep the sanctuary quiet, peaceful and safe by buffering traffic noise, screening human activity and providing privacy. A transmission company is threatening to remove trees and vegetation, putting the wildlife in the sanctuary at risk of injury.',
-	'2016-07-10','2017-10-11','Animals','12000','800','TRUE'
-);
-INSERT INTO projects VALUES ('4','3728DU567G','Fellow Mortals Wildlife Hospital',
-	'Fellow Mortals is a professional wildlife hospital that cares for injured and orphaned wild animals brought to the hospital by compassionate members of the community. Treated animals include songbirds, waterfowl, hawks, eagles, owls, rabbits, red and grey squirrels, opossum, woodchucks, beaver, and many other species. More than 40,000 wild animals of more than 100 species have received care since 1985, with the majority successfully returned to the wild.',
-	'2016-07-10','2017-10-11','Animals','10000','825','TRUE'
-);
-INSERT INTO projects VALUES ('5','3D2843728H','A Daycare Center for Angel',
-	'Angel is four years old and lives in the community of Matin-ao with her grandparents and older brother. Angels daycare center was badly damaged by typhoon Haiyan which tore through the Philippines in November 2013. The building is still totally unusable, so Angel and her classmates are missing out on important opportunities for early learning. With your help, we will repair the building and give Angel back the daycare center she needs to build a brighter future.',
-	'2016-07-15','2016-10-15','Disaster Recovery','1000','165','TRUE'
-);
-INSERT INTO projects VALUES ('6','3D2843728H','Give Noldy a year of school',
-	'This project will provide a year of education for 7 year old Noldy. Noldy arrived at the HTDC orphanage in 2010, along with his brother and sister. His dad had to make the heart breaking decision to leave them at the orphanage after his wife died in the 2010 earthquake, leaving him with eight children he couldnt afford to care for alone. With your help, we will be able to provide Noldy with the education he needs to build a secure future.',
-	'2016-07-18','2017-10-17','Children','600','30','TRUE'
-);
-INSERT INTO projects VALUES ('7','3D2843728H','Change Lives with English Education',
-	'The English in Mind (EIM) Institute is a non-profit, Haitian led English school in Port-au-Prince, Haiti. The school teaches English as a vocational skill to help students find the long-term employment they need to build a secure future. The school has around 200 students and also boasts a teacher training programme and networking facility to help students find work and develop essential job skills.',
-	'2016-07-20','2017-02-21','Education','25000','18009','TRUE'
-);
-INSERT INTO projects VALUES ('8','E8392427UY','Donate to support Usalama House- LGBTQ safe space',
-	'Usalama House (LGBT homeless shelter) provides a safe and comfortable home for LGBT youth 6-24 years who are kicked out of their parents home because of their sex orientation and gender identity. The home also provide nutritious food, decent clothing, healthcare and valuable education which will help them obtain requisite skills as either entrepreneurs or entrepreneurs to be self employed, employ others and be marketable wherever they find themselves in this world.',
-	'2016-07-21','2016-12-11','LGBTQ','14000','13400','TRUE'
-);
-INSERT INTO projects VALUES ('9','EIUF20383H','Food Sponsorship for Destitute Old Age Person',
-	'This microproject helps to provide midday meal to homeless old age person for a year. Every day we provide nutritious food to 30 destitute elders, who are homeless, neglected by their families. Due to poverty some families are not able to feed these older persons. Among 30 poor old age persons, some of them use to begging at neighbor houses, near by locations to feed themselves. By seeing this since 2009, we are providing nutritious food to 30 destitute elders in Kurnool District of AP.',
-	'2016-07-22','2016-10-11','Hunger','590','351','TRUE'
-);
-INSERT INTO projects VALUES ('10','EIUF20383H','Sponsor a Girl Child to access Quality Education',
-	'This micro project provides quality education to the poor girl child age group 12 to 16yrs studying VI to X Std, as Education is a basic human right, vital to personal & societal development and well-being. This project protects Girl Child from Child Marriages, Trafficking, Domestic Servants, Eradication of illiteracy & Provides Good Quality Education. From this unique project deprived girl child get timely education material support, uniforms, shoes, footwear, test papers, dictionary',
-	'2016-08-10','2016-11-15','Children','390','305','TRUE'
-);
+INSERT INTO users (email, user_name, type, hashed_password) VALUES ('rootA@gmail.com','imroota','admin', '123456');
+INSERT INTO users (email, user_name, type, hashed_password) VALUES ('rootB@gmail.com','imrootb','admin', '123456');
+INSERT INTO users (email, user_name, type, hashed_password) VALUES ('beyounce@gmail.com','imbeyounce','donor', '123456');
+INSERT INTO users (email, user_name, type, hashed_password) VALUES ('rihanna@gmail.com','imrihanna','donor', '123456');
+INSERT INTO users (email, user_name, type, hashed_password) VALUES ('taylor@gmail.com','imuser1','donor', '123456');
+INSERT INTO users (email, user_name, type, hashed_password) VALUES ('beiber@gmail.com','imuser2','donor', '123456');
+INSERT INTO users (email, user_name, type, hashed_password) VALUES ('gomez@gmail.com','imuser3','donor', '123456');
+INSERT INTO users (email, user_name, type, hashed_password) VALUES ('miley@gmail.com','imuser4','donor', '123456');
+INSERT INTO users (email, user_name, type, hashed_password) VALUES ('maroon5@gmail.com','imuser5','entrepreneur', '123456');
+INSERT INTO users (email, user_name, type, hashed_password) VALUES ('edsheeran@gmail.com','imuser6','entrepreneur', '123456');
 
 INSERT INTO fundings VALUES ('10','miley@gmail.com','2016-09-19 10:23:54','100');
 INSERT INTO fundings VALUES ('10','gomez@gmail.com','2016-08-14 05:23:54','100');

@@ -6,11 +6,14 @@
  * Time: 3:27 PM
  */
 
+
 function get_topic_list($conn) {
-    $query = "SELECT topic_name FROM cs2102_project.topics";
+    $query = "SELECT topic_name, description FROM cs2102_project.topics";
     $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
     return pg_fetch_all($results);
 }
+
+
 
 function get_tab_header($topic_list) {
     $html_output = '<ul class="nav nav-tabs">';
@@ -25,6 +28,7 @@ function get_tab_header($topic_list) {
 
 function get_tab_content($conn, $topic_list) {
     $html_output = '<div class="tab-content">';
+
     // default display
     $html_output .= '
         <div class="tab-pane active">
@@ -48,13 +52,15 @@ function get_tab_content($conn, $topic_list) {
             </div>
         </div>
     ';
+    // END default display
+
     foreach ($topic_list as $row) {
         $topic_name = $row['topic_name'];
             $html_output .= '
             <div class="tab-pane" id="'.$topic_name.'">
                 <h3>What is ' . $topic_name . '?</h3>
                 <div>
-                Art is a diverse range of human activities in creating visual, auditory or performing artifacts (artworks), expressing the author\'s imaginative or technical skill, intended to be appreciated for their beauty or emotional power.[1][2] In their most general form these activities include the production of works of art, the criticism of art, the study of the history of art, and the aesthetic dissemination of art.
+                '.$row['description'].'
                 </div>
                 <h3>Popular Projects You May Want to Reference</h3>
                 '. display_suggested_projects($conn, $topic_name) . '
@@ -77,23 +83,24 @@ function create_object($title, $objective, $description, $date, $topic, $image) 
 
 function display_suggested_projects($conn, $topic_name) {
     $html_output = "";
-    $query = "SELECT * FROM cs2102_project.projects WHERE topic='".$topic_name ."' LIMIT 1";
+    $query = "SELECT * FROM cs2102_project.projects WHERE topic='".$topic_name ."' LIMIT 2";
     $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
     $project_data_array = pg_fetch_all($results);
-    foreach ($project_data_array as $project) {
-        $project_id = $project['id'];
-        $owner = $project['owner'];
-        $title = $project['title'];
-        $description = $project['description'];
-        $start_date = $project['start_date'];
-        $start_date_display = date("jS F Y", strtotime($start_date));
-        $end_date = $project['end_date'];
-        $end_date_display = date("jS F Y", strtotime($end_date));
-        $objective_amount = $project['objective_amount'];
-        //TODO: $completed_amount
-        $html_output .= '
+    if (is_array($project_data_array) || is_object($project_data_array)) {
+        foreach ($project_data_array as $project) {
+            $project_id = $project['id'];
+            $owner = $project['owner'];
+            $title = $project['title'];
+            $description = $project['description'];
+            $start_date = $project['start_date'];
+            $start_date_display = date("jS F Y", strtotime($start_date));
+            $end_date = $project['end_date'];
+            $end_date_display = date("jS F Y", strtotime($end_date));
+            $objective_amount = $project['objective_amount'];
+            //TODO: $completed_amount, $percentage of complete
+            $html_output .= '
         <div class="row">
-            <div class="col-lg-10 blog-bg">
+            <div class="col-lg-12 blog-bg">
                 <div class="col-lg-2 centered">
                     <br>
                     <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
@@ -110,7 +117,10 @@ function display_suggested_projects($conn, $topic_name) {
             </div>
         </div>
     ';
+        }
     }
-
+    if ($html_output == "") {
+        $html_output = "There is no projects under this category.";
+    }
     return $html_output;
 }
