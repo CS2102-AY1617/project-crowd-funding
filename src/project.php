@@ -1,3 +1,14 @@
+<?php
+    include "backend_api/config.php";
+    include "backend_api/utils.php";
+
+    $conn = initialise_pgsql_connection();
+
+    $project_id = $_GET['id'];
+    $project_data = get_project_by_id($conn, $project_id);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +18,7 @@
     <meta name="author" content="Carlos Alvarez - Alvarez.is - blacktie.co">
     <link rel="shortcut icon" href="assets/ico/favicon.png">
 
-    <title> CS2102</title>
+    <title> CS2102 </title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -65,28 +76,32 @@ include "header.php";
             <!-- Blog Post -->
 
             <!-- Title -->
-            <h1>Project Title</h1>
+            <h1><?php echo $project_data['title'] ?></h1>
 
             <!-- Author -->
             <p class="lead">
-                by <a href="#">Owner of the Project</a>
+                by <a href="#"><?php echo $project_data['owner'] ?></a>
             </p>
 
 
             <!-- Date/Time -->
-            <p><span class="glyphicon glyphicon-time"></span> Posted on August 24, 2013 at 9:00 PM</p>
+            <p><span class="glyphicon glyphicon-time"></span> Created on <?php echo date("jS F Y", strtotime($project_data['start_date'])); ?> </p>
 
 
             <!-- Preview Image -->
-            <img class="img-responsive" src="assets/img/macbook.png" alt="">
+            <?php
+                $imageurl = $project_data['imageurl'];
+                if ($imageurl) {
+                    echo '<img class="img-responsive" src="'.$imageurl.'" alt="">';
 
+                }
+            ?>
 
-            <!-- Post Content -->
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
+            <p class="lead" style="padding-top:50px">
+                <?php echo $project_data['description'] ?>
+
+            </p>
+
 
 
             <!-- Blog Comments -->
@@ -104,47 +119,6 @@ include "header.php";
 
             <hr>
 
-            <!-- Posted Comments -->
-
-            <!-- Comment -->
-            <div class="media">
-                <a class="pull-left" href="#">
-                    <img class="media-object" src="http://placehold.it/64x64" alt="">
-                </a>
-                <div class="media-body">
-                    <h4 class="media-heading">Start Bootstrap
-                        <small>August 25, 2014 at 9:30 PM</small>
-                    </h4>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                </div>
-            </div>
-
-            <!-- Comment -->
-            <div class="media">
-                <a class="pull-left" href="#">
-                    <img class="media-object" src="http://placehold.it/64x64" alt="">
-                </a>
-                <div class="media-body">
-                    <h4 class="media-heading">Start Bootstrap
-                        <small>August 25, 2014 at 9:30 PM</small>
-                    </h4>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    <!-- Nested Comment -->
-                    <div class="media">
-                        <a class="pull-left" href="#">
-                            <img class="media-object" src="http://placehold.it/64x64" alt="">
-                        </a>
-                        <div class="media-body">
-                            <h4 class="media-heading">Nested Start Bootstrap
-                                <small>August 25, 2014 at 9:30 PM</small>
-                            </h4>
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                        </div>
-                    </div>
-                    <!-- End Nested Comment -->
-                </div>
-            </div>
-
         </div>
 
         <!-- Blog Sidebar Widgets Column -->
@@ -154,10 +128,17 @@ include "header.php";
 
 
             <!-- Blog Categories Well -->
+
+
+            <!-- Side Widget Well -->
             <div class="well">
-                <h4>Total Fund</h4>
+                <h4>Summary</h4>
+                <p>L=um odit aliquam repellat tempore quos aspernatur vero.</p>
+            </div>
+            <div class="well">
+                <h4>Backers Comment</h4>
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         <ul class="list-unstyled">
                             <li><a href="#">Art</a>
                             </li>
@@ -173,46 +154,8 @@ include "header.php";
                             </li>
                         </ul>
                     </div>
-                    <div class="col-lg-6">
-                        <ul class="list-unstyled">
-                            <li><a href="#">Food</a>
-                            </li>
-                            <li><a href="#">Game</a>
-                            </li>
-                            <li><a href="#">Journalism</a>
-                            </li>
-                            <li><a href="#">Music</a>
-                            </li>
-                            <li><a href="#">Photography</a>
-                            </li>
-                            <li><a href="#">Technology</a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
                 <!-- /.row -->
-            </div>
-
-            <!-- Side Widget Well -->
-            <div class="well">
-                <h4>Backers</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
-            </div>
-            <div class="well">
-                <h4>Backers</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
-            </div>
-            <div class="well">
-                <h4>Backers</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
-            </div>
-            <div class="well">
-                <h4>Backers</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
-            </div>
-            <div class="well">
-                <h4>Backers</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
             </div>
 
         </div>

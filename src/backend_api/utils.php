@@ -109,3 +109,9 @@ function display_suggested_projects($conn, $topic_name) {
     }
     return $html_output;
 }
+
+function get_project_by_id($conn, $project_id) {
+    $query = "SELECT * FROM cs2102_project.projects WHERE id=" . $project_id;
+    $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
+    return pg_fetch_all($results)[0];  // fetch one
+}
