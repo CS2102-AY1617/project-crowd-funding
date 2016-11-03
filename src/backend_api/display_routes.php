@@ -55,6 +55,20 @@ function display_select_topic($conn) {
     return $html_output;
 }
 
+function display_landing_popular($conn) {
+    $query = "SELECT *  FROM cs2102_project.transactions t, cs2102_project.projects p 
+              WHERE t.project_id = p.id GROUP BY t.project_id, t.id, p.id ORDER BY COUNT(*) DESC LIMIT 2";
+    $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
+    $popular_projects = pg_fetch_all($results);
+    $html_output = "";
+    foreach ($popular_projects as $row) {
+        $html_output .= display_single_project_in_box($row);
+    }
+    return $html_output;
+}
+
+
+
 
 
 
