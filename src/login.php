@@ -1,9 +1,7 @@
 <?php
-if (!isset($_SESSION['user_email'])) {
-    session_start();
-    if (isset($_SESSION['user_email'])) {
-        header("Location: landing_page.php");
-    }
+session_start();
+if (isset($_SESSION['user_email'])) {
+    header("Location: landing_page.php");
 }
 
 

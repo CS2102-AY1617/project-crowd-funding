@@ -1,11 +1,14 @@
 <?php
+    session_start();
+    if (!isset($_SESSION['user_email'])) {
+        header("Location: login.php");
+    }
+
 	include "backend_api/display_routes.php";
 	include "backend_api/config.php";
 
 	$conn = initialise_pgsql_connection();
-    if (!isset($_SESSION['user_email'])) {
-        session_start();
-    }
+
 ?>
 
 <!DOCTYPE html>
