@@ -25,7 +25,7 @@ function display_discover_list($conn) {
             $html_output .= '<div class="col-md-3 ">
                     <div class="grid mask">
                         <figure>
-                            <a href="project-list.php?topic=' . $topic_name . '"><img class="img-responsive" src="assets/img/topics/'.$topic_name.'.png" alt=""></a>
+                            <a href="project_list.php?topic=' . $topic_name . '"><img class="img-responsive" src="assets/img/topics/'.$topic_name.'.png" alt=""></a>
                             <figcaption>
                                 <h5>' . $topic_name . '</h5>
                             </figcaption>
@@ -62,12 +62,14 @@ function display_landing_popular($conn) {
     $popular_projects = pg_fetch_all($results);
     $html_output = "";
     foreach ($popular_projects as $row) {
-        $html_output .= display_single_project_in_box($row);
+        $html_output .= display_single_project($row);
     }
     return $html_output;
 }
 
-
+function display_project_list() {
+    
+}
 
 
 

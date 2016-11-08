@@ -13,8 +13,6 @@ function get_topic_list($conn) {
     return pg_fetch_all($results);
 }
 
-
-
 function get_tab_header($topic_list) {
     $html_output = '<ul class="nav nav-tabs">';
 
@@ -110,12 +108,12 @@ function display_suggested_projects($conn, $topic_name) {
 }
 
 function get_project_by_id($conn, $project_id) {
-    $query = "SELECT * FROM cs2102_project.projects WHERE id=" . $project_id;
+    $query = "SELECT p.*, u.avatar_url FROM cs2102_project.projects p, cs2102_project.users u WHERE p.owner = u.email AND p.id=" . $project_id;
     $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
     return pg_fetch_all($results)[0];  // fetch one
 }
 
-function display_single_project_in_box($project) {
+function display_single_project($project) {
     $project_id = $project['id'];
     $owner = $project['owner'];
     $title = $project['title'];
@@ -124,6 +122,7 @@ function display_single_project_in_box($project) {
     $start_date_display = date("jS F Y", strtotime($start_date));
     $end_date = $project['end_date'];
     $end_date_display = date("jS F Y", strtotime($end_date));
+    $avatar = $project['avatar_url'];
     $objective_amount = $project['objective_amount'];
     //TODO: $completed_amount, $percentage of complete
     return '
@@ -131,7 +130,7 @@ function display_single_project_in_box($project) {
             <div class="col-lg-12 blog-bg">
                 <div class="col-lg-2 centered">
                     <br>
-                    <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
+                    <p><img class="img img-circle" src="'.$avatar.'" width="60px" height="60px"></p>
                     <h4>' .$owner. '</h4>
                     <h5>Start: '.$start_date_display.'.</h5>
                     <h5>End: '.$end_date_display.'.</h5>
