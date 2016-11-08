@@ -147,3 +147,9 @@ function display_single_project_in_box($project) {
         <br>
     ';
 }
+
+function validate_signin($conn, $email, $password) {
+    $query = "SELECT count(*) FROM cs2102_project.users WHERE email='" . $email . "' AND hashed_password = '" . $password . "'";
+    $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
+    return pg_fetch_all($results);
+}

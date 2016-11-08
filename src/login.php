@@ -117,14 +117,43 @@
       <div style="font-size:35px;color:white;padding-bottom:20px">
         Log In
       </div>
-        <input type="text" placeholder=" email" name="user"><br><br>
-        <input type="password" placeholder=" password" name="password"><br>
-        <input type="button" value="Login">
-        <br>
-
-        <div style="color:white">
-          <b>New to ProjectName? <a href="login.php"> Sign Up </a></b>
-        </div>
+        <form onsubmit="return validate()" name="loginform" id="login-form" action="backend_api/login_validation.php" method="post">
+            <div class="form-group">
+                <input id="email" type="text" placeholder=" email" name="email"><br><br>
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder=" password" name="password"><br>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login">
+            </div>
+            <br>
+            <div style="color:white">
+                <b>New to ProjectName? <a href="login.php"> Sign Up </a></b>
+            </div>
+        </form>
     </div>
+    <!-- BEGIN SWEETALERT PLUGIN AND SCRIPT -->
+    <script src="assets/js/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/js/sweetalert.css">
+    <script>
+        function validate()
+        {
+            if( document.loginform.email.value == "" ) {
+                swal("Oops...", "Please Fill in the email", "error");
+                document.loginform.email.focus();
+                return false;
+            }
+
+            if( document.loginform.password.value == "" ) {
+                swal("Oops...", "Please Fill in Your password", "error");
+                document.loginform.password.focus();
+                return false;
+            }
+
+            return true ;
+        }
+    </script>
+    <!-- END SWEETALERT PLUGIN AND SCRIPT -->
   </body>
 </html>
