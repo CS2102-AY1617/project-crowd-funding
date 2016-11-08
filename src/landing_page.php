@@ -2,6 +2,9 @@
 	include "backend_api/config.php";
 	include "backend_api/display_routes.php";
 	$conn = initialise_pgsql_connection();
+	if (!isset($_SESSION['user_email'])) {
+		session_start();
+	}
 ?>
 
 <!DOCTYPE html>
@@ -116,22 +119,8 @@
 				<h1>YOUR DREAM DEPARTURE WITH US</h1>
 			</div><!-- container -->
 		</section><!-- section -->
-		<!-- ==== BLOG ==== -->
-		<div class="container" id="blog" name="blog">
-			<br>
-			<div class="row">
-				<br>
-				<h1 class="centered">Check Out Popular Projects</h1>
-				<hr>
-				<br>
-				<br>
-			</div><!-- /row -->
+		<br>
 
-			<?php
-				echo display_landing_popular($conn);
-			?>
-			<br>
-		</div><!-- /container -->
 		<?php
 			include "footer.php"
 		?>

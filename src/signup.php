@@ -117,20 +117,60 @@
       <div style="font-size:35px;color:white;padding-bottom:20px">
         Sign Up
       </div>
+        <form onsubmit="return validate()" name="signupform" action="backend_api/session_controller.php?type='signup'" method="post">
+            <input type="text" placeholder="Email" name="email"><br><br>
+            <input type="text" placeholder="Username" name="username"><br><br>
+            <input type="password" placeholder="Password" name="password"><br>
+            <input type="password" placeholder="Re-enter Password" name="rpassword"><br>
+            <div class="form-group">
+                <input type="submit" value="Sign up">
+            </div>
+        </form>
 
-        <input type="text" placeholder="Username" name="user"><br><br>
-        <input type="text" placeholder="Email" name="email"><br><br>
-        <input type="text" placeholder="First Name" name="firstname"><br><br>
-        <input type="text" placeholder="Last Name" name="lastname"><br><br>
-        <input type="text" placeholder="Gender" name="gender"><br><br>
-
-        <input type="password" placeholder="Password" name="password"><br>
-        <input type="password" placeholder="Re-enter Password" name="password"><br>
-        <input type="button" value="Sign Up">
         <br>
         <div style="color:white">
           By signing up, you agree to our terms of use, privacy policy, and cookie policy.
         </div>
     </div>
+    <!-- BEGIN SWEETALERT PLUGIN AND SCRIPT -->
+    <script src="assets/js/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/js/sweetalert.css">
+    <script>
+        function validate()
+        {
+            if( document.signupform.email.value == "" ) {
+                swal("Oops...", "Please Fill in the email", "error");
+                document.signupform.email.focus();
+                return false;
+            }
+
+            if( document.signupform.username.value == "" ) {
+                swal("Oops...", "Please Fill in the username", "error");
+                document.signupform.username.focus();
+                return false;
+            }
+
+            if( document.signupform.password.value == "" ) {
+                swal("Oops...", "Please Fill in Your password", "error");
+                document.signupform.password.focus();
+                return false;
+            }
+
+            if( document.signupform.rpassword.value == "" ) {
+                swal("Oops...", "Please Fill in Your password again", "error");
+                document.signupform.rpassword.focus();
+                return false;
+            }
+
+            if (document.signupform.password.value != document.signupform.rpassword.value) {
+                swal("Oops...", "Passwords do not match! Please try again.", "error");
+                document.signupform.rpassword.focus();
+                return false;
+            }
+
+            return true ;
+        }
+    </script>
+    <!-- END SWEETALERT PLUGIN AND SCRIPT -->
   </body>
 </html>
