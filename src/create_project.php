@@ -3,6 +3,9 @@
 	include "backend_api/config.php";
 
 	$conn = initialise_pgsql_connection();
+    if (!isset($_SESSION['user_email'])) {
+        session_start();
+    }
 ?>
 
 <!DOCTYPE html>

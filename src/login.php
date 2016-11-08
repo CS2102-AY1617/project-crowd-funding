@@ -1,3 +1,14 @@
+<?php
+if (!isset($_SESSION['user_email'])) {
+    session_start();
+    if (isset($_SESSION['user_email'])) {
+        header("Location: landing_page.php");
+    }
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -125,7 +136,7 @@
                 <input type="password" placeholder=" password" name="password"><br>
             </div>
             <div class="form-group">
-                <input type="submit" value="Login">
+                <button type="submit" class="btn btn-primary" name="submit">Log In</button>
             </div>
             <br>
             <div style="color:white">

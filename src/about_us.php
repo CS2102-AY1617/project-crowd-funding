@@ -1,3 +1,11 @@
+<?php
+
+if (!isset($_SESSION['user_email'])) {
+    session_start();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>

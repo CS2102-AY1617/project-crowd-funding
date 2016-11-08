@@ -1,3 +1,13 @@
+<?php
+if (!isset($_SESSION['user_email'])) {
+    session_start();
+    if (isset($_SESSION['user_email'])) {
+        header("Location: landing_page.php");
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -122,8 +132,9 @@
             <input type="text" placeholder="Username" name="username"><br><br>
             <input type="password" placeholder="Password" name="password"><br>
             <input type="password" placeholder="Re-enter Password" name="rpassword"><br>
+            <br>
             <div class="form-group">
-                <input type="submit" value="Sign up">
+                <button type="submit" class="btn btn-primary" name="submit">Sign Up</button>
             </div>
         </form>
 
