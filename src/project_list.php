@@ -1,5 +1,10 @@
 <?php
-    $topic_name = $_GET['topic'];
+include "backend_api/display_routes.php";
+include "backend_api/config.php";
+
+$conn = initialise_pgsql_connection();
+$topic_name = $_GET['topic'];
+
 ?>
 
 <!DOCTYPE html>
@@ -69,161 +74,9 @@
         <br>
     </div><!-- /row -->
 
-    <div class="row">
-        <div class="col-lg-12 blog-bg">
-            <div class="col-lg-3 centered">
-                <br>
-                <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
-                <h4>Jaye Smith</h4>
-                <h5>Published Aug 30.</h5>
-            </div>
-            <div class="col-lg-6 blog-content">
-                <h2>We Define Success</h2>
-                <p>Armed with insight, we embark on designing the right brand experience that engages the audience. It encompasses both the strategic direction and creative execution that solves a business problem and brings the brand to life.</p>
-                <p>In the create phase, the big idea is unleashed to the world through different media touchpoints. This is when we watch the audience fall in love all over again with our client’s brand.</p>
-                <p><a href="#" class="icon icon-link"> View Project</a></p>
-                <br>
-            </div>
-            <div class="col-lg-3 centered">
-                <br>
-                <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
-                <h4>Jaye Smith</h4>
-                <h5>Published Aug 30.</h5>
-            </div>
-        </div><!-- /col -->
-    </div><!-- /row -->
-
-    <br>
-    <br>
-    <div class="row">
-        <div class="col-lg-12 blog-bg">
-            <div class="col-lg-3 centered">
-                <br>
-                <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
-                <h4>Jaye Smith</h4>
-                <h5>Published Aug 30.</h5>
-            </div>
-            <div class="col-lg-6 blog-content">
-                <h2>We Define Success</h2>
-                <p>Armed with insight, we embark on designing the right brand experience that engages the audience. It encompasses both the strategic direction and creative execution that solves a business problem and brings the brand to life.</p>
-                <p>In the create phase, the big idea is unleashed to the world through different media touchpoints. This is when we watch the audience fall in love all over again with our client’s brand.</p>
-                <p><a href="#" class="icon icon-link"> View Project</a></p>
-                <br>
-            </div>
-            <div class="col-lg-3 centered">
-                <br>
-                <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
-                <h4>Jaye Smith</h4>
-                <h5>Published Aug 30.</h5>
-            </div>
-        </div><!-- /col -->
-    </div><!-- /row -->
-
-    <br>
-    <br>
-    <div class="row">
-        <div class="col-lg-12 blog-bg">
-            <div class="col-lg-3 centered">
-                <br>
-                <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
-                <h4>Jaye Smith</h4>
-                <h5>Published Aug 30.</h5>
-            </div>
-            <div class="col-lg-6 blog-content">
-                <h2>We Define Success</h2>
-                <p>Armed with insight, we embark on designing the right brand experience that engages the audience. It encompasses both the strategic direction and creative execution that solves a business problem and brings the brand to life.</p>
-                <p>In the create phase, the big idea is unleashed to the world through different media touchpoints. This is when we watch the audience fall in love all over again with our client’s brand.</p>
-                <p><a href="#" class="icon icon-link"> View Project</a></p>
-                <br>
-            </div>
-            <div class="col-lg-3 centered">
-                <br>
-                <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
-                <h4>Jaye Smith</h4>
-                <h5>Published Aug 30.</h5>
-            </div>
-        </div><!-- /col -->
-    </div><!-- /row -->
-
-    <br>
-    <br>
-    <div class="row">
-        <div class="col-lg-12 blog-bg">
-            <div class="col-lg-3 centered">
-                <br>
-                <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
-                <h4>Jaye Smith</h4>
-                <h5>Published Aug 30.</h5>
-            </div>
-            <div class="col-lg-6 blog-content">
-                <h2>We Define Success</h2>
-                <p>Armed with insight, we embark on designing the right brand experience that engages the audience. It encompasses both the strategic direction and creative execution that solves a business problem and brings the brand to life.</p>
-                <p>In the create phase, the big idea is unleashed to the world through different media touchpoints. This is when we watch the audience fall in love all over again with our client’s brand.</p>
-                <p><a href="#" class="icon icon-link"> View Project</a></p>
-                <br>
-            </div>
-            <div class="col-lg-3 centered">
-                <br>
-                <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
-                <h4>Jaye Smith</h4>
-                <h5>Published Aug 30.</h5>
-            </div>
-        </div><!-- /col -->
-    </div><!-- /row -->
-
-    <br>
-    <br>
-    <div class="row">
-        <div class="col-lg-12 blog-bg">
-            <div class="col-lg-3 centered">
-                <br>
-                <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
-                <h4>Jaye Smith</h4>
-                <h5>Published Aug 30.</h5>
-            </div>
-            <div class="col-lg-6 blog-content">
-                <h2>We Define Success</h2>
-                <p>Armed with insight, we embark on designing the right brand experience that engages the audience. It encompasses both the strategic direction and creative execution that solves a business problem and brings the brand to life.</p>
-                <p>In the create phase, the big idea is unleashed to the world through different media touchpoints. This is when we watch the audience fall in love all over again with our client’s brand.</p>
-                <p><a href="#" class="icon icon-link"> View Project</a></p>
-                <br>
-            </div>
-            <div class="col-lg-3 centered">
-                <br>
-                <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
-                <h4>Jaye Smith</h4>
-                <h5>Published Aug 30.</h5>
-            </div>
-        </div><!-- /col -->
-    </div><!-- /row -->
-
-    <br>
-    <br>
-    <div class="row">
-        <div class="col-lg-12 blog-bg">
-            <div class="col-lg-3 centered">
-                <br>
-                <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
-                <h4>Jaye Smith</h4>
-                <h5>Published Aug 30.</h5>
-            </div>
-            <div class="col-lg-6 blog-content">
-                <h2>We Define Success</h2>
-                <p>Armed with insight, we embark on designing the right brand experience that engages the audience. It encompasses both the strategic direction and creative execution that solves a business problem and brings the brand to life.</p>
-                <p>In the create phase, the big idea is unleashed to the world through different media touchpoints. This is when we watch the audience fall in love all over again with our client’s brand.</p>
-                <p><a href="#" class="icon icon-link"> View Project</a></p>
-                <br>
-            </div>
-            <div class="col-lg-3 centered">
-                <br>
-                <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
-                <h4>Jaye Smith</h4>
-                <h5>Published Aug 30.</h5>
-            </div>
-        </div><!-- /col -->
-    </div><!-- /row -->
-    <br>
-    <br>
+    <?php
+        echo display_project_list($conn, $topic_name);
+    ?>
 </div><!-- /container -->
 
 <?php

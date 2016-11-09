@@ -67,8 +67,13 @@ function display_landing_popular($conn) {
     return $html_output;
 }
 
-function display_project_list() {
-    
+function display_project_list($conn, $topic) {
+    $html_output = '';
+    $projects = get_project_by_topic($conn, $topic);
+    foreach ($projects as $project) {
+        $html_output .= display_single_project($project);
+    }
+    return $html_output;
 }
 
 

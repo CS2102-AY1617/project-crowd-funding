@@ -56,7 +56,11 @@
 			<div class="carousel-caption">
 				<h3>Dream With Us Today</h3>
 				<br>
-				<p><a class="btn btn-success" href="signup.php">SIGN UP</a></p>
+				<?php
+					if (!isset($_SESSION['user_email'])) {
+						echo '<p><a class="btn btn-success" href="signup.php">SIGN UP</a></p>';
+					}
+				?>
 			</div>
 		</div>
 		<div class="item">

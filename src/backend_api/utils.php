@@ -113,6 +113,12 @@ function get_project_by_id($conn, $project_id) {
     return pg_fetch_all($results)[0];  // fetch one
 }
 
+function get_project_by_topic($conn, $topic) {
+    $query = "SELECT p.*, u.avatar_url FROM cs2102_project.projects p, cs2102_project.users u WHERE p.owner = u.email AND p.topic='" . $topic . "'";
+    $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
+    return pg_fetch_all($results);
+}
+
 function display_single_project($project) {
     $project_id = $project['id'];
     $owner = $project['owner'];
