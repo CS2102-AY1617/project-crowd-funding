@@ -29,8 +29,8 @@ function get_tab_content($conn, $topic_list) {
 
     // default display
     $html_output .= '
-        <div class="tab-pane active">
-            <h3>Choose the correct topic will help other locate your project easily</h3>
+        <div style="text-align:center" class="tab-pane active">
+            <h3>Choose the correct topic will help others find your project easily</h3>
         </div>
     ';
     // END default display
@@ -64,41 +64,10 @@ function create_object($title, $objective, $description, $date, $topic, $image) 
 
 function display_suggested_projects($conn, $topic_name) {
     $html_output = "";
-    $query = "SELECT * FROM cs2102_project.projects WHERE topic='".$topic_name ."' LIMIT 2";
-    $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
-    $project_data_array = pg_fetch_all($results);
+    $project_data_array = get_project_by_topic_suggested($conn, $topic_name);
     if (is_array($project_data_array) || is_object($project_data_array)) {
         foreach ($project_data_array as $project) {
-            $project_id = $project['id'];
-            $owner = $project['owner'];
-            $title = $project['title'];
-            $description = $project['description'];
-            $start_date = $project['start_date'];
-            $start_date_display = date("jS F Y", strtotime($start_date));
-            $end_date = $project['end_date'];
-            $end_date_display = date("jS F Y", strtotime($end_date));
-            $objective_amount = $project['objective_amount'];
-            //TODO: $completed_amount, $percentage of complete
-            $html_output .= '
-                <div class="row">
-                    <div class="col-lg-12 blog-bg">
-                        <div class="col-lg-2 centered">
-                            <br>
-                            <p><img class="img img-circle" src="assets/img/team/team04.jpg" width="60px" height="60px"></p>
-                            <h4>' .$owner. '</h4>
-                            <h5>Start: '.$start_date_display.'.</h5>
-                            <h5>End: '.$end_date_display.'.</h5>
-                        </div>
-                        <div class="col-lg-10 blog-content" >
-                            <h2>'.$title.'</h2>
-                            <p>'. $description .'<p>
-                            <p><a href="project.php?id='. $project_id .'" class="icon icon-link"> Read More</a></p>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <br>
-            ';
+            $html_output .= display_single_project($project);
         }
     }
     if ($html_output == "") {
@@ -106,6 +75,13 @@ function display_suggested_projects($conn, $topic_name) {
     }
     return $html_output;
 }
+
+function get_project_by_topic_suggested($conn, $topic) {
+    $query = "SELECT p.*, u.avatar_url FROM cs2102_project.projects p, cs2102_project.users u WHERE p.owner = u.email AND p.topic='" . $topic . "' LIMIT 2";
+    $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
+    return pg_fetch_all($results);
+}
+
 
 function get_project_by_id($conn, $project_id) {
     $query = "SELECT p.*, u.avatar_url FROM cs2102_project.projects p, cs2102_project.users u WHERE p.owner = u.email AND p.id=" . $project_id;

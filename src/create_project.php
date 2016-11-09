@@ -285,7 +285,7 @@
                             <div class="form-check">
                                 <label class="form-check-label">
                                     <input type="checkbox" class="form-check-input" name="terms">
-                                    By creating a project, you have fully understood and agree to our terms and conditions.
+                                    By applying to be an entrepreneur, you have fully understood and agree to our terms and conditions.
                                 </label>
                             </div>
                             <br>
