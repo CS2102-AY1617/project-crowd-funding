@@ -4,7 +4,9 @@ include "backend_api/config.php";
 
 $conn = initialise_pgsql_connection();
 $topic_name = $_GET['topic'];
-
+if (!isset($_SESSION['user_email'])) {
+    session_start();
+}
 ?>
 
 <!DOCTYPE html>
@@ -51,13 +53,9 @@ $topic_name = $_GET['topic'];
 
 <!-- ==== SECTION DIVIDER3 -->
 <section class="section-divider textdivider divider3">
-    <div class="container">
-        <h1>
-            <input class="search" type="text" placeholder="Search">
-        </h1>
-        <hr>
-        <p>Discover projects for you</p>
-    </div><!-- container -->
+    <?php
+        include "search.php";
+    ?>
 </section><!-- section -->
 
 <!-- ==== PORTFOLIO ==== -->

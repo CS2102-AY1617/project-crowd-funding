@@ -52,13 +52,9 @@
 
 		<!-- ==== SECTION DIVIDER3 -->
 		<section class="section-divider textdivider divider3">
-			<div class="container">
-				<h1>
-					<input class="search" type="text" placeholder="Search">
-				</h1>
-				<hr>
-				<p>Discover projects for you</p>
-			</div><!-- container -->
+			<?php
+				include "search.php";
+			?>
 		</section><!-- section -->
 
 		<!-- ==== PORTFOLIO ==== -->
