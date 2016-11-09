@@ -183,3 +183,32 @@ function signup($conn, $email, $username, $password)
     $query = "INSERT INTO cs2102_project.users (email, user_name, hashed_password) VALUES ('".$email."', '".$username."', '".$password."')";
     $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
 }
+
+function get_user_type($conn, $email) {
+    $query = "SELECT type FROM cs2102_project.users WHERE email='" . $email . "'";
+    $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
+    return pg_fetch_all($results)[0]['type'];
+}
+
+function store_project($conn, $project_data) {
+    $title = $project_data->title;
+    $objective = $project_data->objective;
+    $description = $project_data->description;
+    $end_date = $project_data->date;
+    $topic = $project_data->topic;
+    $image = $project_data->image;
+    $start_date = date("Y-m-d");
+
+    pg_prepare($conn, "query", "INSERT INTO cs2102_project.projects (owner, title, description, start_date, end_date, topic, objective_amount, imageurl) 
+                                VALUES ($1, $2, $3, $4, $5, $6, $7, $8)");
+    pg_execute($conn, "query", array("Test", $title, $description, $start_date, $end_date, $topic, $objective, $image));
+
+    // get last id
+    $insert_query = pg_query("SELECT id FROM cs2102_project.projects ORDER BY id DESC LIMIT 1;");
+    $insert_row = pg_fetch_row($insert_query);
+    $insert_id = $insert_row[0];
+
+    header('Location: ../project.php?id='. $insert_id);
+    die;
+
+}

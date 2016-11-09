@@ -8,6 +8,8 @@
 	include "backend_api/config.php";
 
 	$conn = initialise_pgsql_connection();
+    $user_email = $_SESSION['user_email'];
+    $user_type = get_user_type($conn, $user_email);
 
 ?>
 
@@ -192,68 +194,111 @@
             </div>
         </div>
 
-
-        <!-- ==== BLOG ==== -->
-        <div class="container" id="blog" >
-            <br>
-            <div class="row">
-                <br>
-                <h1 class="centered">Step 2: Write it Down</h1>
-                <hr>
-                <br>
-                <br>
-            </div><!-- /row -->
-            <div class="container bootstrap-iso">
-                <form onsubmit="return validate()" name="create" action="backend_api/create_project_form.php" method="post" >
-                    <div class="form-group">
-                        <label for="title">Project Title</label>
-                        <input type="text" class="form-control" name="title" placeholder="Enter your project title">
-                        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                    </div>
-
-                    <div class="form-group">
-                        <label for="objective">Objective Amount</label>
-                        <input type="text" class="form-control" name="objective" placeholder="Amount of money you plan to raise">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea class="form-control" name="description" rows="4" placeholder="A description so that people would understand you"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label">Deadline (at 12:00pm)</label>
-                        <div class="date">
-                            <div class="input-group input-append date" id="datePicker">
-                                <input type="text" class="form-control" name="date" />
-                                <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+        <?php
+            if ($user_type == 'entrepreneur' || $user_type == 'admin' ) {
+                echo '
+                    <div class="container" id="blog" >
+                            <br>
+                            <div class="row">
+                                <br>
+                                <h1 class="centered">Step 2: Write it Down</h1>
+                                <hr>
+                                <br>
+                                <br>
+                            </div><!-- /row -->
+                            <div class="container bootstrap-iso">
+                                <form onsubmit="return validate()" name="create" action="backend_api/form_controller.php?type=create" method="post" >
+                                    <div class="form-group">
+                                        <label for="title">Project Title</label>
+                                        <input type="text" class="form-control" name="title" placeholder="Enter your project title">
+                                        <!-- <small id="emailHelp" class="form-text text-muted">We\'ll never share your email with anyone else.</small> -->
+                                    </div>
+                
+                                    <div class="form-group">
+                                        <label for="objective">Objective Amount</label>
+                                        <input type="text" class="form-control" name="objective" placeholder="Amount of money you plan to raise">
+                                    </div>
+                
+                                    <div class="form-group">
+                                        <label for="description">Description</label>
+                                        <textarea class="form-control" name="description" rows="4" placeholder="A description so that people would understand you"></textarea>
+                                    </div>
+                
+                                    <div class="form-group">
+                                        <label class="control-label">Deadline (at 12:00pm)</label>
+                                        <div class="date">
+                                            <div class="input-group input-append date" id="datePicker">
+                                                <input type="text" class="form-control" name="date" />
+                                                <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                
+                                    <div class="form-group">
+                                        <label for="topic">Topic</label>
+                                        '. display_select_topic($conn) .'
+                                    </div>
+                
+                                    <div class="form-group">
+                                        <label for="image">You may choose to upload an image</label>
+                                        <input type="text" class="form-control" name="image" placeholder="Enter image url. e.g http://searchengineland.com/figz/wp-content/seloads/2016/10/google-cardboard-vr-ss-1920.jpg">
+                                    </div>
+                
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" name="terms">
+                                            By creating a project, you have fully understood and agree to our terms and conditions.
+                                        </label>
+                                    </div>
+                                    <br>
+                                    <button type="submit" class="btn btn-primary" name="submit">Create Your Project</button>
+                                </form>
                             </div>
+                            <br>
+                            <br>
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="topic">Topic</label>
-                        <?php echo display_select_topic($conn); ?>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="image">You may choose to upload an image</label>
-                        <input type="text" class="form-control" name="image" placeholder="Enter image url. e.g http://searchengineland.com/figz/wp-content/seloads/2016/10/google-cardboard-vr-ss-1920.jpg">
-                    </div>
-
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="terms">
-                            By creating a project, you have fully understood and agree to our terms and conditions.
-                        </label>
+                     ';
+            } else if ($user_type == 'donor') {
+                echo '
+                     <div class="container" id="blog" >
+                    <br>
+                    <div class="row">
+                        <br>
+                        <h1 class="centered">Step 2: Apply to Be An Entrepreneur</h1>
+                        <hr>
+                        <br>
+                        <br>
+                    </div><!-- /row -->
+                    <div class="container bootstrap-iso">
+                        <form onsubmit="return validate()" name="create" action="#" method="post" >
+                            <div class="form-group">
+                                <label for="title">Application Title</label>
+                                <input type="text" class="form-control" name="title" placeholder="Enter your project title">
+                                <!-- <small id="emailHelp" class="form-text text-muted">We\'ll never share your email with anyone else.</small> -->
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="description">Message</label>
+                                <textarea class="form-control" name="description" rows="4" placeholder="A description so that people would understand you"></textarea>
+                            </div>
+        
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="terms">
+                                    By creating a project, you have fully understood and agree to our terms and conditions.
+                                </label>
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-primary" name="submit">Create Your Project</button>
+                        </form>
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-primary" name="submit">Create Your Project</button>
-                </form>
-            </div>
-            <br>
-            <br>
-        </div>
+                    <br>
+                    </div>
+                ';
+            }
+        ?>
+        <!-- ==== BLOG ==== -->
 
         <?php
             include "footer.php";

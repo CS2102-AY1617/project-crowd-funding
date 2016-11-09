@@ -10,17 +10,9 @@ include "config.php";
 
 $conn = initialise_pgsql_connection();
 $action = $_GET['type'];
+
 if (!isset($_SESSION['user_email'])) {
     session_start();
-}
-
-
-if (isset($_POST['username'])) {
-    $username = $_POST['username'];
-}
-
-if (isset($_POST['password'])) {
-    $password = $_POST['password'];
 }
 
 
@@ -30,6 +22,23 @@ switch ($action) {
             $search_field = $_POST['searchfield'];
             header("Location: ../project_list.php?search=" . $search_field);
         }
+        break;
+    case 'create':
+        $title = $_POST['title'];
+        $objective = $_POST['objective'];
+        $description = $_POST['description'];
+        $date = $_POST['date'];
+        $topic = $_POST['topic'];
+        if (isset($_POST['image'])) {
+            $image = $_POST['image'];
+        } else {
+            $image = "";
+        }
+        $project_data = create_object($title, $objective, $description, $date, $topic, $image);
+        $conn = initialise_pgsql_connection();
+        store_project($conn, $project_data);
+        break;
+    case 'apply':
         break;
 
 }
