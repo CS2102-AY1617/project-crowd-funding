@@ -127,11 +127,17 @@ function display_comment($conn, $project_id) {
     return $html_output;
 }
 
-function get_comment_array($conn, $project_id) {
-    $query = "SELECT * FROM cs2102_project.comments WHERE project_id = ". $project_id . " ORDER BY comment_time DESC LIMIT 5";
+function display_unique_backers($conn, $project_id) {
+    $query = "SELECT count(donor) FROM cs2102_project.transactions WHERE project_id = ". $project_id . "GROUP BY project_id";
     $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
-    return pg_fetch_all($results);
-
+    $count = pg_fetch_all($results)[0]['count'];
+    return $count;
 }
-
-
+function display_project_progress($conn, $project_id) {
+    $query = "SELECT SUM(t.amount), p.objective_amount FROM cs2102_project.transactions t, cs2102_project.projects p WHERE t.project_id = p.id AND t.project_id =".$project_id." GROUP BY p.id ";
+    $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
+    $sum = pg_fetch_all($results)[0]['sum'];
+    $objective = pg_fetch_all($results)[0]['objective_amount'];
+    $difference = $objective - $sum;
+    return $difference;
+}

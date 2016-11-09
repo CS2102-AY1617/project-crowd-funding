@@ -81,32 +81,20 @@ include "header.php";
                 <h4 class="modal-title" id="myModalLabel">Fund This Project</h4>
             </div>
             <div class="modal-body">
-                <form onsubmit="return validate()" method="post"  action="backend_api/form_controller.php?type=fund">
-                    <div class="form-group">
-                        <label for="title">Application Title</label>
-                        <input type="text" class="form-control" name="title" placeholder="Enter your project title">
-                        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                    </div>
-
-                    <div class="form-group">
-                        <label for="description">Message</label>
-                        <textarea class="form-control" name="description" rows="4" placeholder="A description so that people would understand you"></textarea>
-                    </div>
-
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="terms">
-                            By applying to be an entrepreneur, you have fully understood and agree to our terms and conditions.
-                        </label>
+                <form onsubmit="return validate_fund()" method="post" name="fundform" action="backend_api/form_controller.php?type=fund&project_id=<?php echo $project_id; ?>" >
+                    <div>
+                        Amount Remaining: $<?php echo display_project_progress($conn, $project_id); ?> <br>
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-primary" name="submit">Create Your Project</button>
-
+                    <div class="form-group">
+                        <label for="title">Amount of Money</label>
+                        <input type="text" class="form-control" name="fund" placeholder="Enter your amount">
+                    </div>
+                    <button type="submit" class="btn btn-primary" name="submit">Confirm</button>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
@@ -142,7 +130,7 @@ include "header.php";
                 if ($mode == 'online') {
                     echo '<div class="well">
                 <h4>Leave a Comment:</h4>
-                               <form method="post" action="backend_api/form_controller.php?type=comment">
+                          <form method="post" action="backend_api/form_controller.php?type=comment">
                     <div class="form-group" >
                         <textarea class="form-control" rows="3"></textarea>
                     </div>
@@ -155,8 +143,6 @@ include "header.php";
             <hr>
         </div>
 
-
-
         <!-- Blog Sidebar Widgets Column -->
         <div class="col-md-4">
             <!-- Blog Categories Well -->
@@ -165,19 +151,27 @@ include "header.php";
                 <h4>Summary</h4>
                 <div>
                     <p>
-                        Number of Unique Backers: 10 <br>
-                        Progress: 87% <br>
-                        Amount Left: $1000 <br>
+                        Number of Unique Backers: <?php echo display_unique_backers($conn, $project_id); ?> <br>
+                        Amount Remaining: $<?php echo display_project_progress($conn, $project_id); ?> <br>
                     </p>
                 </div>
                 <div style="text-align:center">
                     <?php
                         if ($mode == 'online') {
-                            echo '
+                            if (display_project_progress($conn, $project_id) == '0') {
+                                echo '
+                                <button type="button" class="btn btn-primary btn-lg">
+                                    Project is Completed!
+                                </button>
+                            ';
+                            } else {
+                                echo '
                                 <button  type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
                                     Fund This Project
                                 </button>
                             ';
+                            }
+
                         } else if ($mode == 'offline') {
                             echo '
                                 <button onclick="location.href=\'login.php\'" type="button" class="btn btn-primary btn-lg">
@@ -194,10 +188,9 @@ include "header.php";
                 <br>
                 <div class="row">
                     <div class="col-lg-12">
-
-                            <?php
-                                echo display_comment($conn, $project_id);
-                            ?>
+                        <?php
+                            echo display_comment($conn, $project_id);
+                        ?>
                     </div>
                 </div>
                 <!-- /.row -->
@@ -227,37 +220,20 @@ include "footer.php";
 <script src="assets/js/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="assets/js/sweetalert.css">
 <script>
-    function validate()
+    function validate_fund()
     {
-        if( document.create.title.value == "" ) {
-            swal("Oops...", "Please Fill in Project Title", "error");
-            document.create.title.focus() ;
+        if( document.fundform.fund.value == "" ) {
+            swal("Oops...", "Please enter a valid dollar amount", "error");
+            document.fundform.fund.focus() ;
             return false;
         }
 
-        if( document.create.objective.value == "" ) {
-            swal("Oops...", "Please Fill in Your Objective", "error");
-            document.create.objective.focus() ;
+        if( document.fundform.fund.value > <?php echo display_project_progress($conn, $project_id) ?> ) {
+            swal("Oops...", "Please enter an amount smaller than the remaining goal", "error");
+            document.fundform.fund.focus() ;
             return false;
         }
 
-        if( document.create.description.value == "" ) {
-            swal("Oops...", "Please Fill in Project Description", "error");
-            document.create.description.focus() ;
-            return false;
-        }
-
-        if( document.create.date.value == "" ) {
-            swal("Oops...", "Please Fill in Project Deadline", "error");
-            document.create.date.focus() ;
-            return false;
-        }
-
-        if( !document.create.terms.checked ) {
-            swal("Oops...", "Please acknowledge this you have agreed to our terms and conditions", "error");
-            document.create.terms.focus() ;
-            return false;
-        }
         return true ;
     }
 </script>
