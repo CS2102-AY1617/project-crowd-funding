@@ -3,6 +3,13 @@
     include "backend_api/display_routes.php";
 
     $conn = initialise_pgsql_connection();
+    session_start();
+
+    if (!isset($_SESSION['user_email'])) {
+        $mode = 'offline';
+    } else {
+        $mode = 'online';
+    }
 
     $project_id = $_GET['id'];
     $project_data = get_project_by_id($conn, $project_id);
@@ -55,13 +62,12 @@ include "header.php";
 <section class="section-divider textdivider divider3">
     <div class="container">
         <h1>
-            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                Fund This Project
-            </button>
+            <input class="search" type="text" value="Are You Interested?">
         </h1>
         <hr>
     </div><!-- container -->
 </section><!-- section -->
+
 
 
 <!-- Modal -->
@@ -72,11 +78,29 @@ include "header.php";
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                <h4 class="modal-title" id="myModalLabel">Fund This Project</h4>
             </div>
             <div class="modal-body">
-                <form action="">
-                    
+                <form onsubmit="return validate()" method="post"  action="backend_api/form_controller.php?type=fund">
+                    <div class="form-group">
+                        <label for="title">Application Title</label>
+                        <input type="text" class="form-control" name="title" placeholder="Enter your project title">
+                        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Message</label>
+                        <textarea class="form-control" name="description" rows="4" placeholder="A description so that people would understand you"></textarea>
+                    </div>
+
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="terms">
+                            By applying to be an entrepreneur, you have fully understood and agree to our terms and conditions.
+                        </label>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary" name="submit">Create Your Project</button>
 
                 </form>
             </div>
@@ -88,87 +112,89 @@ include "header.php";
     </div>
 </div>
 
-<!-- ==== PORTFOLIO ==== -->
-<div class="container">
 
-
-</div>
 <div class="container" style="padding-top:20px;padding-bottom: 20px">
-
     <div class="row">
         <!-- Blog Post Content Column -->
         <div class="col-lg-8">
-
-            <!-- Blog Post -->
-
             <!-- Title -->
             <h1><?php echo $project_data['title'] ?></h1>
-
             <!-- Author -->
             <p class="lead">
                 by <a href="#"><?php echo $project_data['owner'] ?></a>
             </p>
-
-
             <!-- Date/Time -->
             <p><span class="glyphicon glyphicon-time"></span> Created on <?php echo date("jS F Y", strtotime($project_data['start_date'])); ?> </p>
-
-
             <!-- Preview Image -->
             <?php
                 $imageurl = $project_data['imageurl'];
                 if ($imageurl) {
                     echo '<img class="img-responsive" src="'.$imageurl.'" alt="">';
-
                 }
             ?>
-
             <p class="lead" style="padding-top:50px">
                 <?php echo $project_data['description'] ?>
-
             </p>
-
-
-
             <!-- Blog Comments -->
-
             <!-- Comments Form -->
-            <div class="well">
+
+                <?php
+                if ($mode == 'online') {
+                    echo '<div class="well">
                 <h4>Leave a Comment:</h4>
-                <form role="form">
-                    <div class="form-group">
+                               <form method="post" action="backend_api/form_controller.php?type=comment">
+                    <div class="form-group" >
                         <textarea class="form-control" rows="3"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
+                </form></div>
+                            ';
+                }
+                ?>
 
             <hr>
-
         </div>
+
+
 
         <!-- Blog Sidebar Widgets Column -->
         <div class="col-md-4">
-
-
-
-
             <!-- Blog Categories Well -->
-
-
             <!-- Side Widget Well -->
             <div class="well">
                 <h4>Summary</h4>
                 <div>
-                    <p>Number of Unique Backers: 10 <br> Progress: 87%</p>
+                    <p>
+                        Number of Unique Backers: 10 <br>
+                        Progress: 87% <br>
+                        Amount Left: $1000 <br>
+                    </p>
                 </div>
+                <div style="text-align:center">
+                    <?php
+                        if ($mode == 'online') {
+                            echo '
+                                <button  type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                                    Fund This Project
+                                </button>
+                            ';
+                        } else if ($mode == 'offline') {
+                            echo '
+                                <button onclick="location.href=\'login.php\'" type="button" class="btn btn-primary btn-lg">
+                                    Please Sign In First to Fund
+                                </button>
+                            ';
+                        }
+                    ?>
 
+                </div>
             </div>
             <div class="well">
                 <h4>Backers Comment</h4>
                 <br>
                 <div class="row">
                     <div class="col-lg-12">
+
                             <?php
                                 echo display_comment($conn, $project_id);
                             ?>
@@ -178,7 +204,6 @@ include "header.php";
             </div>
 
         </div>
-
     </div>
 </div>
 
@@ -198,5 +223,44 @@ include "footer.php";
 <script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="assets/js/smoothscroll.js"></script>
 <script type="text/javascript" src="assets/js/jquery-func.js"></script>
+<!-- BEGIN SWEETALERT PLUGIN AND SCRIPT -->
+<script src="assets/js/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="assets/js/sweetalert.css">
+<script>
+    function validate()
+    {
+        if( document.create.title.value == "" ) {
+            swal("Oops...", "Please Fill in Project Title", "error");
+            document.create.title.focus() ;
+            return false;
+        }
+
+        if( document.create.objective.value == "" ) {
+            swal("Oops...", "Please Fill in Your Objective", "error");
+            document.create.objective.focus() ;
+            return false;
+        }
+
+        if( document.create.description.value == "" ) {
+            swal("Oops...", "Please Fill in Project Description", "error");
+            document.create.description.focus() ;
+            return false;
+        }
+
+        if( document.create.date.value == "" ) {
+            swal("Oops...", "Please Fill in Project Deadline", "error");
+            document.create.date.focus() ;
+            return false;
+        }
+
+        if( !document.create.terms.checked ) {
+            swal("Oops...", "Please acknowledge this you have agreed to our terms and conditions", "error");
+            document.create.terms.focus() ;
+            return false;
+        }
+        return true ;
+    }
+</script>
+<!-- END SWEETALERT PLUGIN AND SCRIPT -->
 </body>
 </html>

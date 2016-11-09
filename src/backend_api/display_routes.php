@@ -128,7 +128,7 @@ function display_comment($conn, $project_id) {
 }
 
 function get_comment_array($conn, $project_id) {
-    $query = "SELECT * FROM cs2102_project.comments WHERE project_id = ". $project_id;
+    $query = "SELECT * FROM cs2102_project.comments WHERE project_id = ". $project_id . " ORDER BY comment_time DESC LIMIT 5";
     $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
     return pg_fetch_all($results);
 
