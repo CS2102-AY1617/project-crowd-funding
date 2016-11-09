@@ -134,9 +134,16 @@ function display_unique_backers($conn, $project_id) {
     return $count;
 }
 function display_project_progress($conn, $project_id) {
-    $query = "SELECT SUM(t.amount), p.objective_amount FROM cs2102_project.transactions t, cs2102_project.projects p WHERE t.project_id = p.id AND t.project_id =".$project_id." GROUP BY p.id ";
+    $query = "SELECT SUM(amount) FROM cs2102_project.transactions WHERE project_id = ".$project_id;
     $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
     $sum = pg_fetch_all($results)[0]['sum'];
+
+    if ($sum == null) {
+        $sum = 0;
+    }
+
+    $query = "SELECT objective_amount FROM cs2102_project.projects WHERE id =" . $project_id;
+    $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
     $objective = pg_fetch_all($results)[0]['objective_amount'];
     $difference = $objective - $sum;
     return $difference;
