@@ -391,6 +391,12 @@
                     return false;
                 }
 
+                if( new Date(document.create.date.value) < new Date()) {
+                    swal("Oops...", "Please do not choose a deadline in the past", "error");
+                    document.create.date.focus() ;
+                    return false;
+                }
+
                 if( !document.create.terms.checked ) {
                     swal("Oops...", "Please acknowledge this you have agreed to our terms and conditions", "error");
                     document.create.terms.focus() ;
