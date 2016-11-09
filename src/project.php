@@ -1,6 +1,6 @@
 <?php
     include "backend_api/config.php";
-    include "backend_api/utils.php";
+    include "backend_api/display_routes.php";
 
     $conn = initialise_pgsql_connection();
 
@@ -55,12 +55,38 @@ include "header.php";
 <section class="section-divider textdivider divider3">
     <div class="container">
         <h1>
-            <input class="search" type="text" placeholder="Search">
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                Fund This Project
+            </button>
         </h1>
         <hr>
-        <p>Discover projects for you</p>
     </div><!-- container -->
 </section><!-- section -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- ==== PORTFOLIO ==== -->
 <div class="container">
@@ -133,26 +159,19 @@ include "header.php";
             <!-- Side Widget Well -->
             <div class="well">
                 <h4>Summary</h4>
-                <p>L=um odit aliquam repellat tempore quos aspernatur vero.</p>
+                <div>
+                    <p>Number of Unique Backers: 10 <br> Progress: 87%</p>
+                </div>
+
             </div>
             <div class="well">
                 <h4>Backers Comment</h4>
+                <br>
                 <div class="row">
                     <div class="col-lg-12">
-                        <ul class="list-unstyled">
-                            <li><a href="#">Art</a>
-                            </li>
-                            <li><a href="#">Culture</a>
-                            </li>
-                            <li><a href="#">Comics</a>
-                            </li>
-                            <li><a href="#">Design</a>
-                            </li>
-                            <li><a href="#">Fashion</a>
-                            </li>
-                            <li><a href="#">Film</a>
-                            </li>
-                        </ul>
+                            <?php
+                                echo display_comment($conn, $project_id);
+                            ?>
                     </div>
                 </div>
                 <!-- /.row -->

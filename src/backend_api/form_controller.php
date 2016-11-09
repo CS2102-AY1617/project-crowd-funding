@@ -38,7 +38,9 @@ switch ($action) {
         $conn = initialise_pgsql_connection();
         store_project($conn, $project_data);
         break;
-    case 'apply':
+    case 'comment':
+        break;
+    case 'fund':
         break;
 
 }

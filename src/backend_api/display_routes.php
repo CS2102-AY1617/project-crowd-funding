@@ -94,6 +94,44 @@ function display_search_list($conn, $search) {
     return $html_output;
 }
 
+function display_comment($conn, $project_id) {
+    $html_output = '';
+    $comments = get_comment_array($conn, $project_id);
+    if (is_array($comments) || is_object($comments)) {
+        foreach ($comments as $comment) {
+            $commentor = $comment['commentor'];
+            $comment_time = $comment['comment_time'];
+            $display_datetime = date("jS F Y, H:i:s", strtotime($comment_time));
+            $content = $comment['content'];
 
+            $html_output .= '
+                                <div class="col-sm-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <strong>'. $commentor .'</strong><br><span class="text-muted">at ' .$display_datetime. '</span>
+                                        </div>
+                                        <div class="panel-body">
+                                            '. $content .'
+                                        </div><!-- /panel-body -->
+                                    </div><!-- /panel panel-default -->
+                                </div>
+            ';
+        }
+    }
+    if ($html_output == "") {
+        return '
+            <div>There is no comment about this project.</div>
+        ';
+
+    }
+    return $html_output;
+}
+
+function get_comment_array($conn, $project_id) {
+    $query = "SELECT * FROM cs2102_project.comments WHERE project_id = ". $project_id;
+    $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
+    return pg_fetch_all($results);
+
+}
 
 
