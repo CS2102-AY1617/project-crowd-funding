@@ -126,7 +126,7 @@ if (isset($_SESSION['user_email'])) {
       <div style="font-size:35px;color:white;padding-bottom:20px">
         Log In
       </div>
-        <form onsubmit="return validate()" name="loginform" id="login-form" action="backend_api/login_validation.php" method="post">
+        <form onsubmit="return validate()" name="loginform" id="login-form" action="backend_api/session_controller.php?type=login" method="post">
             <div class="form-group">
                 <input id="email" type="text" placeholder=" email" name="email"><br><br>
             </div>

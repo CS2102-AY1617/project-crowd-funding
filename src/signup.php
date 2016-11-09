@@ -125,7 +125,7 @@
       <div style="font-size:35px;color:white;padding-bottom:20px">
         Sign Up
       </div>
-        <form onsubmit="return validate()" name="signupform" action="backend_api/session_controller.php?type='signup'" method="post">
+        <form onsubmit="return validate()" name="signupform" action="backend_api/session_controller.php?type=signup" method="post">
             <input type="text" placeholder="Email" name="email"><br><br>
             <input type="text" placeholder="Username" name="username"><br><br>
             <input type="password" placeholder="Password" name="password"><br>

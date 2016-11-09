@@ -50,10 +50,10 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#">Profile</a>
+                        <a href="#">'.$_SESSION['user_email'].'</a>
                     </li>
                     <li>
-                        <a href="backend_api/logout.php">Log Out</a>
+                        <a href="backend_api/session_controller.php?type=logout">Log Out</a>
                     </li>
                 </ul>
               </div>

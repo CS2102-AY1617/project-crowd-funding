@@ -152,3 +152,21 @@ function validate_signin($conn, $email, $password) {
     $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
     return pg_fetch_all($results);
 }
+
+/**
+ * @param $email
+ * @param $conn
+ * @return array
+ */
+function validate_signup($email, $conn)
+{
+    $query = "SELECT count(*) FROM cs2102_project.users WHERE email='" . $email . "'";
+    $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
+    return pg_fetch_all($results);
+}
+
+function signup($conn, $email, $username, $password)
+{
+    $query = "INSERT INTO cs2102_project.users (email, user_name, hashed_password) VALUES ('".$email."', '".$username."', '".$password."')";
+    $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
+}
