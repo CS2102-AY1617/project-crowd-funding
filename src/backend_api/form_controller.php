@@ -54,5 +54,13 @@ switch ($action) {
         $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
         header("Location: ../project.php?id=".$project_id);
         break;
+    case 'delete':
+        $project_id = $_GET['project_id'];
+        $query = "DELETE FROM cs2102_project.projects WHERE id =" .$project_id;
+        $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
+        header("Location: ../profile.php");
+        break;
+    case 'modify':
+        break;
 
 }

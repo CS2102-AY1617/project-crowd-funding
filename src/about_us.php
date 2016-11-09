@@ -1,7 +1,12 @@
 <?php
-
     session_start();
 
+    include "backend_api/display_routes.php";
+    include "backend_api/config.php";
+
+    $conn = initialise_pgsql_connection();
+    $user_email = $_SESSION['user_email'];
+    $user_type = get_user_type($conn, $user_email);
 
 ?>
 

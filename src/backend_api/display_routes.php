@@ -133,6 +133,7 @@ function display_unique_backers($conn, $project_id) {
     $count = pg_fetch_all($results)[0]['count'];
     return $count;
 }
+
 function display_project_progress($conn, $project_id) {
     $query = "SELECT SUM(amount) FROM cs2102_project.transactions WHERE project_id = ".$project_id;
     $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
@@ -148,3 +149,71 @@ function display_project_progress($conn, $project_id) {
     $difference = $objective - $sum;
     return $difference;
 }
+
+function display_admin_projects($conn) {
+    $html_output = '<table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Project ID</th>
+                    <th>Owner</th>
+                    <th>Title</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Objective</th>
+                    <th>Action</th>
+                </tr>
+                </thead>';
+    $query = "SELECT * FROM cs2102_project.projects ORDER BY id";
+    $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
+    $rows = pg_fetch_all($results);
+    foreach ($rows as $row) {
+        $html_output .= '
+                <tbody>
+                    <tr>
+                        <td>'.$row['id'].'</td>
+                        <td>'.$row['owner'].'</td>
+                        <td>'.$row['title'].'</td>
+                        <td>'.$row['start_date'].'</td>
+                        <td>'.$row['end_date'].'</td>
+                        <td>'.$row['topic'].'</td>
+                        <td><a href="backend_api/form_controller.php?type=delete&project_id='.$row['id'].'" >Delete </a>|
+                        <a href="backend_api/form_controller.php?type=update&project_id='.$row['id'].'" > Update</a></td>
+                    </tr>
+                </tbody>
+        ';
+    }
+    return $html_output .= '</table>';
+}
+
+function display_admin_transactions($conn) {
+    $html_output = '<table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Transaction ID</th>
+                    <th>Project ID</th>
+                    <th>Donor</th>
+                    <th>Transaction Time</th>
+                    <th>Amount</th>
+                    <th>Action</th>
+                </tr>
+                </thead>';
+    $query = "SELECT * FROM cs2102_project.transactions ORDER BY id";
+    $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
+    $rows = pg_fetch_all($results);
+    foreach ($rows as $row) {
+        $html_output .= '
+                <tbody>
+                    <tr>
+                        <td>'.$row['id'].'</td>
+                        <td>'.$row['project_id'].'</td>
+                        <td>'.$row['donor'].'</td>
+                        <td>'.$row['transaction_time'].'</td>
+                        <td>'.$row['amount'].'</td>
+                        <td><a href="#" >Delete </a>|<a href="#" > Update</a></td>
+                    </tr>
+                </tbody>
+        ';
+    }
+    return $html_output .= '</table>';
+}
+

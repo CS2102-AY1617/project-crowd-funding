@@ -9,7 +9,7 @@
 
 	$conn = initialise_pgsql_connection();
     $user_email = $_SESSION['user_email'];
-$user_type = get_user_type($conn, $user_email);
+    $user_type = get_user_type($conn, $user_email);
 
 ?>
 
