@@ -130,11 +130,11 @@ include "header.php";
                 <?php
                 if ($mode == 'online') {
                     echo '<div class="well">
-                <h4>Leave a Comment:</h4>
-                          <form method="post" action="backend_api/form_controller.php?type=comment">
-                    <div class="form-group" >
-                        <textarea class="form-control" rows="3"></textarea>
-                    </div>
+                        <h4>Leave a Comment:</h4>
+                          <form onsubmit="return validate_comment();" method="post" name="commentform" action="backend_api/form_controller.php?type=comment&project_id='. $project_id .'">
+                            <div class="form-group" >
+                                <textarea class="form-control" rows="3" name="comment"></textarea>
+                            </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form></div>
                             ';
@@ -232,6 +232,16 @@ include "footer.php";
         if( document.fundform.fund.value > <?php echo display_project_progress($conn, $project_id) ?> ) {
             swal("Oops...", "Please enter an amount smaller than the remaining goal", "error");
             document.fundform.fund.focus() ;
+            return false;
+        }
+
+        return true ;
+    }
+    function validate_comment()
+    {
+        if( document.commentform.comment.value == "" ) {
+            swal("Oops...", "If you want to comment, say something please.", "error");
+            document.commentform.comment.focus() ;
             return false;
         }
 

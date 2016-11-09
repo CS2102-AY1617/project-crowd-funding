@@ -39,6 +39,12 @@ switch ($action) {
         store_project($conn, $project_data);
         break;
     case 'comment':
+        $comment = $_POST['comment'];
+        $project_id = $_GET['project_id'];
+        $user_email = $_SESSION['user_email'];
+        $query = "INSERT INTO cs2102_project.comments (project_id, commentor, content) VALUES ('".$project_id."', '".$user_email."','".$comment."')";
+        $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
+        header("Location: ../project.php?id=".$project_id);
         break;
     case 'fund':
         $fund = $_POST['fund'];
