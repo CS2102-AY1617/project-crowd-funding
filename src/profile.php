@@ -17,7 +17,9 @@ if (!isset($_SESSION['user_email'])) {
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
-		<title>Bootstrap 3 Admin</title>
+		<title>Admin Page for <?php
+           echo $_SESSION['user_email'];
+            ?></title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -113,7 +115,28 @@ if (!isset($_SESSION['user_email'])) {
 </div>
 <!-- /Main -->
 
+    <!-- BEGIN SWEETALERT PLUGIN AND SCRIPT -->
+    <script src="assets/js/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/js/sweetalert.css">
+    <script>
 
+        function validate_update(id)
+        {
+
+            if( document.getElementById('title' + id).value == "" ) {
+                swal("Oops...", "Please enter a new title.", "error");
+                return false;
+            }
+
+            if( document.getElementById('topic' + id).value == "" ) {
+                swal("Oops...", "Please enter a new description.", "error");
+                return false;
+            }
+
+            return true ;
+        }
+    </script>
+    <!-- END SWEETALERT PLUGIN AND SCRIPT -->
 <!-- /.modal -->
 	<!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>

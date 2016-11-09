@@ -61,6 +61,12 @@ switch ($action) {
         header("Location: ../profile.php");
         break;
     case 'modify':
+        $project_id = $_GET['project_id'];
+        $title = $_POST['title'];
+        $description = $_POST['description'];
+        $query = "UPDATE cs2102_project.projects SET title = '".$title."', description='".$description."' WHERE id =" .$project_id;
+        $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
+        header("Location: ../profile.php");
         break;
 
 }

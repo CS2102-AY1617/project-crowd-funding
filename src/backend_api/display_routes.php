@@ -177,10 +177,40 @@ function display_admin_projects($conn) {
                         <td>'.$row['end_date'].'</td>
                         <td>'.$row['topic'].'</td>
                         <td><a href="backend_api/form_controller.php?type=delete&project_id='.$row['id'].'" >Delete </a>|
-                        <a href="backend_api/form_controller.php?type=update&project_id='.$row['id'].'" > Update</a></td>
+                        <a data-toggle="modal" data-target="#myModal'.$row['id'].'" > Update</a></td>
+                        
                     </tr>
                 </tbody>
         ';
+                $html_output .= '<div class="modal fade" id="myModal'.$row['id'].'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Update This Project</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form onsubmit="return validate_update('.$row['id'].')" method="post" name="updateform" action="backend_api/form_controller.php?type=modify&project_id='.$row['id'].'" >
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input type="text" class="form-control" name="title" id="title'.$row['id'].'" placeholder="Enter New Title">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" name="description" id="topic'.$row['id'].'" rows="4" placeholder="A description so that people would understand you"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" name="submit">Confirm</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>';
     }
     return $html_output .= '</table>';
 }
