@@ -115,10 +115,11 @@ include "header.php";
             <p><span class="glyphicon glyphicon-time"></span> Created on <?php echo date("jS F Y", strtotime($project_data['start_date'])); ?> </p>
             <!-- Preview Image -->
             <?php
-                $imageurl = $project_data['imageurl'];
-                if ($imageurl) {
+                if ($project_data['imageurl'] != null || $project_data['imageurl'] == "") {
+                    $imageurl = $project_data['imageurl'];
                     echo '<img class="img-responsive" src="'.$imageurl.'" alt="">';
                 }
+
             ?>
             <p class="lead" style="padding-top:50px">
                 <?php echo $project_data['description'] ?>

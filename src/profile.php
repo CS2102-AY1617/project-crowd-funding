@@ -1,3 +1,17 @@
+<?php
+include "backend_api/config.php";
+include "backend_api/display_routes.php";
+
+$conn = initialise_pgsql_connection();
+session_start();
+
+if (!isset($_SESSION['user_email'])) {
+    header("Location: login.php");
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -92,27 +106,6 @@
 </div>
 <!-- /Main -->
 
-
-<div class="modal" id="addWidgetModal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Add Widget</h4>
-            </div>
-            <div class="modal-body">
-                <p>Add a widget stuff here..</p>
-            </div>
-            <div class="modal-footer">
-                <a href="#" data-dismiss="modal" class="btn">Close</a>
-                <a href="#" class="btn btn-primary">Save changes</a>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dalog -->
-</div>
-<!-- /.modal -->
 	<!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script src="assets/js/bootstrap.min.js"></script>

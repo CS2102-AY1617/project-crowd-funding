@@ -1,7 +1,8 @@
 <?php
-    
 
-    if (!isset($_SESSION['user_email'])) {
+
+
+if (!isset($_SESSION['user_email'])) {
         echo '
         <div id="navbar-main">
           <div class="navbar navbar-inverse navbar-fixed-top">
@@ -32,7 +33,9 @@
         </div>
         ';
     } else {
-        echo '
+    $conn = initialise_pgsql_connection();
+    $user_type = get_user_type($conn, $_SESSION['user_email']);
+    $temp = '
         <div id="navbar-main">
           <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
@@ -49,9 +52,13 @@
                   <li> <a href="about_us.php" class="smoothScroll"> About Us</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#">'.$_SESSION['user_email'].'</a>
-                    </li>
+                    <li>';
+                if ($user_type == 'admin') {
+                    $temp .= '<a href="profile.php">'.$_SESSION['user_email'].'</a>';
+                } else {
+                    $temp .= '<a href="#">'.$_SESSION['user_email'].'</a>';
+                }
+            $temp .='</li>
                     <li>
                         <a href="backend_api/session_controller.php?type=logout">Log Out</a>
                     </li>
@@ -59,8 +66,8 @@
               </div>
             </div>
           </div>
-        </div>
-        ';
+        </div>';
+        echo $temp;
     }
 
 ?>
