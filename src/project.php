@@ -152,7 +152,16 @@ include "header.php";
                 <h4>Summary</h4>
                 <div>
                     <p>
-                        Number of Unique Backers: <?php echo display_unique_backers($conn, $project_id); ?> <br>
+                        Number of Unique Backers:
+                        <?php
+                            $num = display_unique_backers($conn, $project_id);
+                        if ($num == null) {
+                            echo 0;
+                        } else {
+                            echo display_unique_backers($conn, $project_id);
+                        }
+
+                         ?> <br>
                         Amount Remaining: $<?php echo display_project_progress($conn, $project_id); ?> <br>
                     </p>
                 </div>
