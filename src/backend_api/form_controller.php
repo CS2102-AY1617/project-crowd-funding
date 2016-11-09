@@ -24,6 +24,7 @@ switch ($action) {
         }
         break;
     case 'create':
+        $user_email = $_SESSION['user_email'];
         $title = $_POST['title'];
         $objective = $_POST['objective'];
         $description = $_POST['description'];
@@ -36,7 +37,7 @@ switch ($action) {
         }
         $project_data = create_object($title, $objective, $description, $date, $topic, $image);
         $conn = initialise_pgsql_connection();
-        store_project($conn, $project_data);
+        store_project($conn, $project_data, $user_email);
         break;
     case 'comment':
         $comment = $_POST['comment'];

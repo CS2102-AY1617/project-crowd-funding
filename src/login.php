@@ -138,7 +138,7 @@ if (isset($_SESSION['user_email'])) {
             </div>
             <br>
             <div style="color:white">
-                <b>New to ProjectName? <a href="login.php"> Sign Up </a></b>
+                <b>New to ProjectName? <a href="signup.php"> Sign Up </a></b>
             </div>
         </form>
     </div>

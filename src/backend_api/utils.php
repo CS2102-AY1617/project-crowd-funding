@@ -166,7 +166,7 @@ function get_user_type($conn, $email) {
     return pg_fetch_all($results)[0]['type'];
 }
 
-function store_project($conn, $project_data) {
+function store_project($conn, $project_data, $user_email) {
     $title = $project_data->title;
     $objective = $project_data->objective;
     $description = $project_data->description;
@@ -177,7 +177,7 @@ function store_project($conn, $project_data) {
 
     pg_prepare($conn, "query", "INSERT INTO cs2102_project.projects (owner, title, description, start_date, end_date, topic, objective_amount, imageurl) 
                                 VALUES ($1, $2, $3, $4, $5, $6, $7, $8)");
-    pg_execute($conn, "query", array("Test", $title, $description, $start_date, $end_date, $topic, $objective, $image));
+    pg_execute($conn, "query", array($user_email, $title, $description, $start_date, $end_date, $topic, $objective, $image));
 
     // get last id
     $insert_query = pg_query("SELECT id FROM cs2102_project.projects ORDER BY id DESC LIMIT 1;");
