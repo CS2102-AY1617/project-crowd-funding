@@ -28,8 +28,7 @@ switch ($action) {
     case 'search':
         if (isset($_POST['searchfield'])) {
             $search_field = $_POST['searchfield'];
-            $_SESSION['search_projects'] = get_project_by_search($conn, $search_field);
-            header("Location: ../project_list.php");
+            header("Location: ../project_list.php?search=" . $search_field);
         }
         break;
 

@@ -76,8 +76,9 @@ function display_project_list($conn, $topic) {
     return $html_output;
 }
 
-function display_search_list($projects) {
+function display_search_list($conn, $search) {
     $html_output = '';
+    $projects = get_project_by_search($conn, $search);
     if ($projects == null) {
         return '
             <h2 style="text-align: center">Oops, the projects you are looking for could not be found.</h2>

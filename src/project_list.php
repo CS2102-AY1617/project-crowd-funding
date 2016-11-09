@@ -3,9 +3,21 @@ include "backend_api/display_routes.php";
 include "backend_api/config.php";
 
 $conn = initialise_pgsql_connection();
-$topic_name = $_GET['topic'];
+
+
+
 if (!isset($_SESSION['user_email'])) {
     session_start();
+}
+
+if (isset($_GET['topic'])) {
+    $topic_name = $_GET['topic'];
+    $current_mode = 'topic';
+} else if (isset($_GET['search'])) {
+    $search_field = $_GET['search'];
+    $current_mode = 'search';
+} else {
+    header("Location: discover.php");
 }
 
 ?>
@@ -67,17 +79,26 @@ if (!isset($_SESSION['user_email'])) {
     <br>
     <div class="row">
         <br>
-        <h1 class="centered">Search Results for <?php echo $topic_name ?></h1>
+        <h1 class="centered">Search Results for
+            <?php
+                if ($current_mode == 'topic') {
+                    echo $topic_name;
+                } else if ($current_mode == 'search') {
+                    echo $search_field;
+                }
+            ?>
+        </h1>
         <hr>
         <br>
         <br>
     </div><!-- /row -->
 
     <?php
-        if (isset($_SESSION['search_projects'])) {
-            echo display_search_list($_SESSION['search_projects']);
-        } else {
+        if ($current_mode == 'topic') {
             echo display_project_list($conn, $topic_name);
+
+        } else if ($current_mode == 'search') {
+            echo display_search_list($conn, $search_field);
         }
     ?>
 </div><!-- /container -->
