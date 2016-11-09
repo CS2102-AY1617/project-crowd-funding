@@ -119,6 +119,13 @@ function get_project_by_topic($conn, $topic) {
     return pg_fetch_all($results);
 }
 
+function get_project_by_search($conn, $search)
+{
+    $query = "SELECT p.*, u.avatar_url FROM cs2102_project.projects p, cs2102_project.users u WHERE p.owner = u.email AND (p.title like '%" . $search . "%' OR p.description like '%" . $search . "%')";
+    $results = pg_query($conn, $query) or die('Query failed: ' . pg_last_error());
+    return pg_fetch_all($results);
+}
+
 function display_single_project($project) {
     $project_id = $project['id'];
     $owner = $project['owner'];

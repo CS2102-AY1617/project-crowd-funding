@@ -76,6 +76,23 @@ function display_project_list($conn, $topic) {
     return $html_output;
 }
 
+function display_search_list($projects) {
+    $html_output = '';
+    if ($projects == null) {
+        return '
+            <h2 style="text-align: center">Oops, the projects you are looking for could not be found.</h2>
+            <br>
+            <br>
+            <br>
+        ';
+    } else {
+        foreach ($projects as $project) {
+            $html_output .= display_single_project($project);
+        }
+    }
+    return $html_output;
+}
+
 
 
 

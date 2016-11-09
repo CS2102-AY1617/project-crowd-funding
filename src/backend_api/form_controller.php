@@ -10,7 +10,9 @@ include "config.php";
 
 $conn = initialise_pgsql_connection();
 $action = $_GET['type'];
-
+if (!isset($_SESSION['user_email'])) {
+    session_start();
+}
 
 
 if (isset($_POST['username'])) {
@@ -26,8 +28,8 @@ switch ($action) {
     case 'search':
         if (isset($_POST['searchfield'])) {
             $search_field = $_POST['searchfield'];
-            echo $search_field;
-            die;
+            $_SESSION['search_projects'] = get_project_by_search($conn, $search_field);
+            header("Location: ../project_list.php");
         }
         break;
 

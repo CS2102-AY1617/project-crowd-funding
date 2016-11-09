@@ -7,6 +7,7 @@ $topic_name = $_GET['topic'];
 if (!isset($_SESSION['user_email'])) {
     session_start();
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +74,11 @@ if (!isset($_SESSION['user_email'])) {
     </div><!-- /row -->
 
     <?php
-        echo display_project_list($conn, $topic_name);
+        if (isset($_SESSION['search_projects'])) {
+            echo display_search_list($_SESSION['search_projects']);
+        } else {
+            echo display_project_list($conn, $topic_name);
+        }
     ?>
 </div><!-- /container -->
 
