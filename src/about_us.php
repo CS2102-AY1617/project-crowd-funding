@@ -68,47 +68,42 @@
             <div style="width:20%;float:left" class="centered">
                 <img class="img img-circle" src="assets/img/team/team01.jpg" height="120px" width="120px" alt="">
                 <br>
-                <h4><b>Mike Arney</b></h4>
-                <a href="#" class="icon icon-twitter"></a>
-                <a href="#" class="icon icon-facebook"></a>
-                <a href="#" class="icon icon-flickr"></a>
-                <p>Mike combines an expert technical knowledge with a real eye for design. Working with clients from a wide range of industries, he fully understands client objectives when working on a project, large or small.</p>
+                <h4><b>Song Yikun</b></h4>
+                <a href="https://github.com/Shadowsong27" class="icon icon-github"></a>
+                <a href="https://www.facebook.com/songyikun.harry" class="icon icon-facebook"></a>
+                <p>Yikun is the chef developer and team leader of this project.</p>
             </div><!-- col-lg-3 -->
             <div style="width:20%;float:left" class="centered">
-                <img class="img img-circle" src="assets/img/team/team01.jpg" height="120px" width="120px" alt="">
+                <img class="img img-circle" src="assets/img/team/team02.jpg" height="120px" width="120px" alt="">
                 <br>
-                <h4><b>Mike Arney</b></h4>
-                <a href="#" class="icon icon-twitter"></a>
-                <a href="#" class="icon icon-facebook"></a>
-                <a href="#" class="icon icon-flickr"></a>
-                <p>Mike combines an expert technical knowledge with a real eye for design. Working with clients from a wide range of industries, he fully understands client objectives when working on a project, large or small.</p>
+                <h4><b>Yu Qiyun</b></h4>
+                <a href="https://github.com/qiyun28" class="icon icon-github"></a>
+                <a href="https://www.facebook.com/qiyun.fish" class="icon icon-facebook"></a>
+                <p>Qiyun is the chef backend developer of this project.</p>
             </div><!-- col-lg-3 -->
             <div style="width:20%;float:left" class="centered">
-                <img class="img img-circle" src="assets/img/team/team01.jpg" height="120px" width="120px" alt="">
+                <img class="img img-circle" src="assets/img/team/team03.jpg" height="120px" width="120px" alt="">
                 <br>
-                <h4><b>Mike Arney</b></h4>
-                <a href="#" class="icon icon-twitter"></a>
-                <a href="#" class="icon icon-facebook"></a>
-                <a href="#" class="icon icon-flickr"></a>
-                <p>Mike combines an expert technical knowledge with a real eye for design. Working with clients from a wide range of industries, he fully understands client objectives when working on a project, large or small.</p>
+                <h4><b>Yu Zhibin</b></h4>
+                <a href="https://github.com/Yzhibin" class="icon icon-github"></a>
+                <a href="https://www.facebook.com/profile.php?id=100008063597127" class="icon icon-facebook"></a>
+                <p>Zhibin is the chef testing developer of this project.</p>
             </div><!-- col-lg-3 -->
             <div style="width:20%;float:left" class="centered">
-                <img class="img img-circle" src="assets/img/team/team01.jpg" height="120px" width="120px" alt="">
+                <img class="img img-circle" src="assets/img/team/team04.jpg" height="120px" width="120px" alt="">
                 <br>
-                <h4><b>Mike Arney</b></h4>
-                <a href="#" class="icon icon-twitter"></a>
-                <a href="#" class="icon icon-facebook"></a>
-                <a href="#" class="icon icon-flickr"></a>
-                <p>Mike combines an expert technical knowledge with a real eye for design. Working with clients from a wide range of industries, he fully understands client objectives when working on a project, large or small.</p>
+                <h4><b>Yue Kaidi</b></h4>
+                <a href="https://github.com/yuekaidi" class="icon icon-github"></a>
+                <a href="https://www.facebook.com/kaidi.yue" class="icon icon-facebook"></a>
+                <p>Kaidi is the chef UI developer of this project.</p>
             </div><!-- col-lg-3 -->
             <div style="width:20%;float:left" class="centered">
-                <img class="img img-circle" src="assets/img/team/team01.jpg" height="120px" width="120px" alt="">
+                <img class="img img-circle" src="assets/img/team/team05.jpg" height="120px" width="120px" alt="">
                 <br>
-                <h4><b>Mike Arney</b></h4>
-                <a href="#" class="icon icon-twitter"></a>
-                <a href="#" class="icon icon-facebook"></a>
-                <a href="#" class="icon icon-flickr"></a>
-                <p>Mike combines an expert technical knowledge with a real eye for design. Working with clients from a wide range of industries, he fully understands client objectives when working on a project, large or small.</p>
+                <h4><b>Weng Ling</b></h4>
+                <a href="#" class="icon icon-github"></a>
+                <a href="https://www.facebook.com/wengling93" class="icon icon-facebook"></a>
+                <p>Weng Ling is the chef documentation developer of this project.</p>
             </div><!-- col-lg-3 -->
 
 
